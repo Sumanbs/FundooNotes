@@ -1,0 +1,134 @@
+<!-- Cards in list view...... -->
+<div *ngIf="!message">
+  <div
+    fxLayout="row wrap"
+    fxLayoutAlign="start start"
+    fxLayoutGap="30px"
+    style="margin-top:5%; margin-left: 21%;"
+  >
+    <mat-card
+      [ngStyle]="{ 'background-color': item.color }"
+      class="othercards"
+      *ngFor="let item of all_notes"
+    >
+      <div>
+        <input
+          [ngStyle]="{ 'background-color': item.color }"
+          matInput
+          placeholder="Title"
+          [(ngModel)]="item.Title"
+        />
+      </div>
+
+      <div>
+        <input
+          [ngStyle]="{ 'background-color': item.color }"
+          (click)="enable_other_cards = true"
+          matInput
+          placeholder="Take a note"
+          [(ngModel)]="item.Note"
+        />
+      </div>
+      <!-- remainder -->
+      <div
+        *ngIf="
+          !(
+            item.remainderDateTime == 'undefined undefined' ||
+            item.remainderDateTime == 'null null'
+          )
+        "
+      >
+        <button class="timer" mat-button>
+          <mat-icon>
+            <img class="image" src="assets/img/fundooNotes/timer.svg" />
+          </mat-icon>
+          {{ item.remainderDateTime }}
+        </button>
+      </div>
+
+      <!-- all other images -->
+
+      <button [matMenuTriggerFor]="more1" mat-icon-button class="mat-buttons">
+        <mat-icon matTooltip="More">
+          <img class="image" src="assets/img/fundooNotes/more.svg" />
+        </mat-icon>
+      </button>
+      <mat-menu [overlapTrigger]="false" #more1="matMenu">
+        <button (click)="restoreNote(item.id)" mat-menu-item>
+          Restore Note
+        </button>
+        <button (click)="deletePermanently(item.id)" mat-menu-item>
+          Delete permanently
+        </button>
+      </mat-menu>
+    </mat-card>
+  </div>
+</div>
+
+<!-- Cards in grid view -->
+<div *ngIf="message">
+  <div
+    fxLayout="column"
+    style="margin-top:5%; margin-left: 30%;margin-right: 30%;"
+  >
+    <mat-card
+      [ngStyle]="{ 'background-color': item.color }"
+      class="othercards"
+      *ngFor="let item of all_notes"
+    >
+      <div>
+        <input
+          [ngStyle]="{ 'background-color': item.color }"
+          matInput
+          placeholder="Title"
+          [(ngModel)]="item.Title"
+        />
+      </div>
+
+      <div>
+        <input
+          [ngStyle]="{ 'background-color': item.color }"
+          (click)="enable_other_cards = true"
+          matInput
+          placeholder="Take a note"
+          [(ngModel)]="item.Note"
+        />
+      </div>
+      <!-- remainder -->
+      <div
+        *ngIf="
+          !(
+            item.remainderDateTime == 'undefined undefined' ||
+            item.remainderDateTime == 'null null'
+          )
+        "
+      >
+        <button class="timer" mat-button>
+          <mat-icon>
+            <img class="image" src="assets/img/fundooNotes/timer.svg" />
+          </mat-icon>
+          {{ item.remainderDateTime }}
+        </button>
+      </div>
+
+      <!-- all other images -->
+
+      <button [matMenuTriggerFor]="more1" mat-icon-button class="mat-buttons">
+        <mat-icon matTooltip="More">
+          <img class="image" src="assets/img/fundooNotes/more.svg" />
+        </mat-icon>
+      </button>
+      <mat-menu [overlapTrigger]="false" #more1="matMenu">
+        <button (click)="restoreNote(item.id)" mat-menu-item>
+          Restore Note
+        </button>
+        <button (click)="deletePermanently(item.id)" mat-menu-item>
+          Delete Permanently
+        </button>
+      </mat-menu>
+    </mat-card>
+  </div>
+</div>
+
+<!-- error message -->
+<div *ngIf="iserror">{{ errorMessage }}</div>

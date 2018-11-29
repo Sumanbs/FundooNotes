@@ -1,0 +1,521 @@
+<!-- Cards in list view...... -->
+<div *ngIf="!message">
+  <div
+    fxLayout="row wrap"
+    fxLayoutAlign="start start"
+    fxLayoutGap="30px"
+    style="margin-top:5%; margin-left: 21%;"
+  >
+    <mat-card
+      [ngStyle]="{ 'background-color': item.color }"
+      class="othercards"
+      *ngFor="let item of all_notes"
+    >
+      <div>
+        <input
+          (click)="openDialog(item)"
+          [ngStyle]="{ 'background-color': item.color }"
+          matInput
+          placeholder="Title"
+          [(ngModel)]="item.Title"
+        />
+
+        <button class="pin" mat-icon-button>
+          <mat-icon matSuffix matTooltip="Pin Note">
+            <img src="assets/img/fundooNotes/pin.svg" />
+          </mat-icon>
+        </button>
+      </div>
+
+      <div>
+        <input
+          (click)="openDialog(item)"
+          [ngStyle]="{ 'background-color': item.color }"
+          (click)="enable_other_cards = true"
+          matInput
+          placeholder="Take a note"
+          [(ngModel)]="item.Note"
+        />
+      </div>
+      <!-- remainder -->
+      <div
+        *ngIf="
+          !(
+            item.remainderDateTime == 'undefined undefined' ||
+            item.remainderDateTime == 'null null'
+          )
+        "
+      >
+        <button (click)="othercardReminder(item.id)" class="timer" mat-button>
+          <mat-icon>
+            <img class="image" src="assets/img/fundooNotes/timer.svg" />
+          </mat-icon>
+          {{ item.remainderDateTime }}
+        </button>
+        <button (click)="deleteReminder(item.id)" mat-icon-button>
+          <img class="image" src="assets/img/fundooNotes/close.svg" />
+        </button>
+      </div>
+
+      <div align="left">
+        <button [matMenuTriggerFor]="menu1" mat-icon-button class="mat-buttons">
+          <mat-icon class=" mat-icon-button_other" matTooltip="Reminder">
+            <img class="image" src="assets/img/fundooNotes/touch.svg" />
+          </mat-icon>
+        </button>
+
+        <!-- for DateTime menu of grid view -->
+        <mat-menu [overlapTrigger]="false" #menu1="matMenu">
+          <button
+            [disabled]="enable8"
+            (click)="select8am(); reminderSaveOtherCards(item.id)"
+            style="font-size: 12px"
+            mat-menu-item
+          >
+            Today 08:00 am
+          </button>
+          <button
+            [disabled]="enable13"
+            (click)="select1pm(); reminderSaveOtherCards(item.id)"
+            style="font-size: 12px"
+            mat-menu-item
+          >
+            Today afternoon 13:00
+          </button>
+          <button
+            [disabled]="enable20"
+            (click)="select8pm(); reminderSaveOtherCards(item.id)"
+            style="font-size: 12px"
+            mat-menu-item
+          >
+            Later today 20:00
+          </button>
+
+          <button
+            (click)="othercardReminder(item.id)"
+            style="font-size: 12px;"
+            mat-menu-item
+          >
+            <img class="image" src="assets/img/fundooNotes/timer.svg" /> Select
+            date and time
+          </button>
+        </mat-menu>
+
+        <!-- Date Time mat card -->
+        <mat-card class="card" *ngIf="enableDateTimeMenu && item.id == id1">
+          <button mat-menu-item>Pick date and time.</button>
+          <button mat-menu-item>
+            <input
+              style="width:120px"
+              [(ngModel)]="reminder_date"
+              matInput
+              [matDatepicker]="picker"
+              placeholder="Choose a date"
+            />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="picker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </button>
+
+          <button mat-menu-item>
+            <input
+              matInput
+              [(ngModel)]="reminder_time"
+              [ngxTimepicker]="picker1"
+              placeholder="Chose Time"
+            />
+            <ngx-material-timepicker #picker1></ngx-material-timepicker>
+          </button>
+          <mat-card-actions>
+            <button
+              style="margin-left: 23px"
+              (click)="reminderSaveOtherCards(item.id)"
+              mat-button
+            >
+              Save
+            </button>
+            <button (click)="enableDateTimeMenu = false" mat-button>
+              Close
+            </button>
+          </mat-card-actions>
+        </mat-card>
+
+        <!-- all other images -->
+        <button mat-icon-button class="mat-buttons">
+          <mat-icon matTooltip="Collaborater">
+            <img class="image" src="assets/img/fundooNotes/collaborater.svg" />
+          </mat-icon>
+        </button>
+        <button [matMenuTriggerFor]="color" mat-icon-button class="mat-buttons">
+          <mat-icon matTooltip="Color">
+            <img class="image" src="assets/img/fundooNotes/color.svg" />
+          </mat-icon>
+        </button>
+        <mat-menu [overlapTrigger]="false" #color="matMenu">
+          <button
+            matTooltip="Yellow"
+            (click)="changeColor(item.id, '#fcf476')"
+            mat-mini-fab
+            style="background-color:#fcf476"
+          ></button>
+          <button
+            matTooltip="Orange"
+            (click)="changeColor(item.id, '#f8bc04')"
+            mat-mini-fab
+            style="background-color:#f8bc04 "
+          ></button>
+          <button
+            matTooltip="Red"
+            (click)="changeColor(item.id, '#f28b82')"
+            mat-mini-fab
+            style="background-color:#f28b82 "
+          ></button>
+          <button
+            matTooltip="White"
+            (click)="changeColor(item.id, '#ffffff')"
+            mat-mini-fab
+            style="background-color:#ffffff "
+          ></button>
+          <br />
+          <button
+            matTooltip="Dark blue"
+            (click)="changeColor(item.id, '#aecbfa')"
+            mat-mini-fab
+            style="background-color:#aecbfa "
+          ></button>
+          <button
+            matTooltip="Blue"
+            (click)="changeColor(item.id, '#cbf0f8')"
+            mat-mini-fab
+            style="background-color:#cbf0f8 "
+          ></button>
+          <button
+            matTooltip="Teal"
+            (click)="changeColor(item.id, '#a7ffea')"
+            mat-mini-fab
+            style="background-color:#a7ffea "
+          ></button>
+          <button
+            matTooltip="Green"
+            (click)="changeColor(item.id, '#ccff90')"
+            mat-mini-fab
+            style="background-color:#ccff90 "
+          ></button>
+          <br />
+          <button
+            matTooltip="Gray"
+            (click)="changeColor(item.id, '#e8eaed')"
+            mat-mini-fab
+            style="background-color:#e8eaed "
+          ></button>
+          <button
+            matTooltip="Brown"
+            (click)="changeColor(item.id, '#e6c9a8')"
+            mat-mini-fab
+            style="background-color:#e6c9a8 "
+          ></button>
+          <button
+            matTooltip="Pink"
+            (click)="changeColor(item.id, '#fccfe8')"
+            mat-mini-fab
+            style="background-color:#fccfe8 "
+          ></button>
+          <button
+            matTooltip="Purple"
+            (click)="changeColor(item.id, '#d7aefb')"
+            mat-mini-fab
+            style="background-color:#d7aefb "
+          ></button>
+        </mat-menu>
+        <button mat-icon-button class="mat-buttons">
+          <mat-icon matTooltip="Photo">
+            <img class="image" src="assets/img/fundooNotes/photo.svg" />
+          </mat-icon>
+        </button>
+        <button
+          (click)="unarchiveNote(item.id)"
+          mat-icon-button
+          class="mat-buttons"
+        >
+          <mat-icon matTooltip="Unarchive">
+            <img class="image" src="assets/img/fundooNotes/archive.svg" />
+          </mat-icon>
+        </button>
+        <button [matMenuTriggerFor]="more1" mat-icon-button class="mat-buttons">
+          <mat-icon matTooltip="More">
+            <img class="image" src="assets/img/fundooNotes/more.svg" />
+          </mat-icon>
+        </button>
+        <mat-menu [overlapTrigger]="false" #more1="matMenu">
+          <button (click)="deleteNote(item.id)" mat-menu-item>
+            Delete Note
+          </button>
+          <button mat-menu-item>Add label</button>
+        </mat-menu>
+      </div>
+    </mat-card>
+  </div>
+</div>
+<!-- Cards in grid view -->
+
+<div *ngIf="message">
+  <div
+    fxLayout="column"
+    style="margin-top:5%; margin-left: 30%;margin-right: 30%;"
+  >
+    <mat-card
+      [ngStyle]="{ 'background-color': item.color }"
+      class="othercards"
+      *ngFor="let item of all_notes"
+    >
+      <div>
+        <input
+          (click)="openDialog(item)"
+          [ngStyle]="{ 'background-color': item.color }"
+          matInput
+          placeholder="Title"
+          [(ngModel)]="item.Title"
+        />
+
+        <button class="pin" mat-icon-button>
+          <mat-icon matSuffix matTooltip="Pin Note">
+            <img src="assets/img/fundooNotes/pin.svg" />
+          </mat-icon>
+        </button>
+      </div>
+
+      <div>
+        <input
+          (click)="openDialog(item)"
+          [ngStyle]="{ 'background-color': item.color }"
+          (click)="enable_other_cards = true"
+          matInput
+          placeholder="Take a note"
+          [(ngModel)]="item.Note"
+        />
+      </div>
+      <!-- remainder -->
+      <div
+        *ngIf="
+          !(
+            item.remainderDateTime == 'undefined undefined' ||
+            item.remainderDateTime == 'null null'
+          )
+        "
+      >
+        <button (click)="othercardReminder(item.id)" class="timer" mat-button>
+          <mat-icon>
+            <img class="image" src="assets/img/fundooNotes/timer.svg" />
+          </mat-icon>
+          {{ item.remainderDateTime }}
+        </button>
+        <button (click)="deleteReminder(item.id)" mat-icon-button>
+          <img class="image" src="assets/img/fundooNotes/close.svg" />
+        </button>
+      </div>
+
+      <div align="left">
+        <button [matMenuTriggerFor]="menu1" mat-icon-button class="mat-buttons">
+          <mat-icon class=" mat-icon-button_other" matTooltip="Reminder">
+            <img class="image" src="assets/img/fundooNotes/touch.svg" />
+          </mat-icon>
+        </button>
+
+        <!-- for DateTime menu of grid view -->
+        <mat-menu [overlapTrigger]="false" #menu1="matMenu">
+          <button
+            [disabled]="enable8"
+            (click)="select8am(); reminderSaveOtherCards(item.id)"
+            style="font-size: 12px"
+            mat-menu-item
+          >
+            Today 08:00 am
+          </button>
+          <button
+            [disabled]="enable13"
+            (click)="select1pm(); reminderSaveOtherCards(item.id)"
+            style="font-size: 12px"
+            mat-menu-item
+          >
+            Today afternoon 13:00
+          </button>
+          <button
+            [disabled]="enable20"
+            (click)="select8pm(); reminderSaveOtherCards(item.id)"
+            style="font-size: 12px"
+            mat-menu-item
+          >
+            Later today 20:00
+          </button>
+
+          <button
+            (click)="othercardReminder(item.id)"
+            style="font-size: 12px;"
+            mat-menu-item
+          >
+            <img class="image" src="assets/img/fundooNotes/timer.svg" /> Select
+            date and time
+          </button>
+        </mat-menu>
+
+        <!-- Date Time mat card -->
+        <mat-card class="card" *ngIf="enableDateTimeMenu && item.id == id1">
+          <button mat-menu-item>Pick date and time.</button>
+          <button mat-menu-item>
+            <input
+              style="width:120px"
+              [(ngModel)]="reminder_date"
+              matInput
+              [matDatepicker]="picker"
+              placeholder="Choose a date"
+            />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="picker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </button>
+
+          <button mat-menu-item>
+            <input
+              matInput
+              [(ngModel)]="reminder_time"
+              [ngxTimepicker]="picker1"
+              placeholder="Chose Time"
+            />
+            <ngx-material-timepicker #picker1></ngx-material-timepicker>
+          </button>
+          <mat-card-actions>
+            <button
+              style="margin-left: 23px"
+              (click)="reminderSaveOtherCards(item.id)"
+              mat-button
+            >
+              Save
+            </button>
+            <button (click)="enableDateTimeMenu = false" mat-button>
+              Close
+            </button>
+          </mat-card-actions>
+        </mat-card>
+
+        <!-- all other images -->
+        <button mat-icon-button class="mat-buttons">
+          <mat-icon matTooltip="Collaborater">
+            <img class="image" src="assets/img/fundooNotes/collaborater.svg" />
+          </mat-icon>
+        </button>
+        <button [matMenuTriggerFor]="color" mat-icon-button class="mat-buttons">
+          <mat-icon matTooltip="Color">
+            <img class="image" src="assets/img/fundooNotes/color.svg" />
+          </mat-icon>
+        </button>
+        <mat-menu [overlapTrigger]="false" #color="matMenu">
+          <button
+            matTooltip="Yellow"
+            (click)="changeColor(item.id, '#fcf476')"
+            mat-mini-fab
+            style="background-color:#fcf476"
+          ></button>
+          <button
+            matTooltip="Orange"
+            (click)="changeColor(item.id, '#f8bc04')"
+            mat-mini-fab
+            style="background-color:#f8bc04 "
+          ></button>
+          <button
+            matTooltip="Red"
+            (click)="changeColor(item.id, '#f28b82')"
+            mat-mini-fab
+            style="background-color:#f28b82 "
+          ></button>
+          <button
+            matTooltip="White"
+            (click)="changeColor(item.id, '#ffffff')"
+            mat-mini-fab
+            style="background-color:#ffffff "
+          ></button>
+          <br />
+          <button
+            matTooltip="Dark blue"
+            (click)="changeColor(item.id, '#aecbfa')"
+            mat-mini-fab
+            style="background-color:#aecbfa "
+          ></button>
+          <button
+            matTooltip="Blue"
+            (click)="changeColor(item.id, '#cbf0f8')"
+            mat-mini-fab
+            style="background-color:#cbf0f8 "
+          ></button>
+          <button
+            matTooltip="Teal"
+            (click)="changeColor(item.id, '#a7ffea')"
+            mat-mini-fab
+            style="background-color:#a7ffea "
+          ></button>
+          <button
+            matTooltip="Green"
+            (click)="changeColor(item.id, '#ccff90')"
+            mat-mini-fab
+            style="background-color:#ccff90 "
+          ></button>
+          <br />
+          <button
+            matTooltip="Gray"
+            (click)="changeColor(item.id, '#e8eaed')"
+            mat-mini-fab
+            style="background-color:#e8eaed "
+          ></button>
+          <button
+            matTooltip="Brown"
+            (click)="changeColor(item.id, '#e6c9a8')"
+            mat-mini-fab
+            style="background-color:#e6c9a8 "
+          ></button>
+          <button
+            matTooltip="Pink"
+            (click)="changeColor(item.id, '#fccfe8')"
+            mat-mini-fab
+            style="background-color:#fccfe8 "
+          ></button>
+          <button
+            matTooltip="Purple"
+            (click)="changeColor(item.id, '#d7aefb')"
+            mat-mini-fab
+            style="background-color:#d7aefb "
+          ></button>
+        </mat-menu>
+        <button mat-icon-button class="mat-buttons">
+          <mat-icon matTooltip="Photo">
+            <img class="image" src="assets/img/fundooNotes/photo.svg" />
+          </mat-icon>
+        </button>
+        <button
+          (click)="unarchiveNote(item.id)"
+          mat-icon-button
+          class="mat-buttons"
+        >
+          <mat-icon matTooltip="Unarchive">
+            <img class="image" src="assets/img/fundooNotes/archive.svg" />
+          </mat-icon>
+        </button>
+        <button [matMenuTriggerFor]="more2" mat-icon-button class="mat-buttons">
+          <mat-icon matTooltip="More">
+            <img class="image" src="assets/img/fundooNotes/more.svg" />
+          </mat-icon>
+        </button>
+        <mat-menu [overlapTrigger]="false" #more2="matMenu">
+          <button (click)="deleteNote(item.id)" mat-menu-item>
+            Delete Note
+          </button>
+          <button mat-menu-item>Add label</button>
+        </mat-menu>
+      </div>
+    </mat-card>
+  </div>
+</div>
+<!-- error message -->
+<div *ngIf="iserror">{{ errorMessage }}</div>

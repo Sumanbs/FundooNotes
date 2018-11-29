@@ -1,0 +1,9 @@
+::ng-deep.mat-dialog-container {
+  /* padding: 0px; */
+  height: fit-content;
+  max-height: initial;
+}
+.mat-form-field-wrapper {
+  position: relative;
+  padding: 0px;
+}

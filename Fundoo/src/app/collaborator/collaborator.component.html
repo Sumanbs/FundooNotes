@@ -1,0 +1,42 @@
+<div mat-dialog-title>Collaborator</div>
+<mat-divider></mat-divider>
+<mat-dialog-content>
+  <button mat-icon-button>
+    <mat-icon> <img src="assets/img/fundooNotes/user.svg" /> </mat-icon
+    >{{ email }}(owner)
+  </button>
+
+  <div>
+    <mat-form-field appearance="null" style="width:320px">
+      <input
+        matInput
+        placeholder="Enter the email to share with"
+        [(ngModel)]="emailid"
+        [formControl]="emails"
+      />
+      <button
+        *ngIf="!emails.invalid"
+        mat-icon-button
+        matTooltip="Add"
+        matSuffix
+        (click)="checkCollaborator(emailid)"
+      >
+        <mat-icon>
+          <img style="width:15px" src="assets/img/fundooNotes/done.svg" />
+        </mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+  <div *ngFor="let item of addedcollaborators">
+    {{ item }}
+    <button (click)="deletemail(item)" mat-icon-button>
+      <img class="image" src="assets/img/fundooNotes/close.svg" />
+    </button>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button (click)="saveCollaborator()" [mat-dialog-close]="true">
+    save
+  </button>
+  <button mat-button [mat-dialog-close]="true">cancel</button>
+</mat-dialog-actions>

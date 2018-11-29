@@ -1,0 +1,61 @@
+<mat-dialog-content>
+  <div mat-dialog-title>Edit notes</div>
+  <mat-form-field style="padding: 0%">
+    <input
+      matInput
+      placeholder="Create new Label"
+      [(ngModel)]="NewLabel"
+      required
+    />
+  </mat-form-field>
+  <mat-form-field
+    style="width:300px"
+    appearance="null"
+    *ngFor="let array of allLabels"
+  >
+    <button
+      (click)="deleteLabel(array.id, array.label)"
+      *ngIf="!array.editenable"
+      matTooltip="delete"
+      mat-icon-button
+      matPrefix
+    >
+      <img style="width:15px" src="assets/img/fundooNotes/delete.svg" />
+    </button>
+    <button
+      *ngIf="array.editenable"
+      matTooltip="label"
+      mat-icon-button
+      matPrefix
+    >
+      <img style="width:15px" src="assets/img/fundooNotes/label.svg" />
+    </button>
+    <input
+      (click)="buttonenable(array.id)"
+      matInput
+      [(ngModel)]="array.label"
+      required
+    />
+    <button
+      (click)="buttonenable(array.id)"
+      *ngIf="array.editenable"
+      matTooltip="edit"
+      mat-icon-button
+      matSuffix
+    >
+      <img style="width:15px" src="assets/img/fundooNotes/edit.svg" />
+    </button>
+    <button
+      *ngIf="!array.editenable"
+      matTooltip="save"
+      mat-icon-button
+      matSuffix
+      (click)="saveEditedLabel(array.id, array.label)"
+    >
+      <img style="width:15px" src="assets/img/fundooNotes/done.svg" />
+    </button>
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-icon-button (click)="saveLabel()">Save</button>
+</mat-dialog-actions>

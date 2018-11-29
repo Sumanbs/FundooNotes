@@ -1,0 +1,95 @@
+.sidenav-container {
+  height: 100%;
+}
+.sidenav-content {
+  width: 100%;
+  position: fixed;
+  margin-left: 0%;
+}
+/* .sidenav {
+  width: 250px;
+  background-color: #e8e8e8;
+} */
+.sidenav {
+  width: 21%;
+  background-color: #e8e8e8;
+  font-style: initial;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+}
+.mat-drawer-container {
+  background-color: white;
+}
+.name {
+  color: black;
+  padding-left: 64px;
+  font-size: 30px;
+  font-style: normal;
+}
+
+.slide {
+  margin-left: 400px;
+}
+.user {
+  margin: 33px;
+}
+.search {
+  background: transparent;
+  border: none;
+  font: normal 16px Roboto, sans-serif;
+  -webkit-font-variant-ligatures: none;
+  font-variant-ligatures: none;
+  height: 60px;
+  outline: none;
+  padding: 11px 16px 11px 16px;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.searchicon {
+  margin-left: 128px;
+  margin-top: 11px;
+}
+.label {
+  margin-left: 14px;
+  font-size: 21px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.icons {
+  margin-right: 36px;
+}
+.mat-icon {
+  width: 56px;
+}
+.example-toolbar {
+  position: fixed;
+  /* Make sure the toolbar will stay on top of the content as it scrolls past. */
+  z-index: 2;
+}
+.mat-icon-button {
+  width: 62px;
+}
+.toolbar {
+  position: fixed;
+  z-index: 5;
+  background-color: #fbbb01;
+}
+.filecss {
+  margin-left: -173px;
+}
+.img {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+}
+.mainimg {
+  border-radius: 50%;
+  height: 40px;
+  width: 50px;
+  /* margin-left: -50px; */
+}

@@ -1,0 +1,114 @@
+.maincard {
+  width: 470px;
+  border-radius: 10px;
+  margin-top: 91px;
+  padding: 1%;
+  padding-bottom: 0%;
+  margin-left: 414px;
+}
+.othercards {
+  border-radius: 10px;
+  margin-top: 20px;
+  padding: 8px;
+  padding-left: 15px;
+}
+.gridcards {
+  border-radius: 10px;
+  margin-top: 20px;
+  padding: 8px;
+  padding-left: 15px;
+}
+.mat-form-field {
+  min-width: 47px;
+  width: 100%;
+  padding: 0%;
+  padding: -37.5em -2px;
+  border-top: 0px;
+  margin-top: -27px;
+}
+.mat-input-element {
+  width: 100%;
+}
+.mat-form-field-wrapper {
+  position: relative;
+  padding: 0;
+}
+
+.pin {
+  margin-left: -40px;
+  margin-top: -46px;
+  padding-top: 8px;
+}
+.mainpin {
+  margin-left: -50px;
+  margin-top: -46px;
+  padding-top: 8px;
+}
+.mat-buttons {
+  margin-left: -4px;
+}
+.mat-main-button {
+  margin-left: 8px;
+}
+.icon_hover:hover {
+  opacity: 1;
+}
+
+.icon_hover {
+  opacity: 0;
+}
+.card {
+  width: 175px;
+  border-radius: 10px;
+  height: 177px;
+  margin: -5% 2% 1% 31%;
+  margin-left: -13px;
+  margin-top: 9px;
+  position: absolute;
+  z-index: 100;
+  padding-top: 0px;
+  padding-left: 5px;
+  padding-right: 47px;
+}
+.card1 {
+  width: 175px;
+  border-radius: 10px;
+  height: 177px;
+  margin: -5% 2% 1% 31%;
+  margin-left: 392px;
+  margin-top: -11px;
+  position: absolute;
+  z-index: 100;
+  padding-top: 0px;
+  padding-left: 5px;
+  padding-right: 47px;
+}
+
+.timer {
+  margin-left: -12px;
+  font-size: 12px;
+}
+.image {
+  width: 18px;
+  padding-bottom: 3px;
+  margin-left: -15px;
+}
+.mat-input-element {
+  border: none;
+  outline: 0px;
+}
+.title {
+  padding: 0%;
+  margin-left: 0px;
+}
+.note {
+  padding: 0%;
+  margin-left: -6px;
+  margin-bottom: 15px;
+}
+.reminderset {
+  width: 179px;
+  font-size: 13px;
+  padding: 0px;
+  margin-right: 293px;
+}

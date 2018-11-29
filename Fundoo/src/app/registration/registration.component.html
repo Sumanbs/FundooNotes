@@ -1,0 +1,35 @@
+<mat-card class="card">
+  <mat-card-title align="center">Registration page</mat-card-title>
+  <div class="example-container">
+    <mat-form-field>
+      <input matInput placeholder="Your name/Username" [(ngModel)]="model.name" [(ngModel)]="model.nametemp"
+        [formControl]="name" required>
+      <mat-error *ngIf="name.invalid">{{getNameErrorMessage()}}</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Enter your email" [formControl]="email" [(ngModel)]="model.email" [(ngModel)]="model.emailtemp"
+        required>
+      <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput #input maxlength="10" placeholder="Phone Number" [(ngModel)]="model.phno" [(ngModel)]="model.phnotemp"
+        [formControl]="phno" required>
+      <mat-error *ngIf="phno.invalid">{{getphnoErrorMessage()}}</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="password" placeholder="Password" [(ngModel)]="model.pwd" [(ngModel)]="model.temppwd"
+        [formControl]="password" required>
+      <mat-error *ngIf="password.invalid">{{getPasswordErrorMessage()}}</mat-error>
+    </mat-form-field>
+  </div>
+  <div align="center">
+    <button [disabled]="!(model.nametemp && !password.invalid && model.phnotemp && model.emailtemp )" (click)="putdata()"
+      class="button" mat-raised-button>Register</button>
+  </div>
+
+  <mat-progress-bar *ngIf="issubmit" mode="buffer"></mat-progress-bar>
+
+  <div align="center" *ngIf="iserror">{{errorMessage}}</div>
+
+
+</mat-card>

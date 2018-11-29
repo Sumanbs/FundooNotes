@@ -1,0 +1,26 @@
+.example-container {
+    display: flex;
+    flex-direction: column;
+  }
+.card{
+    width: 400px;
+    height: 400px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+        margin-top: 46px;
+       background: #f3f5f8;
+
+
+}
+  .example-container > * {
+    width: 100%;
+  }
+ .button {
+          padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background:#369;
+    font-weight: bolder;
+}

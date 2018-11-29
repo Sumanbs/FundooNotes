@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for /var/www/html/codeigniter/application/controllers/vendor/theseer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../../css/nv.d3.min.css" rel="stylesheet">
+  <link href="../../../css/style.css" rel="stylesheet">
+  <!--[if lt IE 9]>
+  <script src="../../../js/html5shiv.min.js"></script>
+  <script src="../../../js/respond.min.js"></script>
+  <![endif]-->
+ </head>
+ <body>
+  <header>
+   <div class="container">
+    <div class="row">
+     <div class="col-md-12">
+      <ol class="breadcrumb">
+        <li><a href="../../../index.html">/var/www/html/codeigniter/application</a></li>
+        <li><a href="../../index.html">controllers</a></li>
+        <li><a href="../index.html">vendor</a></li>
+        <li><a href="index.html">theseer</a></li>
+        <li class="active">(Dashboard)</li>
+
+      </ol>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="tokenizer/src/NamespaceUri.php.html#4">NamespaceUri</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="tokenizer/src/Token.php.html#4">Token</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="tokenizer/src/TokenCollection.php.html#4">TokenCollection</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="tokenizer/src/Tokenizer.php.html#4">Tokenizer</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="tokenizer/src/XMLSerializer.php.html#6">XMLSerializer</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="tokenizer/tests/NamespaceUriTest.php.html#9">NamespaceUriTest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="tokenizer/tests/TokenCollectionTest.php.html#9">TokenCollectionTest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="tokenizer/tests/TokenTest.php.html#6">TokenTest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="tokenizer/tests/TokenizerTest.php.html#9">TokenizerTest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="tokenizer/tests/XMLSerializerTest.php.html#9">XMLSerializerTest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="tokenizer/tests/_files/test.php.html#4">bar</a></td><td class="text-right">0%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="tokenizer/src/TokenCollection.php.html#4">TokenCollection</a></td><td class="text-right">272</td></tr>
+       <tr><td><a href="tokenizer/tests/TokenCollectionTest.php.html#9">TokenCollectionTest</a></td><td class="text-right">110</td></tr>
+       <tr><td><a href="tokenizer/src/XMLSerializer.php.html#6">XMLSerializer</a></td><td class="text-right">72</td></tr>
+       <tr><td><a href="tokenizer/src/NamespaceUri.php.html#4">NamespaceUri</a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="tokenizer/src/Tokenizer.php.html#4">Tokenizer</a></td><td class="text-right">20</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="tokenizer/src/NamespaceUri.php.html#12"><abbr title="NamespaceUri::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="tokenizer/tests/TokenTest.php.html#15"><abbr title="TokenTest::testTokenCanBeCreated">testTokenCanBeCreated</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="tokenizer/tests/TokenCollectionTest.php.html#18"><abbr title="TokenCollectionTest::testCollectionIsInitiallyEmpty">testCollectionIsInitiallyEmpty</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="tokenizer/tests/TokenCollectionTest.php.html#22"><abbr title="TokenCollectionTest::testTokenCanBeAddedToCollection">testTokenCanBeAddedToCollection</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="tokenizer/tests/TokenCollectionTest.php.html#30"><abbr title="TokenCollectionTest::testCanIterateOverTokens">testCanIterateOverTokens</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="tokenizer/tests/TokenCollectionTest.php.html#41"><abbr title="TokenCollectionTest::testOffsetCanBeUnset">testOffsetCanBeUnset</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="tokenizer/tests/TokenCollectionTest.php.html#50"><abbr title="TokenCollectionTest::testTokenCanBeSetViaOffsetPosition">testTokenCanBeSetViaOffsetPosition</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="tokenizer/tests/TokenCollectionTest.php.html#57"><abbr title="TokenCollectionTest::testTryingToUseNonIntegerOffsetThrowsException">testTryingToUseNonIntegerOffsetThrowsException</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="tokenizer/tests/TokenCollectionTest.php.html#62"><abbr title="TokenCollectionTest::testTryingToSetNonTokenAtOffsetThrowsException">testTryingToSetNonTokenAtOffsetThrowsException</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="tokenizer/tests/TokenCollectionTest.php.html#67"><abbr title="TokenCollectionTest::testTryingToGetTokenAtNonExistingOffsetThrowsException">testTryingToGetTokenAtNonExistingOffsetThrowsException</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="tokenizer/tests/TokenTest.php.html#11"><abbr title="TokenTest::setUp">setUp</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="tokenizer/tests/TokenTest.php.html#19"><abbr title="TokenTest::testTokenLineCanBeRetrieved">testTokenLineCanBeRetrieved</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="tokenizer/tests/NamespaceUriTest.php.html#23"><abbr title="NamespaceUriTest::testStringRepresentationCanBeRetrieved">testStringRepresentationCanBeRetrieved</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="tokenizer/tests/TokenTest.php.html#23"><abbr title="TokenTest::testTokenNameCanBeRetrieved">testTokenNameCanBeRetrieved</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="tokenizer/tests/TokenTest.php.html#27"><abbr title="TokenTest::testTokenValueCanBeRetrieved">testTokenValueCanBeRetrieved</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="tokenizer/tests/TokenizerTest.php.html#11"><abbr title="TokenizerTest::testValidSourceGetsParsed">testValidSourceGetsParsed</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="tokenizer/tests/XMLSerializerTest.php.html#14"><abbr title="XMLSerializerTest::setUp">setUp</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="tokenizer/tests/XMLSerializerTest.php.html#21"><abbr title="XMLSerializerTest::testCanBeSerializedToXml">testCanBeSerializedToXml</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="tokenizer/tests/XMLSerializerTest.php.html#28"><abbr title="XMLSerializerTest::testCanBeSerializedToDomDocument">testCanBeSerializedToDomDocument</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="tokenizer/tests/XMLSerializerTest.php.html#36"><abbr title="XMLSerializerTest::testCanBeSerializedToXmlWithCustomNamespace">testCanBeSerializedToXmlWithCustomNamespace</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="tokenizer/tests/_files/test.php.html#10"><abbr title="bar::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="tokenizer/tests/_files/test.php.html#14"><abbr title="bar::getY">getY</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="tokenizer/tests/_files/test.php.html#18"><abbr title="bar::getSomeX">getSomeX</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="tokenizer/tests/TokenCollectionTest.php.html#14"><abbr title="TokenCollectionTest::setUp">setUp</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="tokenizer/tests/NamespaceUriTest.php.html#18"><abbr title="NamespaceUriTest::testInvalidNamespaceThrowsException">testInvalidNamespaceThrowsException</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="tokenizer/src/NamespaceUri.php.html#17"><abbr title="NamespaceUri::asString">asString</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="tokenizer/src/TokenCollection.php.html#48"><abbr title="TokenCollection::valid">valid</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="tokenizer/src/NamespaceUri.php.html#21"><abbr title="NamespaceUri::ensureValidUri">ensureValidUri</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="tokenizer/src/Token.php.html#28"><abbr title="Token::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="tokenizer/src/Token.php.html#37"><abbr title="Token::getLine">getLine</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="tokenizer/src/Token.php.html#44"><abbr title="Token::getName">getName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="tokenizer/src/Token.php.html#51"><abbr title="Token::getValue">getValue</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="tokenizer/src/TokenCollection.php.html#19"><abbr title="TokenCollection::addToken">addToken</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="tokenizer/src/TokenCollection.php.html#26"><abbr title="TokenCollection::current">current</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="tokenizer/src/TokenCollection.php.html#33"><abbr title="TokenCollection::key">key</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="tokenizer/src/TokenCollection.php.html#40"><abbr title="TokenCollection::next">next</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="tokenizer/src/TokenCollection.php.html#55"><abbr title="TokenCollection::rewind">rewind</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="tokenizer/tests/NamespaceUriTest.php.html#11"><abbr title="NamespaceUriTest::testCanBeConstructedWithValidNamespace">testCanBeConstructedWithValidNamespace</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="tokenizer/src/TokenCollection.php.html#63"><abbr title="TokenCollection::count">count</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="tokenizer/src/TokenCollection.php.html#72"><abbr title="TokenCollection::offsetExists">offsetExists</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="tokenizer/src/TokenCollection.php.html#82"><abbr title="TokenCollection::offsetGet">offsetGet</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="tokenizer/src/TokenCollection.php.html#98"><abbr title="TokenCollection::offsetSet">offsetSet</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="tokenizer/src/TokenCollection.php.html#124"><abbr title="TokenCollection::offsetUnset">offsetUnset</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="tokenizer/src/Tokenizer.php.html#42"><abbr title="Tokenizer::parse">parse</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="tokenizer/src/XMLSerializer.php.html#28"><abbr title="XMLSerializer::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="tokenizer/src/XMLSerializer.php.html#40"><abbr title="XMLSerializer::toDom">toDom</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="tokenizer/src/XMLSerializer.php.html#53"><abbr title="XMLSerializer::toXML">toXML</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="tokenizer/src/XMLSerializer.php.html#78"><abbr title="XMLSerializer::addToken">addToken</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="tokenizer/tests/_files/test.php.html#22"><abbr title="bar::some">some</abbr></a></td><td class="text-right">0%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="tokenizer/src/TokenCollection.php.html#98"><abbr title="TokenCollection::offsetSet">offsetSet</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="tokenizer/src/Tokenizer.php.html#42"><abbr title="Tokenizer::parse">parse</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="tokenizer/src/XMLSerializer.php.html#78"><abbr title="XMLSerializer::addToken">addToken</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="tokenizer/src/NamespaceUri.php.html#21"><abbr title="NamespaceUri::ensureValidUri">ensureValidUri</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="tokenizer/src/TokenCollection.php.html#82"><abbr title="TokenCollection::offsetGet">offsetGet</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="tokenizer/src/XMLSerializer.php.html#28"><abbr title="XMLSerializer::__construct">__construct</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="tokenizer/src/XMLSerializer.php.html#53"><abbr title="XMLSerializer::toXML">toXML</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="tokenizer/tests/TokenCollectionTest.php.html#30"><abbr title="TokenCollectionTest::testCanIterateOverTokens">testCanIterateOverTokens</abbr></a></td><td class="text-right">6</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="http://github.com/sebastianbergmann/php-code-coverage" target="_top">PHP_CodeCoverage 3.2.1</a> using <a href="http://php.net/" target="_top">PHP 7.0.32-0ubuntu0.16.04.1</a> and <a href="https://phpunit.de/">PHPUnit 5.1.3</a> at Wed Nov 21 11:40:34 UTC 2018.</small>
+    </p>
+   </footer>
+  </div>
+  <script src="../../../js/jquery.min.js" type="text/javascript"></script>
+  <script src="../../../js/bootstrap.min.js" type="text/javascript"></script>
+  <script src="../../../js/holder.min.js" type="text/javascript"></script>
+  <script src="../../../js/d3.min.js" type="text/javascript"></script>
+  <script src="../../../js/nv.d3.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([11,0,0,0,0,0,0,0,0,0,0,3], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([49,0,0,0,0,0,0,0,0,0,0,0], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(key, y, e, graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[100,0,"<a href=\"tokenizer\/src\/Exception.php.html#4\">Exception<\/a>"],[0,4,"<a href=\"tokenizer\/src\/NamespaceUri.php.html#4\">NamespaceUri<\/a>"],[100,0,"<a href=\"tokenizer\/src\/NamespaceUriException.php.html#4\">NamespaceUriException<\/a>"],[0,4,"<a href=\"tokenizer\/src\/Token.php.html#4\">Token<\/a>"],[0,16,"<a href=\"tokenizer\/src\/TokenCollection.php.html#4\">TokenCollection<\/a>"],[100,0,"<a href=\"tokenizer\/src\/TokenCollectionException.php.html#4\">TokenCollectionException<\/a>"],[0,4,"<a href=\"tokenizer\/src\/Tokenizer.php.html#4\">Tokenizer<\/a>"],[0,8,"<a href=\"tokenizer\/src\/XMLSerializer.php.html#6\">XMLSerializer<\/a>"],[0,3,"<a href=\"tokenizer\/tests\/NamespaceUriTest.php.html#9\">NamespaceUriTest<\/a>"],[0,10,"<a href=\"tokenizer\/tests\/TokenCollectionTest.php.html#9\">TokenCollectionTest<\/a>"],[0,5,"<a href=\"tokenizer\/tests\/TokenTest.php.html#6\">TokenTest<\/a>"],[0,1,"<a href=\"tokenizer\/tests\/TokenizerTest.php.html#9\">TokenizerTest<\/a>"],[0,4,"<a href=\"tokenizer\/tests\/XMLSerializerTest.php.html#9\">XMLSerializerTest<\/a>"],[0,4,"<a href=\"tokenizer\/tests\/_files\/test.php.html#4\">bar<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(key, y, e, graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[0,1,"<a href=\"tokenizer\/src\/NamespaceUri.php.html#12\">NamespaceUri::__construct<\/a>"],[0,1,"<a href=\"tokenizer\/src\/NamespaceUri.php.html#17\">NamespaceUri::asString<\/a>"],[0,2,"<a href=\"tokenizer\/src\/NamespaceUri.php.html#21\">NamespaceUri::ensureValidUri<\/a>"],[0,1,"<a href=\"tokenizer\/src\/Token.php.html#28\">Token::__construct<\/a>"],[0,1,"<a href=\"tokenizer\/src\/Token.php.html#37\">Token::getLine<\/a>"],[0,1,"<a href=\"tokenizer\/src\/Token.php.html#44\">Token::getName<\/a>"],[0,1,"<a href=\"tokenizer\/src\/Token.php.html#51\">Token::getValue<\/a>"],[0,1,"<a href=\"tokenizer\/src\/TokenCollection.php.html#19\">TokenCollection::addToken<\/a>"],[0,1,"<a href=\"tokenizer\/src\/TokenCollection.php.html#26\">TokenCollection::current<\/a>"],[0,1,"<a href=\"tokenizer\/src\/TokenCollection.php.html#33\">TokenCollection::key<\/a>"],[0,1,"<a href=\"tokenizer\/src\/TokenCollection.php.html#40\">TokenCollection::next<\/a>"],[0,1,"<a href=\"tokenizer\/src\/TokenCollection.php.html#48\">TokenCollection::valid<\/a>"],[0,1,"<a href=\"tokenizer\/src\/TokenCollection.php.html#55\">TokenCollection::rewind<\/a>"],[0,1,"<a href=\"tokenizer\/src\/TokenCollection.php.html#63\">TokenCollection::count<\/a>"],[0,1,"<a href=\"tokenizer\/src\/TokenCollection.php.html#72\">TokenCollection::offsetExists<\/a>"],[0,2,"<a href=\"tokenizer\/src\/TokenCollection.php.html#82\">TokenCollection::offsetGet<\/a>"],[0,5,"<a href=\"tokenizer\/src\/TokenCollection.php.html#98\">TokenCollection::offsetSet<\/a>"],[0,1,"<a href=\"tokenizer\/src\/TokenCollection.php.html#124\">TokenCollection::offsetUnset<\/a>"],[0,4,"<a href=\"tokenizer\/src\/Tokenizer.php.html#42\">Tokenizer::parse<\/a>"],[0,2,"<a href=\"tokenizer\/src\/XMLSerializer.php.html#28\">XMLSerializer::__construct<\/a>"],[0,1,"<a href=\"tokenizer\/src\/XMLSerializer.php.html#40\">XMLSerializer::toDom<\/a>"],[0,2,"<a href=\"tokenizer\/src\/XMLSerializer.php.html#53\">XMLSerializer::toXML<\/a>"],[0,3,"<a href=\"tokenizer\/src\/XMLSerializer.php.html#78\">XMLSerializer::addToken<\/a>"],[0,1,"<a href=\"tokenizer\/tests\/NamespaceUriTest.php.html#11\">NamespaceUriTest::testCanBeConstructedWithValidNamespace<\/a>"],[0,1,"<a href=\"tokenizer\/tests\/NamespaceUriTest.php.html#18\">NamespaceUriTest::testInvalidNamespaceThrowsException<\/a>"],[0,1,"<a href=\"tokenizer\/tests\/NamespaceUriTest.php.html#23\">NamespaceUriTest::testStringRepresentationCanBeRetrieved<\/a>"],[0,1,"<a href=\"tokenizer\/tests\/TokenCollectionTest.php.html#14\">TokenCollectionTest::setUp<\/a>"],[0,1,"<a href=\"tokenizer\/tests\/TokenCollectionTest.php.html#18\">TokenCollectionTest::testCollectionIsInitiallyEmpty<\/a>"],[0,1,"<a href=\"tokenizer\/tests\/TokenCollectionTest.php.html#22\">TokenCollectionTest::testTokenCanBeAddedToCollection<\/a>"],[0,2,"<a href=\"tokenizer\/tests\/TokenCollectionTest.php.html#30\">TokenCollectionTest::testCanIterateOverTokens<\/a>"],[0,1,"<a href=\"tokenizer\/tests\/TokenCollectionTest.php.html#41\">TokenCollectionTest::testOffsetCanBeUnset<\/a>"],[0,1,"<a href=\"tokenizer\/tests\/TokenCollectionTest.php.html#50\">TokenCollectionTest::testTokenCanBeSetViaOffsetPosition<\/a>"],[0,1,"<a href=\"tokenizer\/tests\/TokenCollectionTest.php.html#57\">TokenCollectionTest::testTryingToUseNonIntegerOffsetThrowsException<\/a>"],[0,1,"<a href=\"tokenizer\/tests\/TokenCollectionTest.php.html#62\">TokenCollectionTest::testTryingToSetNonTokenAtOffsetThrowsException<\/a>"],[0,1,"<a href=\"tokenizer\/tests\/TokenCollectionTest.php.html#67\">TokenCollectionTest::testTryingToGetTokenAtNonExistingOffsetThrowsException<\/a>"],[0,1,"<a href=\"tokenizer\/tests\/TokenTest.php.html#11\">TokenTest::setUp<\/a>"],[0,1,"<a href=\"tokenizer\/tests\/TokenTest.php.html#15\">TokenTest::testTokenCanBeCreated<\/a>"],[0,1,"<a href=\"tokenizer\/tests\/TokenTest.php.html#19\">TokenTest::testTokenLineCanBeRetrieved<\/a>"],[0,1,"<a href=\"tokenizer\/tests\/TokenTest.php.html#23\">TokenTest::testTokenNameCanBeRetrieved<\/a>"],[0,1,"<a href=\"tokenizer\/tests\/TokenTest.php.html#27\">TokenTest::testTokenValueCanBeRetrieved<\/a>"],[0,1,"<a href=\"tokenizer\/tests\/TokenizerTest.php.html#11\">TokenizerTest::testValidSourceGetsParsed<\/a>"],[0,1,"<a href=\"tokenizer\/tests\/XMLSerializerTest.php.html#14\">XMLSerializerTest::setUp<\/a>"],[0,1,"<a href=\"tokenizer\/tests\/XMLSerializerTest.php.html#21\">XMLSerializerTest::testCanBeSerializedToXml<\/a>"],[0,1,"<a href=\"tokenizer\/tests\/XMLSerializerTest.php.html#28\">XMLSerializerTest::testCanBeSerializedToDomDocument<\/a>"],[0,1,"<a href=\"tokenizer\/tests\/XMLSerializerTest.php.html#36\">XMLSerializerTest::testCanBeSerializedToXmlWithCustomNamespace<\/a>"],[0,1,"<a href=\"tokenizer\/tests\/_files\/test.php.html#10\">bar::__construct<\/a>"],[0,1,"<a href=\"tokenizer\/tests\/_files\/test.php.html#14\">bar::getY<\/a>"],[0,1,"<a href=\"tokenizer\/tests\/_files\/test.php.html#18\">bar::getSomeX<\/a>"],[0,1,"<a href=\"tokenizer\/tests\/_files\/test.php.html#22\">bar::some<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>

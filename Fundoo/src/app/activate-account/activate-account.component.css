@@ -1,0 +1,17 @@
+.card{
+  width: 382px;
+  height: 250px;
+   display: block;
+    margin-left: auto;
+    margin-right: auto;
+        margin-top: 40px;
+         background: #f3f5f8;
+}
+.button {
+          padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background:#369;
+    font-weight: bolder;
+}

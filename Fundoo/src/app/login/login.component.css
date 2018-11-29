@@ -1,0 +1,37 @@
+.example-container {
+    display: flex;
+    flex-direction: column;
+  }
+.card{
+    width: 400px;
+    height: 400px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    background: #f3f5f8;
+    box-shadow: 4px 20px 20px 5px black;
+    color: #1a1e21
+}
+
+.mat-card[_ngcontent-c1]:not([class*=mat-elevation-z]) {
+    box-shadow: 3px 3px 20px 6px rgba(209, 207, 239, 0.753);
+}
+  .example-container > * {
+    width: 100%;
+  }
+  .wrapper {
+    text-align: center;
+    margin-top: 12px;
+    margin-bottom: 19px;
+    
+}
+
+.button {
+          padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background:#369;
+    font-weight: bolder;
+}
