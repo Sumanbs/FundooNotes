@@ -81,7 +81,10 @@ export class EditnotesComponent {
     }
   }
 
-
+  /**
+   * @method select8pm
+   * This method selects 8PM and assigns it to the remainderDateTime
+   */
   select8pm() {
     let dateFormat = require("dateformat");
     let now = new Date();

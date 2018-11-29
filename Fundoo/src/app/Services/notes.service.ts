@@ -139,12 +139,13 @@ export class NotesService {
     data.append("file", fileToUpload, fileToUpload.name);
     return this.http.post(this.imageFile_url, data);
   }
-  dragnotes(email: any, id: any, loops: any): any {
+  dragnotes(email: any, id: any, loops: any, dir: any): any {
     const data = new FormData();
     debugger;
     data.append("email", email);
     data.append("id", id);
     data.append("loop", loops);
+    data.append("direction", dir);
     return this.http.post(this.DragDrop_url, data);
   }
 }

@@ -556,23 +556,22 @@ export class NotesComponent implements OnInit, OnDestroy {
     moveItemInArray(this.all_notes, event.previousIndex, event.currentIndex);
     let diff: any;
     let direction: any;
-    alert(this.all_notes[event.currentIndex].id);
 
     if (event.currentIndex > event.previousIndex) {
-      direction = "pos";
+      direction = "upward";
       diff = event.currentIndex - event.previousIndex;
     } else {
       diff = event.previousIndex - event.currentIndex;
-      direction = "neg";
+      direction = "downward";
     }
-    alert(direction);
-    alert(diff);
+
     let email = this.cookie.get("key");
     debugger;
     let obs = this.notesservice.dragnotes(
       email,
       this.all_notes[event.currentIndex].id,
-      diff
+      diff,
+      direction
     );
     obs.subscribe(
       (notes: any) => {
