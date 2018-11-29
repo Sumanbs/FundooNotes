@@ -23,7 +23,7 @@ class ArchiveAPI extends CI_Controller
         /**
          * store the querry in string format
          */
-        $query     = "Select * from Notes where email = '$email' and deleted = '$deleted' and archived='$archive' order by id DESC ";
+        $query     = "Select * from Notes where email = '$email' and deleted = '$deleted' and archived='$archive' order by DragAndDropID DESC ";
         $statement = $this->connect->prepare($query);
         /**
          * Execute the querry.

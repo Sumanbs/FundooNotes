@@ -38,13 +38,13 @@ class DragAndDrop extends CI_Controller
              */
 
             if ($direction == "upward") {
-                $querry = "SELECT max(id) as nextid from Notes where id < '$id' and email='$email'";
+                $querry = "SELECT max(DragAndDropID) as nextid from Notes where DragAndDropID < '$id' and email='$email'";
             }
             /**
              * If direction is not upward get the note id which is greater than current id
              */
             else {
-                $querry = "SELECT min(id) as nextid from Notes where id > '$id' and email='$email'";
+                $querry = "SELECT min(DragAndDropID) as nextid from Notes where DragAndDropID > '$id' and email='$email'";
             }
             $stmt   = $this->connect->prepare($querry);
             $var    = $stmt->execute();
@@ -53,9 +53,10 @@ class DragAndDrop extends CI_Controller
             /**
              * Querry to Swap the notes.
              */
-            $querry = "UPDATE Notes a inner join Notes b on a.id <> b.id set a.email = b.email,a.Title = b.Title,a.Note = b.Note,a.color = b.color,a.remainderDateTime = b.remainderDateTime,a.archived = b.archived,a.deleted = b.deleted where a.id in('$noteid','$id') and b.id in('$noteid','$id')";
-            $stmt   = $this->connect->prepare($querry);
-            $var    = $stmt->execute();
+            $querry = "UPDATE Notes a inner join Notes b on a.DragAndDropID <> b.DragAndDropID  set
+			a.DragAndDropID =b.DragAndDropID  where a.DragAndDropID in('$noteid','$id') and b.DragAndDropID in('$noteid','$id')";
+            $stmt = $this->connect->prepare($querry);
+            $var  = $stmt->execute();
             /**
              * Swap the id's
              */

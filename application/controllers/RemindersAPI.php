@@ -32,7 +32,7 @@ class RemindersAPI extends CI_Controller
         /**
          * store the querry in string format
          */
-        $query     = "Select * from Notes where email = '$email' and remainderDateTime not in ('null null','undefined undefined') order by id DESC ";
+        $query     = "Select * from Notes where email = '$email' and remainderDateTime not in ('null null','undefined undefined') order by DragAndDropID DESC ";
         $statement = $this->connect->prepare($query);
         /**
          * Execute the querry.
@@ -82,7 +82,7 @@ class RemindersAPI extends CI_Controller
              */
             if ($stmt->execute()) {
 
-                $query     = "Select * from Notes where email = '$email' and deleted='false' and remainderDateTime not in ('null null','undefined undefined') order by id DESC ";
+                $query     = "Select * from Notes where email = '$email' and deleted='false' and remainderDateTime not in ('null null','undefined undefined') order by DragAndDropID DESC ";
                 $statement = $this->connect->prepare($query);
                 $statement->execute();
                 $arr = $statement->fetchAll(PDO::FETCH_ASSOC);

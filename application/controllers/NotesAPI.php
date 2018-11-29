@@ -34,7 +34,6 @@ class NotesAPI extends CI_Controller
      */
     public function createnotes()
     {
-
         $note                  = $_POST['note'];
         $title                 = $_POST['title'];
         $email                 = $_POST['email'];
@@ -68,7 +67,14 @@ class NotesAPI extends CI_Controller
                 $var    = $stmt->execute();
                 $noteid = $stmt->fetch(PDO::FETCH_ASSOC);
                 $noteid = $noteid['id'];
-                $temp   = count($selectedCollaborators);
+                /**
+                 * To update ID for Drag and drop.
+                 */
+                $sqlquerry         = "UPDATE Notes set DragAndDropID = $noteid where id = '$noteid'";
+                $statementofQuerry = $this->connect->prepare($sqlquerry);
+                $var               = $statementofQuerry->execute();
+
+                $temp = count($selectedCollaborators);
                 for ($i = 0; $i < count($selectedCollaborators); $i++) {
                     $cl = $selectedCollaborators[$i];
                     if ($selectedCollaborators[$i] != "undefined" && $selectedCollaborators[$i] != "null") {
@@ -83,13 +89,11 @@ class NotesAPI extends CI_Controller
                          */
                         $temp = $stmt->execute();
                     }
-
                 }
-
                 /**
                  * Fetch all Notes data
                  */
-                $query     = "Select * from Notes where email = '$email' or id in (select noteid from Collaborator where shared='$email' ) and deleted='false' and archived='false' order by id DESC ";
+                $query     = "Select * from Notes where email = '$email' or id in (select noteid from Collaborator where shared='$email' ) and deleted='false' and archived='false' order by DragAndDropID DESC ";
                 $statement = $this->connect->prepare($query);
 
                 $statement->execute();
@@ -134,7 +138,7 @@ class NotesAPI extends CI_Controller
         /**
          * store the querry in string format
          */
-        $query = "Select * from Notes where email = '$email' or id in (select noteid from Collaborator where shared='$email' ) and deleted='false' and archived='false' order by id DESC ";
+        $query = "Select * from Notes where email = '$email' or id in (select noteid from Collaborator where shared='$email' ) and deleted='false' and archived='false' order by DragAndDropID DESC";
 
         $statement = $this->connect->prepare($query);
         /**
@@ -481,7 +485,7 @@ class NotesAPI extends CI_Controller
             $query     = "Update Notes set deleted	 = 'true' where id = '$id'";
             $statement = $this->connect->prepare($query);
             if ($statement->execute()) {
-                $query     = "Select * from Notes where email = '$email' and deleted = 'false' order by id DESC ";
+                $query     = "Select * from Notes where email = '$email' and deleted = 'false' order by DragAndDropID DESC ";
                 $statement = $this->connect->prepare($query);
                 $statement->execute();
                 $arr = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -508,7 +512,7 @@ class NotesAPI extends CI_Controller
         /**
          * store the querry in string format
          */
-        $query     = "Select * from Notes where email = '$email' and deleted = 'true' order by id DESC ";
+        $query     = "Select * from Notes where email = '$email' and deleted = 'true' order by DragAndDropID DESC ";
         $statement = $this->connect->prepare($query);
         /**
          * Execute the querry.
@@ -545,7 +549,7 @@ class NotesAPI extends CI_Controller
             $query     = "Update Notes set deleted	 = 'false' where id = '$id'";
             $statement = $this->connect->prepare($query);
             if ($statement->execute()) {
-                $query     = "Select * from Notes where email = '$email' and deleted = 'true' order by id DESC ";
+                $query     = "Select * from Notes where email = '$email' and deleted = 'true' order by DragAndDropID DESC ";
                 $statement = $this->connect->prepare($query);
                 $statement->execute();
                 $arr = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -578,7 +582,7 @@ class NotesAPI extends CI_Controller
             $query     = "delete from Notes where id = '$id'";
             $statement = $this->connect->prepare($query);
             if ($statement->execute()) {
-                $query     = "Select * from Notes where email = '$email' and deleted = 'true' order by id DESC ";
+                $query     = "Select * from Notes where email = '$email' and deleted = 'true' order by DragAndDropID DESC ";
                 $statement = $this->connect->prepare($query);
                 $statement->execute();
                 $arr = $statement->fetchAll(PDO::FETCH_ASSOC);

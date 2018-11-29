@@ -25,7 +25,7 @@ class Collaborator
     public function collaboratorverifyemail()
     {
         $email     = $_POST['email'];
-        $query     = "SELECT * FROM Registration ORDER BY id";
+        $query     = "SELECT * FROM Registration ORDER BY DragAndDropID";
         $statement = $this->connect->prepare($query);
         /**
          * Execute the querry

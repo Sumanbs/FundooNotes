@@ -569,7 +569,7 @@ export class NotesComponent implements OnInit, OnDestroy {
     debugger;
     let obs = this.notesservice.dragnotes(
       email,
-      this.all_notes[event.currentIndex].id,
+      this.all_notes[event.currentIndex].DragAndDropID,
       diff,
       direction
     );
