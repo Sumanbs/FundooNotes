@@ -144,7 +144,7 @@ class NotesAPI extends CI_Controller
         /**
          * Execute the querry.
          */
-        if ($statement->execute()) {
+        if ($statement->execute()) {			
             $allNotes = $statement->fetchAll(PDO::FETCH_ASSOC);
             /**
              * Send the array of Notes to frontend.

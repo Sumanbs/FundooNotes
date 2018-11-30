@@ -6,8 +6,9 @@
  */
 header('Access-Control-Allow-Origin: *');
 
-require "phpmailer/mailer.php";
+// require "phpmailer/mailer.php";
 require "jwt.php";
+include "/var/www/html/codeigniter/application/RabbitMQ/send.php";
 class AccountAPI
 {
     /**
@@ -171,8 +172,8 @@ class AccountAPI
      */
     public function forgotpassword()
     {
-        $email     = $_POST['email'];
-        $ref       = new Email();
+        $email = $_POST['email'];
+        // $ref       = new Email();
         $query     = "SELECT status FROM Registration where email = '$email'";
         $statement = $this->connect->prepare($query);
         $statement->execute();
@@ -183,7 +184,25 @@ class AccountAPI
         if (!(AccountAPI::checkEmail($email)) && $arr['status'] == "ok") {
 
             $token = md5($email);
-            $ref->mail($email, $token, 2);
+            // $ref->mail($email, $token, 2);
+            $link      = "http://localhost:4200/resetPassword?token=" . $token;
+            $emailBody = "Click the Link To Reset Your Password For Fundoo " . $link;
+
+            $obj = new SendMail();
+            $res = $obj->sendEmail($email, 'Forget Password Link', $emailBody);
+			if($res == "abc")
+			{
+				 $data = array(
+                "status" => "200",
+            );
+			}else
+			{
+				 $data = array(
+                "status" => "400",
+            );
+			}
+            print json_encode($data);
+
             $query     = "Update Registration set token = '$token' where email = '$email'";
             $statement = $this->connect->prepare($query);
             /**
