@@ -19,6 +19,7 @@ export class NotesService {
   getImage_url = "http://localhost/codeigniter/getImage";
   imageFile_url = "http://localhost/codeigniter/imageFile";
   DragDrop_url = "http://localhost/codeigniter/DragAndDrop";
+  Image_url = "http://localhost/codeigniter/image";
   constructor(private http: HttpClient) {}
   /**
    *@method sendnotes
@@ -149,11 +150,18 @@ export class NotesService {
    */
   dragnotes(email: any, id: any, loops: any, direction: any): any {
     const data = new FormData();
-    debugger;
+
     data.append("email", email);
     data.append("id", id);
     data.append("loop", loops);
     data.append("direction", direction);
     return this.http.post(this.DragDrop_url, data);
+  }
+  base64image(email: string, base64url: any): any {
+    const data = new FormData();
+
+    data.append("email", email);
+    data.append("base64url", base64url);
+    return this.http.post(this.Image_url, data);
   }
 }

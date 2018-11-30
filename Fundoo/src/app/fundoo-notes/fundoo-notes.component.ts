@@ -111,20 +111,39 @@ export class FundooNotesComponent {
    * @description - This method selects the profile pic file and sends it to service.
    */
   select(files: FileList) {
+    let base64url;
     debugger;
     let email = this.cookie.get("key");
     this.fileToUpload = files.item(0);
-    console.log(this.fileToUpload);
-    let obs = this.iservice.takeimagefile(email, this.fileToUpload);
-    obs.subscribe(
-      (s: any) => {
-        this.url = s.path;
-      },
-      error => {
-        this.iserror = true;
-        this.errorMessage = error.message;
-      }
-    );
+    var reader = new FileReader();
+    reader.readAsDataURL(this.fileToUpload);
+    reader.onload = event => {
+      base64url = event.target.result;
+      console.log("base64url");
+      console.log(event.target);
+
+      let obs = this.iservice.base64image(email, base64url);
+      obs.subscribe(
+        (s: any) => {
+          this.url = s.path;
+        },
+        error => {
+          this.iserror = true;
+          this.errorMessage = error.message;
+        }
+      );
+    };
+    // console.log(this.fileToUpload);
+    // let obs = this.iservice.takeimagefile(email, this.fileToUpload);
+    // obs.subscribe(
+    //   (s: any) => {
+    //     this.url = s.path;
+    //   },
+    //   error => {
+    //     this.iserror = true;
+    //     this.errorMessage = error.message;
+    //   }
+    // );
   }
   search(searchItem) {
     this.commonService.searchItem(searchItem);

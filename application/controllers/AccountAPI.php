@@ -54,10 +54,18 @@ class AccountAPI
              * Return JSON Data to subscribers
              */
             if ($stmt->execute()) {
-                $token   = md5($email);
-                $options = 1;
-                $ref     = new Email();
-                $ref->mail($email, $token, $options);
+                $token = md5($email);
+
+                $link      = "http://localhost:4200/account_activate?token=" . $token;
+                $emailBody = "Click here to activate your Fundoo Account " . $link;
+                $obj       = new SendMail();
+                $res       = $obj->sendEmail($email, 'Account Activation Link', $emailBody);
+                if ($res == "Success") {
+                    $data = array(
+                        "status" => "200",
+                    );
+                    print json_encode($data);
+                }
                 $query     = "Update Registration set token = '$token' where email = '$email'";
                 $statement = $this->connect->prepare($query);
                 $statement->execute();
@@ -183,24 +191,21 @@ class AccountAPI
          */
         if (!(AccountAPI::checkEmail($email)) && $arr['status'] == "ok") {
 
-            $token = md5($email);
-            // $ref->mail($email, $token, 2);
+            $token     = md5($email);
             $link      = "http://localhost:4200/resetPassword?token=" . $token;
-            $emailBody = "Click the Link To Reset Your Password For Fundoo " . $link;
+            $emailBody = "Click here to Reset your Fundoo Account password " . $link;
+            $obj       = new SendMail();
+            $res       = $obj->sendEmail($email, 'Account Activation Link', $emailBody);
 
-            $obj = new SendMail();
-            $res = $obj->sendEmail($email, 'Forget Password Link', $emailBody);
-			if($res == "abc")
-			{
-				 $data = array(
-                "status" => "200",
-            );
-			}else
-			{
-				 $data = array(
-                "status" => "400",
-            );
-			}
+            if ($res == "Success") {
+                $data = array(
+                    "status" => "200",
+                );
+            } else {
+                $data = array(
+                    "status" => "400",
+                );
+            }
             print json_encode($data);
 
             $query     = "Update Registration set token = '$token' where email = '$email'";

@@ -98,5 +98,6 @@ $route['deleteCollaborator']      = 'Collaborator/deleteCollaborator';
 $route['setImage']  = 'ProfilePic/setImage';
 $route['getImage']  = 'ProfilePic/getImage';
 $route['imageFile'] = 'ProfilePic/imageFile';
+$route['image']     = 'ProfilePic/SaveImageInDB';
 
 $route['DragAndDrop'] = 'DragAndDrop/DragAndDropNotes';

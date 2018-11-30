@@ -32,6 +32,7 @@ export class ForgotPasswordComponent implements OnInit {
     let obs = this.data.reset_password(this.model);
     obs.subscribe(
       (s: any) => {
+        debugger;
         if (s.status == "200") {
           this.issubmit = false;
           this.dis = false;
@@ -40,9 +41,11 @@ export class ForgotPasswordComponent implements OnInit {
           alert("Email not sent");
         } else if (s.status == "3") {
           alert("Internal Error");
-        } else if (s.status == "4") {
+        } else if (s.status == "400") {
           this.issubmit = false;
-          alert("Email ID not activated..Please register again");
+          alert(
+            "You are not registered or your email ID not activated..Please register again"
+          );
         }
       },
       error => {

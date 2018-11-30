@@ -62,4 +62,22 @@ class ProfilePic extends CI_Controller
         }
 
     }
+    public function SaveImageInDB()
+    {
+        $email     = $_POST['email'];
+        $base64url = $_POST['base64url'];
+        $query     = "update Registration set profilepicture = '$blob' where email ='$email'";
+        $statement = $this->connect->prepare($query);
+        if ($statement->execute()) {
+            $data = array(
+                "status" => "200",
+            );
+            print json_encode($data);
+        } else {
+            $data = array(
+                "status" => "401",
+            );
+            print json_encode($data);
+        }
+    }
 }
