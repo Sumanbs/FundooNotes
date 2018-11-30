@@ -1,41 +1,117 @@
 <?php
-
 header('Access-Control-Allow-Origin: *');
 
-// require "phpmailer/mailer.php";
-require "jwt.php";
-include "/var/www/html/codeigniter/application/RabbitMQ/send.php";
-include "/var/www/html/codeigniter/application/Service/AccountService.php";
-class AccountAPI
+include "/var/www/html/codeigniter/application/Static/DBConstants.php";
+include "/var/www/html/codeigniter/application/Static/EmailLinks.php";
+
+class AccountService
 {
-    public $AccountServiceRef = null;
+
+	public $connect = null;
+	public $EmailLinksRef  = null;
     public function __construct()
     {
-        $this->AccountServiceRef = new AccountService();
-    }
 
-    public function Registration()
+        $DBConstantReference = new DBConstants();
+        $this->EmailLinksRef       = new EmailLinks();
+        try {
+            $this->connect = new PDO("mysql:host=$DBConstantReference->host;dbname=$DBConstantReference->DatabaseName", "$DBConstantReference->username", "$DBConstantReference->password");
+        } catch (PDOException $e) {
+            print "Error!: " . $e->getMessage() . "<br/>";
+            die();
+        }
+    }
+    /**
+     * @Registration - Add data to database
+     * @param string
+     * @param string
+     * @param int
+     * @param string
+     */
+    public function Registration($username, $password, $phno, $email)
     {
-        /**
-         * Receive dat from front end
-         */
-        $username = $_POST["name"];
-        $password = $_POST["pass"];
-        $phno     = $_POST["phno"];
-        $email    = $_POST["email"];
+        if (AccountService::checkEmail($email)) {
+            /**
+             * Store the query in string format.
+             */
+            $sql  = "INSERT INTO Registration(username,email,password,phonenumber)VALUES('$username','$email','$password',$phno)";
+            $stmt = $this->connect->prepare($sql);
+            /**
+             * Check for the successful execution of the querry.
+             * Return JSON Data to subscribers
+             */
+            if ($stmt->execute()) {
+                $token = md5($email);
 
-        $this->AccountServiceRef->Registration($username, $password, $phno, $email);
+                $emailBody = $this->EmailLinksRef->AccountActivationLink . $token;
+                $obj       = new SendMail();
+                $res       = $obj->sendEmail($email, 'Account Activation Link', $emailBody);
+                if ($res == "Success") {
+                    $data = array(
+                        "status" => "200",
+                    );
+                    print json_encode($data);
+                }
+                $query     = "Update Registration set token = '$token' where email = '$email'";
+                $statement = $this->connect->prepare($query);
+                $statement->execute();
+            } else {
+                $data = array(
+                    "status" => "400",
+                );
+                print json_encode($data);
+            }
+        } else {
+            $data = array(
+                "status" => "406",
+            );
+            print json_encode($data);
+        }
     }
-
+    /**
+     * @method checkEmail
+     * @param string
+     * Check whether email exists or not.
+     */
+    public function checkEmail($email)
+    {
+        $query     = "SELECT * FROM Registration ORDER BY id";
+        $statement = $this->connect->prepare($query);
+        /**
+         * Execute the querry
+         */
+        $statement->execute();
+        /**
+         * Fetch the array of data one by one.
+         * Check for whether the name exists or not.
+         */
+        $arr = $statement->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($arr as $arr1) {
+            while (($arr1['email'] == $email)) {
+                return false;
+            }
+        }
+        return true;
+    }
     /**
      * Check email and password is in database or not.
      */
-    public function Login()
+    public function Login($email, $password)
     {
-        $email    = $_POST["email"];
-        $password = $_POST["pass"];
-        $this->AccountServiceRef->Login($email, $password);
-
+        if (AccountService::chekUsernamePassword($email, $password)) {
+            $ref  = new JWT();
+            $jwt  = $ref->createJwtToken($email);
+            $data = array(
+                "jwt"    => $jwt,
+                "status" => 200,
+            );
+            print json_encode($data);
+        } else {
+            $data = array(
+                "status" => "401",
+            );
+            print json_encode($data);
+        }
     }
     /**
      * @method  verifyJWT()
@@ -97,7 +173,7 @@ class AccountAPI
         /**
          * checks email is present in DB or not.
          */
-        if (!(AccountAPI::checkEmail($email)) && $arr['status'] == "ok") {
+        if (!(AccountService::checkEmail($email)) && $arr['status'] == "ok") {
 
             $token     = md5($email);
             $link      = "http://localhost:4200/resetPassword?token=" . $token;
