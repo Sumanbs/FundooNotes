@@ -6,14 +6,13 @@ include "/var/www/html/codeigniter/application/Static/EmailLinks.php";
 
 class AccountService
 {
-
-	public $connect = null;
-	public $EmailLinksRef  = null;
+    public $connect;
+    public $EmailLinksRef;
     public function __construct()
     {
 
         $DBConstantReference = new DBConstants();
-        $this->EmailLinksRef       = new EmailLinks();
+        $this->EmailLinksRef = new EmailLinks();
         try {
             $this->connect = new PDO("mysql:host=$DBConstantReference->host;dbname=$DBConstantReference->DatabaseName", "$DBConstantReference->username", "$DBConstantReference->password");
         } catch (PDOException $e) {
@@ -22,7 +21,8 @@ class AccountService
         }
     }
     /**
-     * @Registration - Add data to database
+     * @method Registration()
+     * @Description - Store the user information in database.
      * @param string
      * @param string
      * @param int
@@ -71,7 +71,7 @@ class AccountService
     /**
      * @method checkEmail
      * @param string
-     * Check whether email exists or not.
+     * @Description - Check whether email exists or not.
      */
     public function checkEmail($email)
     {
@@ -94,7 +94,8 @@ class AccountService
         return true;
     }
     /**
-     * Check email and password is in database or not.
+     * @method Login()
+     * @Description - Check email and password is in database or not.
      */
     public function Login($email, $password)
     {
@@ -115,7 +116,7 @@ class AccountService
     }
     /**
      * @method  verifyJWT()
-     * This method verifies the token is valid or not
+     * @Description -This method verifies the token is valid or not
      */
     public function verifyJWT()
     {
@@ -135,7 +136,7 @@ class AccountService
         }
     }
     /**
-     * @method chekUsernamePassword
+     * @method chekUsernamePassword()
      * @param $email string
      * @param $password string
      */
@@ -160,12 +161,12 @@ class AccountService
         return false;
     }
     /**
+     * @method forgotpassword()
      * @Description - Sends the reset password link to the registered mail ID.
+     * @param $email string
      */
-    public function forgotpassword()
+    public function forgotpassword($email)
     {
-        $email = $_POST['email'];
-        // $ref       = new Email();
         $query     = "SELECT status FROM Registration where email = '$email'";
         $statement = $this->connect->prepare($query);
         $statement->execute();
@@ -176,8 +177,7 @@ class AccountService
         if (!(AccountService::checkEmail($email)) && $arr['status'] == "ok") {
 
             $token     = md5($email);
-            $link      = "http://localhost:4200/resetPassword?token=" . $token;
-            $emailBody = "Click here to Reset your Fundoo Account password " . $link;
+            $emailBody = $this->EmailLinksRef->ResetPasswordLink . $token;
             $obj       = new SendMail();
             $res       = $obj->sendEmail($email, 'Account Activation Link', $emailBody);
 
@@ -191,13 +191,11 @@ class AccountService
                 );
             }
             print json_encode($data);
-
             $query     = "Update Registration set token = '$token' where email = '$email'";
             $statement = $this->connect->prepare($query);
             /**
              * Execute the querry
              */
-
             $statement->execute();
         } else {
             $data = array(
@@ -207,12 +205,13 @@ class AccountService
         }
     }
     /**
-     * @getmailid -Used to get email ID from the Database based on the token
+     * @method getmailid()
+     * @Description - -Used to get email ID from the Database based on the token
+     * @param $token string
+     * @param $option string
      */
-    public function getmailid()
+    public function getmailid($token, $option)
     {
-        $token  = $_POST['token'];
-        $option = $_POST['option'];
         if ($option == "reset") {
             $query     = "Select email from Registration where token = '$token'";
             $statement = $this->connect->prepare($query);
@@ -261,12 +260,13 @@ class AccountService
         }
     }
     /**
-     * @resetpassword - Changes the password in database based on token.
+     * @method resetpassword()
+     * @Description - Changes the password in database based on token.
+     * @param $password string
+     * @param $token string
      */
-    public function resetpassword()
+    public function resetpassword($password, $token)
     {
-        $password  = $_POST['password'];
-        $token     = $_POST['token'];
         $query     = "Update Registration set password = '$password' where token = '$token'";
         $statement = $this->connect->prepare($query);
         /**

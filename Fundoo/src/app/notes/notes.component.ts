@@ -211,6 +211,7 @@ export class NotesComponent implements OnInit, OnDestroy {
           this.errorMessage = error.message;
         }
       );
+
       /**
        * Make null all variables after sending to backend
        */

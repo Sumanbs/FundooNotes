@@ -1,8 +1,8 @@
 <?php
 header('Access-Control-Allow-Origin: *');
-require "jwt.php";
+require "/var/www/html/codeigniter/application/Service/jwt.php";
 
-class ProfilePic extends CI_Controller
+class ProfilePic 
 {
     /**
      * @var PDO

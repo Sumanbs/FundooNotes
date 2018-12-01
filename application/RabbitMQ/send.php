@@ -27,8 +27,8 @@ class SendMail
         $channel->queue_declare('hello', false, false, false, false);
 
         $data = json_encode(array(
-            "from"       => "scorpiansumukha@gmail.com",
-            "from_email" => "scorpiansumukha@gmail.com",
+            "from"       => "darshangangadhar@gmail.com",
+            "from_email" => "darshangangadhar@gmail.com",
             "to_email"   => $toEmail,
             "subject"    => $subject,
             "message"    => $body,

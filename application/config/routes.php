@@ -64,27 +64,31 @@ $route['forgotpassword'] = 'AccountAPI/forgotpassword';
 $route['resetpassword']  = 'AccountAPI/resetpassword';
 $route['getmailid']      = 'AccountAPI/getmailid';
 
-$route['createnotes']           = 'NotesAPI/createnotes';
-$route['updateNotes']           = 'NotesAPI/updateNotes';
-$route['all_notes']             = 'NotesAPI/all_notes';
-$route['setRemainder']          = 'NotesAPI/setRemainder';
-$route['deleteRemainder']       = 'NotesAPI/deleteRemainder';
-$route['changeColor']           = 'NotesAPI/changeColor';
-$route['NewLabel']              = 'NotesAPI/NewLabel';
-$route['getAllLabels']          = 'NotesAPI/getAllLabels';
-$route['editLabel']             = 'NotesAPI/editLabel';
-$route['deleteLabel']           = 'NotesAPI/deleteLabel';
-$route['deleteNotes']           = 'NotesAPI/deleteNotes';
-$route['getDeletedNotes']       = 'NotesAPI/getDeletedNotes';
-$route['restoreNote']           = 'NotesAPI/restoreNote';
-$route['deleteNotePermanently'] = 'NotesAPI/deleteNotePermanently';
-$route['archiveNote']           = 'ArchiveAPI/archiveNote';
-$route['getArchivedNotes']      = 'ArchiveAPI/getArchivedNotes';
-$route['unArchiveNote']         = 'ArchiveAPI/unArchiveNote';
+$route['createnotes'] = 'NotesAPI/createnotes';
+$route['all_notes']   = 'NotesAPI/all_notes';
+$route['updateNotes'] = 'NotesAPI/updateNotes';
+$route['changeColor'] = 'NotesAPI/changeColor';
 
-$route['getReminders'] = 'RemindersAPI/getReminders';
-$route['saveNote']     = 'RemindersAPI/saveNote';
+$route['deleteNotes']           = 'TrashAPI/deleteNotes';
+$route['getDeletedNotes']       = 'TrashAPI/getDeletedNotes';
+$route['restoreNote']           = 'TrashAPI/restoreNote';
+$route['deleteNotePermanently'] = 'TrashAPI/deleteNotePermanently';
 
+$route['archiveNote']      = 'ArchiveAPI/archiveNote';
+$route['getArchivedNotes'] = 'ArchiveAPI/getArchivedNotes';
+$route['unArchiveNote']    = 'ArchiveAPI/unArchiveNote';
+/**
+ * Previosly
+ */
+$route['getReminders']    = 'RemindersAPI/getReminders';
+$route['saveNote']        = 'RemindersAPI/saveNote';
+$route['setRemainder']    = 'RemindersAPI/setRemainder';
+$route['deleteRemainder'] = 'RemindersAPI/deleteRemainder';
+
+$route['NewLabel']            = 'LabelsAPI/NewLabel';
+$route['getAllLabels']        = 'LabelsAPI/getAllLabels';
+$route['editLabel']           = 'LabelsAPI/editLabel';
+$route['deleteLabel']         = 'LabelsAPI/deleteLabel';
 $route['setLabelToNote']      = 'LabelsAPI/setLabelToNote';
 $route['notesWithLabels']     = 'LabelsAPI/notesWithLabels';
 $route['deleteLabelFromNote'] = 'LabelsAPI/deleteLabelFromNote';
