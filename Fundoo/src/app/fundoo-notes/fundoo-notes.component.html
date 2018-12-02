@@ -1,123 +1,136 @@
 <div style="background-color: #e8e8e8">
-  <mat-toolbar class="toolbar">
-    <button mat-icon-button (click)="sidenav.toggle()">
-      <mat-icon><img src="assets/img/fundooNotes/menu.svg"/></mat-icon>
-    </button>
-    <h1 class="name">Fundoo App</h1>
-    <span class="searchicon">
-      <mat-icon> <img src="assets/img/fundooNotes/search.svg"/></mat-icon>
-    </span>
-    <input
-      class="search"
-      type="text"
-      [(ngModel)]="searchItem"
-      (keyup)="search(searchItem)"
-    />
-    <button
-      *ngIf="searchItem"
-      style="margin-right: 375px"
-      mat-icon-button
-      (click)="clearSearch()"
-    >
-      <mat-icon matTooltip="clear search">
-        <img src="assets/img/fundooNotes/close.svg" />
-      </mat-icon>
-    </button>
-    <button *ngIf="enable" (click)="onClick()" mat-icon-button>
-      <mat-icon matTooltip="Grid view">
-        <img src="assets/img/fundooNotes/gridview.svg" />
-      </mat-icon>
-    </button>
-    <button *ngIf="!enable" (click)="onClick()" mat-icon-button>
-      <mat-icon matTooltip="List view">
-        <img src="assets/img/fundooNotes/listview.svg" />
-      </mat-icon>
-    </button>
-
-    <button [matMenuTriggerFor]="menu" mat-icon-button>
-      <mat-icon matTooltip="{{email}}">
-        <img class="mainimg" src="{{url}}" />
-      </mat-icon>
-    </button>
-    <mat-menu [overlapTrigger]="false" #menu="matMenu">
-      <input
-        type="file"
-        #file
-        class="filecss"
-        (change)="select($event.target.files)"
-      />
-      <button mat-icon-button class="img" (click)="file.click()">
-        <img class="img" src="{{url}}" />
-      </button>
-      <button mat-button>{{ email }}</button>
-
-      <button
-        mat-button
-        (click)="logout()"
-        style="font-size: 14px;margin-left: -9px"
-      >
-        Logout
-      </button>
-    </mat-menu>
-  </mat-toolbar>
-  <mat-sidenav-container>
-    <mat-sidenav
-      style="position: fixed; z-index: 2;"
-      class="sidenav"
-      #sidenav
-      mode="side"
-      fixedInViewport="true"
-      fixedTopGap="65"
-    >
-      <mat-nav-list>
-        <a
-          class="icons"
-          routerLink="notes"
-          routerLinkActive="router-link-active"
-          mat-list-item
+    <mat-toolbar class="toolbar">
+        <button mat-icon-button (click)="sidenav.toggle()">
+            <mat-icon><img src="assets/img/fundooNotes/menu.svg"/></mat-icon>
+        </button>
+        <h1 class="name">Fundoo App</h1>
+        <span class="searchicon">
+            <mat-icon> <img src="assets/img/fundooNotes/search.svg"/></mat-icon>
+        </span>
+        <input
+            class="search"
+            type="text"
+            [(ngModel)]="searchItem"
+            (keyup)="search(searchItem)"
+        />
+        <button
+            *ngIf="searchItem"
+            style="margin-right: 375px"
+            mat-icon-button
+            (click)="clearSearch()"
         >
-          <mat-icon> <img src="assets/img/fundooNotes/bulb.svg" /> </mat-icon
-          >Notes
-        </a>
-        <a class="icons" routerLink="reminders" mat-list-item>
-          <mat-icon> <img src="assets/img/fundooNotes/touch.svg" /> </mat-icon
-          >Reminders
-        </a>
-        <mat-divider></mat-divider>
-        <div class="label" mat-list-item>Label</div>
-
-        <mat-divider></mat-divider>
-        <div *ngFor="let item of allLabels">
-          <a
-            (click)="selectedLabel(item.label)"
-            routerLink="labellednotes"
-            mat-list-item
-          >
-            <mat-icon>
-              <img src="assets/img/fundooNotes/label.svg" />
+            <mat-icon matTooltip="clear search">
+                <img src="assets/img/fundooNotes/close.svg" />
             </mat-icon>
-            {{ item.label }}
-          </a>
-        </div>
-        <a (click)="openDialog(allLabels)" mat-list-item>
-          <mat-icon><img src="assets/img/fundooNotes/plus.svg" /> </mat-icon
-          >Create new label
-        </a>
+        </button>
+        <button *ngIf="enable" (click)="onClick()" mat-icon-button>
+            <mat-icon matTooltip="Grid view">
+                <img src="assets/img/fundooNotes/gridview.svg" />
+            </mat-icon>
+        </button>
+        <button *ngIf="!enable" (click)="onClick()" mat-icon-button>
+            <mat-icon matTooltip="List view">
+                <img src="assets/img/fundooNotes/listview.svg" />
+            </mat-icon>
+        </button>
 
-        <a routerLink="Archive" mat-list-item mat-list-item>
-          <mat-icon> <img src="assets/img/fundooNotes/archive.svg" /> </mat-icon
-          >Archive
-        </a>
-        <a routerLink="Trash" mat-list-item>
-          <mat-icon><img src="assets/img/fundooNotes/delete.svg" /> </mat-icon
-          >Bin
-        </a>
+        <button [matMenuTriggerFor]="menu" mat-icon-button>
+            <mat-icon matTooltip="{{email}}">
+                <img class="mainimg" src="{{myurl}}" />
+            </mat-icon>
+        </button>
+        <mat-menu [overlapTrigger]="false" #menu="matMenu">
+            <input
+                type="file"
+                #file
+                class="filecss"
+                (change)="onSelectFile($event)"
+            />
+            <button mat-icon-button class="img" (click)="file.click()">
+                <img class="img" src="{{url}}" />
+            </button>
+            <button mat-button>{{ email }}</button>
 
-        <mat-divider></mat-divider>
-      </mat-nav-list>
-    </mat-sidenav>
-    <mat-sidenav-content style="padding-bottom:100%">
-      <router-outlet></router-outlet>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
+            <button
+                mat-button
+                (click)="logout()"
+                style="font-size: 14px;margin-left: -9px"
+            >
+                Logout
+            </button>
+        </mat-menu>
+    </mat-toolbar>
+    <mat-sidenav-container>
+        <mat-sidenav
+            style="position: fixed; z-index: 2;"
+            class="sidenav"
+            #sidenav
+            mode="side"
+            fixedInViewport="true"
+            fixedTopGap="65"
+        >
+            <mat-nav-list>
+                <a
+                    class="icons"
+                    routerLink="notes"
+                    routerLinkActive="router-link-active"
+                    mat-list-item
+                >
+                    <mat-icon>
+                        <img src="assets/img/fundooNotes/bulb.svg" /> </mat-icon
+                    >Notes
+                </a>
+                <a class="icons" routerLink="reminders" mat-list-item>
+                    <mat-icon>
+                        <img
+                            src="assets/img/fundooNotes/touch.svg"
+                        /> </mat-icon
+                    >Reminders
+                </a>
+                <mat-divider></mat-divider>
+                <div class="label" mat-list-item>Label</div>
+
+                <mat-divider></mat-divider>
+                <div *ngFor="let item of allLabels">
+                    <a
+                        (click)="selectedLabel(item.label)"
+                        routerLink="labellednotes"
+                        mat-list-item
+                    >
+                        <mat-icon>
+                            <img src="assets/img/fundooNotes/label.svg" />
+                        </mat-icon>
+                        {{ item.label }}
+                    </a>
+                </div>
+                <a (click)="openDialog(allLabels)" mat-list-item>
+                    <mat-icon
+                        ><img
+                            src="assets/img/fundooNotes/plus.svg"
+                        /> </mat-icon
+                    >Create new label
+                </a>
+
+                <a routerLink="Archive" mat-list-item mat-list-item>
+                    <mat-icon>
+                        <img
+                            src="assets/img/fundooNotes/archive.svg"
+                        /> </mat-icon
+                    >Archive
+                </a>
+                <a routerLink="Trash" mat-list-item>
+                    <mat-icon
+                        ><img
+                            src="assets/img/fundooNotes/delete.svg"
+                        /> </mat-icon
+                    >Bin
+                </a>
+
+                <mat-divider></mat-divider>
+            </mat-nav-list>
+        </mat-sidenav>
+        <mat-sidenav-content style="padding-bottom:100%">
+            <router-outlet></router-outlet>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
 </div>

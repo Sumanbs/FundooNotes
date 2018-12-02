@@ -1,29 +1,59 @@
 <mat-card align="center" class="card">
-  <mat-card-title>Login Page</mat-card-title>
-  <div class="example-container">
-    <mat-form-field>
-      <input matInput placeholder="Enter your email" [formControl]="email" [(ngModel)]="model.email" [(ngModel)]="model.a"
-        required>
-      <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput minlength="4" [(ngModel)]="model.pwd" [(ngModel)]="model.pass" type="password" placeholder="Password"
-        [formControl]="password" required>
-      <mat-error *ngIf="password.invalid">{{getPasswordErrorMessage()}}</mat-error>
-    </mat-form-field>
-  </div>
-  <div align="right"><a routerLink="/forgotpassword" target="_blank" href="">Forgot Password?</a></div>
-  <div class="wrapper">
-    <button [disabled]="(password.invalid || email.invalid)" mat-raised-button class="button" (click)="sendLoginData()">Login</button>
-    <h3>Login using</h3>
-    <a target="_blank" href="https://www.facebook.com">
-      <mat-icon svgIcon="facebook"></mat-icon>
-    </a>
-    &nbsp; &nbsp; &nbsp;
-    <a target="_blank" href="https://www.google.com/gmail">
-      <mat-icon svgIcon="gmail"></mat-icon>
-    </a>
-  </div>
-  <div align="center">New User? <a routerLink="/register" target="_blank" href="">Register here</a></div>
+    <mat-card-title>Login Page</mat-card-title>
+    <div class="example-container">
+        <mat-form-field>
+            <input
+                matInput
+                placeholder="Enter your email"
+                [formControl]="email"
+                [(ngModel)]="model.email"
+                [(ngModel)]="model.a"
+                required
+            />
+            <mat-error *ngIf="email.invalid">{{ getErrorMessage() }}</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input
+                matInput
+                minlength="4"
+                [(ngModel)]="model.pwd"
+                [(ngModel)]="model.pass"
+                type="password"
+                placeholder="Password"
+                [formControl]="password"
+                required
+            />
+            <mat-error *ngIf="password.invalid">{{
+                getPasswordErrorMessage()
+            }}</mat-error>
+        </mat-form-field>
+    </div>
+    <div align="right">
+        <a routerLink="/forgotpassword" target="_blank" href=""
+            >Forgot Password?</a
+        >
+    </div>
+    <div class="wrapper">
+        <button
+            [disabled]="password.invalid || email.invalid"
+            mat-raised-button
+            class="button"
+            (click)="sendLoginData()"
+        >
+            Login
+        </button>
+        <h3>Login using</h3>
+        <button (click)="socialSignIn('facebook')">
+            <mat-icon svgIcon="facebook"></mat-icon>
+        </button>
+        &nbsp; &nbsp; &nbsp;
+        <button (click)="socialSignIn('google')">
+            <mat-icon svgIcon="gmail"></mat-icon>
+        </button>
+    </div>
+    <div align="center">
+        New User?
+        <a routerLink="/register" target="_blank" href="">Register here</a>
+    </div>
 </mat-card>
-<div align="center" *ngIf="iserror">{{errorMessage}}</div>
+<div align="center" *ngIf="iserror">{{ errorMessage }}</div>

@@ -116,18 +116,7 @@ export class NotesService {
         data.append("email", email);
         return this.http.post(this.API_URL.getImage_url, data);
     }
-    /**
-     *@method takeimagefile
-     *@param email string
-     *@param fileToUpload file
-     *All data converted to JSON format using FORMDATA and calls the imageFile_url
-     */
-    takeimagefile(email, fileToUpload: File): any {
-        const data = new FormData();
-        data.append("email", email);
-        data.append("file", fileToUpload, fileToUpload.name);
-        return this.http.post(this.API_URL.imageFile_url, data);
-    }
+
     /**
      *@method dragnotes
      *@param email string
@@ -145,11 +134,23 @@ export class NotesService {
         data.append("direction", direction);
         return this.http.post(this.API_URL.DragDrop_url, data);
     }
-    base64image(email: string, base64url: any): any {
+    /**
+     *@method takeimagefile
+     *@param email string
+     *@param fileToUpload file
+     *All data converted to JSON format using FORMDATA and calls the imageFile_url
+     */
+    saveProfile(image, email): any {
         const data = new FormData();
-
+        data.append("image", image);
         data.append("email", email);
-        data.append("base64url", base64url);
-        return this.http.post(this.API_URL.Image_url, data);
+        debugger;
+
+        return this.http.post(this.API_URL.imageFile_url, data);
+    }
+    fetchProfile(email: string): any {
+        const data = new FormData();
+        data.append("email", email);
+        return this.http.post(this.API_URL.FetchImage_URL, data);
     }
 }

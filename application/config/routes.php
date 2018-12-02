@@ -99,9 +99,7 @@ $route['notesCollaborator']       = 'Collaborator/notesCollaborator';
 $route['addCollaborator']         = 'Collaborator/addCollaborator';
 $route['deleteCollaborator']      = 'Collaborator/deleteCollaborator';
 
-$route['setImage']  = 'ProfilePic/setImage';
-$route['getImage']  = 'ProfilePic/getImage';
-$route['imageFile'] = 'ProfilePic/imageFile';
-$route['image']     = 'ProfilePic/SaveImageInDB';
+$route['saveImage']  = 'ProfilePic/saveImage';
+$route['fetchImage'] = 'ProfilePic/fetchImage';
 
 $route['DragAndDrop'] = 'DragAndDrop/DragAndDropNotes';

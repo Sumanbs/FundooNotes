@@ -33,7 +33,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { ForgotPasswordComponent } from "./forgot-password/forgot-password.component";
 import { ResetpasswordComponent } from "./resetpassword/resetpassword.component";
 import { RouterModule } from "@angular/router";
-
 import { DataService } from "./Services/data.service";
 import { CommonService } from "./Services/list-grid.service";
 import { NotesService } from "./Services/notes.service";
@@ -64,6 +63,9 @@ import { ImageService } from "./Services/image.service";
 import { DragDropService } from "./Services/drag-drop.service";
 import { NotesFilterPipe } from "./notes/notes-filter.pipe";
 import { ServiceURL } from "./Services/ServiceURL";
+import { SocialLoginModule, AuthServiceConfig } from "angular-6-social-login";
+import { FacebookLoginProvider } from "angular-6-social-login";
+import { getAuthServiceConfigs } from "./socialloginConfig";
 @NgModule({
     declarations: [
         AppComponent,
@@ -116,7 +118,8 @@ import { ServiceURL } from "./Services/ServiceURL";
         MatDialogModule,
         MatChipsModule,
         BidiModule,
-        DragDropModule
+        DragDropModule,
+        SocialLoginModule
     ],
     providers: [
         DataService,
@@ -138,7 +141,11 @@ import { ServiceURL } from "./Services/ServiceURL";
         LabelsService,
         ImageService,
         DragDropService,
-        ServiceURL
+        ServiceURL,
+        {
+            provide: AuthServiceConfig,
+            useFactory: getAuthServiceConfigs
+        }
     ],
     bootstrap: [AppComponent]
 })

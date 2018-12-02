@@ -59,9 +59,9 @@ export class ServiceURL {
     public deleteNote_url = this.host + "deleteNotes";
     public profilepic_url = this.host + "setImage";
     public getImage_url = this.host + "getImage";
-    public imageFile_url = this.host + "imageFile";
+    public imageFile_url = this.host + "saveImage";
 
-    public Image_url = this.host + "image";
+    public FetchImage_URL = this.host + "fetchImage";
     /**
      * trash URL
      */
