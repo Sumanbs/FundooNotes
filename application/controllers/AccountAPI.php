@@ -1,6 +1,7 @@
 <?php
 
 header('Access-Control-Allow-Origin: *');
+header("Access-Control-Allow-Headers: Authorization");
 
 // require "phpmailer/mailer.php";
 require "/var/www/html/codeigniter/application/Service/jwt.php";
@@ -33,7 +34,9 @@ class AccountAPI
     {
         $email    = $_POST['email'];
         $username = $_POST['name'];
-        $this->AccountServiceRef->facebookLogin($username, $email);
+        $image    = $_POST['image'];
+
+        $this->AccountServiceRef->facebookLogin($username, $email, $image);
     }
 
     /**

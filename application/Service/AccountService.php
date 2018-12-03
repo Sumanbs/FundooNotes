@@ -1,5 +1,6 @@
 <?php
 header('Access-Control-Allow-Origin: *');
+header("Access-Control-Allow-Headers: Authorization");
 
 include "/var/www/html/codeigniter/application/Static/DBConstants.php";
 include "/var/www/html/codeigniter/application/Static/EmailLinks.php";
@@ -68,36 +69,39 @@ class AccountService
             print json_encode($data);
         }
     }
-    public function facebookLogin($username, $email)
+    public function facebookLogin($username, $email, $image)
     {
-        if (AccountService::checkEmail($email)) {
-			$ref = new JWT();
-			$jwt = $ref->createJwtToken($email);
-            $data = array(
-				"jwt" => $jwt,
-                "status" => "200",
-            );
-            print json_encode($data);
-        } else {
-			$ref = new JWT();
-			$jwt = $ref->createJwtToken($email);
-            $sql  = "INSERT INTO Registration(username,email,Status)VALUES('$username','$email','ok')";
-            $stmt = $this->connect->prepare($sql);
-            /**
-             * Check for the successful execution of the querry.
-             * Return JSON Data to subscribers
-             */
-            if ($stmt->execute()) {
+        if ($email != null) {
+            if (!AccountService::checkEmail($email)) {
+                $ref  = new JWT();
+                $jwt  = $ref->createJwtToken($email);
                 $data = array(
-					"jwt" => $jwt,
+                    "jwt"    => $jwt,
                     "status" => "200",
                 );
                 print json_encode($data);
             } else {
-                $data = array(
-                    "status" => "400",
-                );
-                print json_encode($data);
+                $ref  = new JWT();
+                $jwt  = $ref->createJwtToken($email);
+                $sql  = "INSERT INTO Registration(username,email,Status)VALUES('$username','$email','ok')";
+                $stmt = $this->connect->prepare($sql);
+                /**
+                 * Check for the successful execution of the querry.
+                 * Return JSON Data to subscribers
+                 */
+                if ($stmt->execute()) {
+                    $data = array(
+                        "jwt"    => $jwt,
+                        "status" => "200",
+                    );
+                    print json_encode($data);
+                } else {
+                    $data = array(
+                        "status" => "400",
+                    );
+                    print json_encode($data);
+                }
+
             }
 
         }

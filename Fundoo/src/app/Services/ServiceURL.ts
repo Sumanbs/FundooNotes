@@ -1,5 +1,6 @@
+import { environment } from "../../environments/environment";
 export class ServiceURL {
-    public host = "http://localhost/codeigniter/";
+    public host = environment.baseURL;
     public archiveNote_url = this.host + "archiveNote";
     public getArchivedNotes_url = this.host + "getArchivedNotes";
     public unArchiveNote_url = this.host + "unArchiveNote";

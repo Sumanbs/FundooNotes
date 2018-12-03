@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormControl, Validators } from "@angular/forms";
 import { DataService } from "../Services/data.service";
-
+import { Accounts } from "../core/model/notes";
 @Component({
     selector: "app-registration",
     templateUrl: "./registration.component.html",

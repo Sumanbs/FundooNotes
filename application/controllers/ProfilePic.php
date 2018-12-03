@@ -1,5 +1,7 @@
 <?php
 header('Access-Control-Allow-Origin: *');
+header("Access-Control-Allow-Headers: Authorization");
+
 require "/var/www/html/codeigniter/application/Service/ProfilepicService.php";
 
 class ProfilePic

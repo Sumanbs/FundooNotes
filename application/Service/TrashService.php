@@ -1,6 +1,8 @@
 <?php
-include "/var/www/html/codeigniter/application/Service/ReminderService.php";
 header('Access-Control-Allow-Origin: *');
+header("Access-Control-Allow-Headers: Authorization");
+
+include "/var/www/html/codeigniter/application/Service/ReminderService.php";
 
 class TrashService extends CI_Controller
 {

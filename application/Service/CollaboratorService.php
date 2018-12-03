@@ -1,5 +1,7 @@
 <?php
 header('Access-Control-Allow-Origin: *');
+header("Access-Control-Allow-Headers: Authorization");
+
 include "/var/www/html/codeigniter/application/Static/DBConstants.php";
 class CollaboratorService extends CI_Controller
 {

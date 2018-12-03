@@ -6,6 +6,8 @@
  * *********************************************************
  */
 header('Access-Control-Allow-Origin: *');
+header("Access-Control-Allow-Headers: Authorization");
+
 include "/var/www/html/codeigniter/application/Service/NotesService.php";
 require "/var/www/html/codeigniter/application/Service/jwt.php";
 

@@ -1,8 +1,10 @@
 <?php
 header('Access-Control-Allow-Origin: *');
+header("Access-Control-Allow-Headers: Authorization");
+
 require "/var/www/html/codeigniter/application/Service/jwt.php";
 include "/var/www/html/codeigniter/application/Service/LabelsService.php";
-class LabelsAPI 
+class LabelsAPI
 {
     public $LabelsServiceRef;
     public function __construct()

@@ -8,6 +8,9 @@ import { Router } from "@angular/router";
 import { MatDialog } from "@angular/material";
 import { EditnotesComponent } from "../editnotes/editnotes.component";
 import { ArchiveService } from "../Services/archive.service";
+import { NotesArray } from "../core/model/notes";
+import { LabelArray } from "./../core/model/notes";
+import { CollaboratorArray } from "../core/model/notes";
 @Component({
     selector: "app-archivenote",
     templateUrl: "./archivenote.component.html",
@@ -36,7 +39,7 @@ export class ArchivenoteComponent implements OnInit, OnDestroy {
     iserror: boolean;
     errorMessage: any;
     errorstack: any;
-    all_notes;
+
     newcard: boolean;
     loading: boolean = true;
     title: any;
@@ -58,6 +61,9 @@ export class ArchivenoteComponent implements OnInit, OnDestroy {
     enable20: boolean = true;
     id1: any;
     enableDateTimeMenu: boolean = true;
+    all_notes: NotesArray[] = [];
+    allCollaborators: CollaboratorArray[] = [];
+    allLabels: LabelArray[] = [];
     /**
      * All the dependencies are declared in the constructor
      */
@@ -235,7 +241,7 @@ export class ArchivenoteComponent implements OnInit, OnDestroy {
             if (status.status == 200) {
                 this.all_notes.forEach(element => {
                     if (element.id == id) {
-                        this.all_notes.remainderDateTime = remainderDateTime;
+                        this.all_notes["remainderDateTime"] = remainderDateTime;
                         element.remainderDateTime = remainderDateTime;
                         this.enableDateTimeMenu = false;
                         this.reminder_date = null;
@@ -257,7 +263,7 @@ export class ArchivenoteComponent implements OnInit, OnDestroy {
                 if (status.status == 200) {
                     this.all_notes.forEach(element => {
                         if (element.id == id) {
-                            this.all_notes.remainderDateTime = "null null";
+                            this.all_notes["remainderDateTime"] = "null null";
                             element.remainderDateTime = "null null";
                             this.enableDateTimeMenu = false;
                             this.reminder_date = null;
@@ -278,7 +284,7 @@ export class ArchivenoteComponent implements OnInit, OnDestroy {
             if (status.status == 200) {
                 this.all_notes.forEach(element => {
                     if (element.id == id) {
-                        this.all_notes.color = color;
+                        this.all_notes["color"] = color;
                         element.color = color;
                     }
                 });

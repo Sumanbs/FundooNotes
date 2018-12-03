@@ -14,16 +14,15 @@ import { CollaboratorComponent } from "../collaborator/collaborator.component";
 import { UpdatecollaboratorComponent } from "../updatecollaborator/updatecollaborator.component";
 import { CdkDragDrop, moveItemInArray } from "@angular/cdk/drag-drop";
 import { DragDropService } from "../Services/drag-drop.service";
+import { NotesArray } from "../core/model/notes";
+import { LabelArray } from "./../core/model/notes";
+import { CollaboratorArray } from "../core/model/notes";
 @Component({
     selector: "app-notes",
     templateUrl: "./notes.component.html",
     styleUrls: ["./notes.component.css"]
 })
 export class NotesComponent implements OnInit, OnDestroy {
-    /**
-     * Variable for all notes data
-     */
-    allLabels: any;
     /**
      * variable for reminder date and time
      */
@@ -46,7 +45,7 @@ export class NotesComponent implements OnInit, OnDestroy {
     iserror: boolean;
     errorMessage: any;
     errorstack: any;
-    all_notes;
+    // all_notes;
     title: any;
     note: any;
     color: any;
@@ -68,10 +67,15 @@ export class NotesComponent implements OnInit, OnDestroy {
     enableDateTimeMenu: boolean = true;
     selectedLabels: any;
     selectedCollaborators: any;
-    allCollaborators: any;
+
     searchSubscription: Subscription;
     searchItem: any;
     obs: any;
+    all_notes: NotesArray[] = [];
+    allCollaborators: CollaboratorArray[] = [];
+    allLabels: LabelArray[] = [];
+    all_LabelArray;
+
     /**
      * All the dependencies are declared in the constructor
      */
@@ -140,6 +144,7 @@ export class NotesComponent implements OnInit, OnDestroy {
         obs1.subscribe(
             (status: any) => {
                 this.allLabels = status;
+                console.log(this.allLabels);
             },
             error => {
                 this.iserror = true;
@@ -154,7 +159,7 @@ export class NotesComponent implements OnInit, OnDestroy {
         obs2.subscribe(
             (status: any) => {
                 this.selectedLabels = status;
-                console.log(this.selectedLabels);
+                // console.log(this.selectedLabels);
             },
             error => {
                 this.iserror = true;
@@ -359,11 +364,12 @@ export class NotesComponent implements OnInit, OnDestroy {
          * It receives all_notes data as response.
          */
         let obs = this.notesservice.updateReminder(id, remainderDateTime);
+        debugger;
         obs.subscribe((status: any) => {
             if (status.status == 200) {
                 this.all_notes.forEach(element => {
                     if (element.id == id) {
-                        this.all_notes.remainderDateTime = remainderDateTime;
+                        this.all_notes["remainderDateTime"] = remainderDateTime;
                         element.remainderDateTime = remainderDateTime;
                         this.enableDateTimeMenu = false;
                         this.reminder_date = null;
@@ -385,7 +391,7 @@ export class NotesComponent implements OnInit, OnDestroy {
                 if (status.status == 200) {
                     this.all_notes.forEach(element => {
                         if (element.id == id) {
-                            this.all_notes.remainderDateTime = "null null";
+                            this.all_notes["remainderDateTime"] = "null null";
                             element.remainderDateTime = "null null";
                             this.enableDateTimeMenu = false;
                             this.reminder_date = null;
@@ -412,7 +418,7 @@ export class NotesComponent implements OnInit, OnDestroy {
             if (status.status == 200) {
                 this.all_notes.forEach(element => {
                     if (element.id == id) {
-                        this.all_notes.color = color;
+                        this.all_notes[color].color = color;
                         element.color = color;
                     }
                 });

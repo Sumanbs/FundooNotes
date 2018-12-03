@@ -26,6 +26,7 @@ export class LoginComponent {
     successful: boolean = false;
     routerLink: string;
     obs: any;
+    emailid: string;
     constructor(
         iconRegistry: MatIconRegistry,
         sanitizer: DomSanitizer,
@@ -138,9 +139,11 @@ export class LoginComponent {
         image: string,
         name: string
     ): any {
-        alert(email);
-        let obs = this.data.facebook_login(email, name);
-        this.cookie.put("key", this.model.email);
+        this.emailid = email;
+        alert(this.emailid);
+        let obs = this.data.facebook_login(this.emailid, name, image);
+        this.cookie.put("key", email);
+        this.cookie.put("imageurl", image);
         obs.subscribe(
             (s: any) => {
                 if (s.status == 200) {

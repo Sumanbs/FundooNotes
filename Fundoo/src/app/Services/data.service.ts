@@ -74,10 +74,11 @@ export class DataService {
         reset_password.append("email", model.email);
         return this.http.post(this.API_URL.reset_password_url, reset_password);
     }
-    facebook_login(email: string, name: string): any {
+    facebook_login(email: string, name: string, image: string): any {
         const data = new FormData();
         data.append("email", email);
         data.append("name", name);
+        data.append("image", image);
         return this.http.post(this.API_URL.facebookLogin_Url, data);
     }
 }

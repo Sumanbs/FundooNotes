@@ -10,13 +10,15 @@ import { EditnotesComponent } from "../editnotes/editnotes.component";
 import { ArchiveService } from "../Services/archive.service";
 import { CreatelabelsService } from "../Services/createlabels.service";
 import { LabelsService } from "../Services/labels.service";
+import { NotesArray } from "../core/model/notes";
+import { LabelArray } from "./../core/model/notes";
+import { CollaboratorArray } from "../core/model/notes";
 @Component({
     selector: "app-labellednotes",
     templateUrl: "./labellednotes.component.html",
     styleUrls: ["./labellednotes.component.css"]
 })
 export class LabellednotesComponent implements OnInit, OnDestroy {
-    allLabels: any;
     reminder_date: any;
     reminder_time: any;
     reminder = false;
@@ -27,7 +29,7 @@ export class LabellednotesComponent implements OnInit, OnDestroy {
     iserror: boolean;
     errorMessage: any;
     errorstack: any;
-    all_notes;
+
     newcard: boolean;
     loading: boolean = true;
     title: any;
@@ -47,6 +49,9 @@ export class LabellednotesComponent implements OnInit, OnDestroy {
     selectedLabels: any;
     selectedLabelToDispalyNotes: any;
     obs: any;
+    all_notes: NotesArray[] = [];
+
+    allLabels: LabelArray[] = [];
     constructor(
         private cookie: CookieService,
         private notesservice: NotesService,
@@ -254,7 +259,7 @@ export class LabellednotesComponent implements OnInit, OnDestroy {
             if (status.status == 200) {
                 this.all_notes.forEach(element => {
                     if (element.id == id) {
-                        this.all_notes.remainderDateTime = remainderDateTime;
+                        this.all_notes["remainderDateTime"] = remainderDateTime;
                         element.remainderDateTime = remainderDateTime;
                         this.enableDateTimeMenu = false;
                         this.reminder_date = null;
@@ -271,7 +276,7 @@ export class LabellednotesComponent implements OnInit, OnDestroy {
                 if (status.status == 200) {
                     this.all_notes.forEach(element => {
                         if (element.id == id) {
-                            this.all_notes.remainderDateTime = "null null";
+                            this.all_notes["remainderDateTime"] = "null null";
                             element.remainderDateTime = "null null";
                             this.enableDateTimeMenu = false;
                             this.reminder_date = null;
@@ -292,7 +297,7 @@ export class LabellednotesComponent implements OnInit, OnDestroy {
             if (status.status == 200) {
                 this.all_notes.forEach(element => {
                     if (element.id == id) {
-                        this.all_notes.color = color;
+                        this.all_notes["color"] = color;
                         element.color = color;
                     }
                 });

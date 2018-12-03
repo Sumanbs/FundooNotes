@@ -1,7 +1,10 @@
 <?php
+header('Access-Control-Allow-Origin: *');
+header("Access-Control-Allow-Headers: Authorization");
+
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Welcome 
+class Welcome
 {
 
     /**

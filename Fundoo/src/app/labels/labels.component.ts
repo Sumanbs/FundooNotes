@@ -2,7 +2,9 @@ import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
 import { Component, Inject } from "@angular/core";
 import { CreatelabelsService } from "../Services/createlabels.service";
 import { CookieService } from "angular2-cookie";
-
+import { NotesArray } from "../core/model/notes";
+import { LabelArray } from "./../core/model/notes";
+import { CollaboratorArray } from "../core/model/notes";
 @Component({
     selector: "app-labels",
     templateUrl: "./labels.component.html",

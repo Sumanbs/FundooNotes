@@ -6,6 +6,9 @@ import { NotesService } from "../Services/notes.service";
 import { CommonService } from "../Services/list-grid.service";
 import { LabelsComponent } from "../labels/labels.component";
 import { CookieService } from "angular2-cookie";
+import { NotesArray } from "../core/model/notes";
+import { LabelArray } from "./../core/model/notes";
+import { CollaboratorArray } from "../core/model/notes";
 @Component({
     selector: "app-fundoo-notes",
     templateUrl: "./fundoo-notes.component.html",
@@ -31,10 +34,7 @@ export class FundooNotesComponent {
         public createlabels: CreatelabelsService,
         public iservice: NotesService
     ) {}
-    /**
-     * @allLabels - stores the array of labels
-     */
-    allLabels: any;
+
     /**
      * @enable - Enables list or grid images.
      */
@@ -46,6 +46,8 @@ export class FundooNotesComponent {
      */
     url = "";
     searchItem: any;
+
+    allLabels: LabelArray[] = [];
     ngOnInit() {
         let email = this.cookie.get("key");
         let obs = this.createlabels.get_all_labels(email);
@@ -77,7 +79,7 @@ export class FundooNotesComponent {
                 alert(this.myurl);
                 console.log(this.myurl);
             } else {
-                this.ispresent = false;
+                this.myurl = this.cookie.get("imageurl");
             }
         });
     }
@@ -97,6 +99,8 @@ export class FundooNotesComponent {
      * @description - this method navigate to login page and clears the token.
      */
     logout() {
+        debugger;
+        alert("Logot");
         localStorage.removeItem("token");
         this.router.navigate(["/login"]);
     }
@@ -150,11 +154,18 @@ export class FundooNotesComponent {
                 this.myurl = "data:image/jpeg;base64," + res;
                 alert(this.myurl);
             } else {
-                this.ispresent = false;
+                if (
+                    this.cookie.get("imageurl") != "" ||
+                    this.cookie.get("imageurl") != null
+                ) {
+                    this.myurl = this.cookie.get("imageurl");
+                    alert(this.myurl);
+                    console.log(this.myurl);
+                    console.log("this.myurl");
+                }
             }
         });
     }
-
     search(searchItem) {
         this.commonService.searchItem(searchItem);
     }
