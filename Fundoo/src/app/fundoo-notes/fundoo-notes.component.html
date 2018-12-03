@@ -36,7 +36,7 @@
 
         <button [matMenuTriggerFor]="menu" mat-icon-button>
             <mat-icon matTooltip="{{email}}">
-                <img class="mainimg" src="{{myurl}}" />
+                <img class="mainimg" [src]="myurl" />
             </mat-icon>
         </button>
         <mat-menu [overlapTrigger]="false" #menu="matMenu">
@@ -47,7 +47,7 @@
                 (change)="onSelectFile($event)"
             />
             <button mat-icon-button class="img" (click)="file.click()">
-                <img class="img" src="{{url}}" />
+                <img class="img" [src]="myurl" />
             </button>
             <button mat-button>{{ email }}</button>
 

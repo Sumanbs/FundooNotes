@@ -68,6 +68,41 @@ class AccountService
             print json_encode($data);
         }
     }
+    public function facebookLogin($username, $email)
+    {
+        if (AccountService::checkEmail($email)) {
+			$ref = new JWT();
+			$jwt = $ref->createJwtToken($email);
+            $data = array(
+				"jwt" => $jwt,
+                "status" => "200",
+            );
+            print json_encode($data);
+        } else {
+			$ref = new JWT();
+			$jwt = $ref->createJwtToken($email);
+            $sql  = "INSERT INTO Registration(username,email,Status)VALUES('$username','$email','ok')";
+            $stmt = $this->connect->prepare($sql);
+            /**
+             * Check for the successful execution of the querry.
+             * Return JSON Data to subscribers
+             */
+            if ($stmt->execute()) {
+                $data = array(
+					"jwt" => $jwt,
+                    "status" => "200",
+                );
+                print json_encode($data);
+            } else {
+                $data = array(
+                    "status" => "400",
+                );
+                print json_encode($data);
+            }
+
+        }
+
+    }
     /**
      * @method checkEmail
      * @param string

@@ -63,6 +63,7 @@ $route['verifyJWT']      = 'AccountAPI/verifyJWT';
 $route['forgotpassword'] = 'AccountAPI/forgotpassword';
 $route['resetpassword']  = 'AccountAPI/resetpassword';
 $route['getmailid']      = 'AccountAPI/getmailid';
+$route['facebookLogin']  = 'AccountAPI/facebookLogin';
 
 $route['createnotes'] = 'NotesAPI/createnotes';
 $route['all_notes']   = 'NotesAPI/all_notes';

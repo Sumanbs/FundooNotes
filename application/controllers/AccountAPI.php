@@ -29,6 +29,12 @@ class AccountAPI
 
         $this->AccountServiceRef->Registration($username, $password, $phno, $email);
     }
+    public function facebookLogin()
+    {
+        $email    = $_POST['email'];
+        $username = $_POST['name'];
+        $this->AccountServiceRef->facebookLogin($username, $email);
+    }
 
     /**
      * @method Login()
@@ -42,6 +48,7 @@ class AccountAPI
         $password = $_POST["pass"];
         $this->AccountServiceRef->Login($email, $password);
     }
+
     /**
      * @method  verifyJWT()
      * @Description - This method verifies the token is valid or not.

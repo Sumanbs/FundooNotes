@@ -40,6 +40,7 @@ export class FundooNotesComponent {
      */
     enable = false;
     email = this.cookie.get("key");
+    obs: any;
     /**
      * @url - profilepic image url
      */
@@ -79,6 +80,9 @@ export class FundooNotesComponent {
                 this.ispresent = false;
             }
         });
+    }
+    ngOnDestroy() {
+        this.obs.unsubscribe();
     }
     /**
      * @method onClick()
@@ -136,14 +140,15 @@ export class FundooNotesComponent {
     _handleReaderLoaded(readerEvt) {
         var binaryString = readerEvt.target.result;
         this.base64textString = btoa(binaryString);
-        // console.log(binaryString));
-        // console.log(this.base64textString);
+        console.log(binaryString);
+        console.log(this.base64textString);
         let email = this.cookie.get("key");
         let obss = this.iservice.saveProfile(this.base64textString, email);
         obss.subscribe((res: any) => {
             if (res != "") {
                 this.ispresent = true;
                 this.myurl = "data:image/jpeg;base64," + res;
+                alert(this.myurl);
             } else {
                 this.ispresent = false;
             }

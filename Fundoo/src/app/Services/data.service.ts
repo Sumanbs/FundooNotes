@@ -27,7 +27,7 @@ export class DataService {
         registerData.append("pass", registration.pwd);
         registerData.append("phno", registration.phno);
         registerData.append("email", registration.email);
-        return this.http.post(this.registerurl, registerData);
+        return this.http.post(this.API_URL.registerurl, registerData);
     }
     /**
      *@method user_login
@@ -38,7 +38,7 @@ export class DataService {
         const newdata = new FormData();
         newdata.append("email", login.email);
         newdata.append("pass", login.pwd);
-        return this.http.post(this.loginurl, newdata);
+        return this.http.post(this.API_URL.loginurl, newdata);
     }
     /**
      *@method sendtoken
@@ -50,7 +50,7 @@ export class DataService {
         const tokens = new FormData();
         tokens.append("token", token);
         tokens.append("option", option);
-        return this.http.post(this.sendTokenurl, tokens);
+        return this.http.post(this.API_URL.sendTokenurl, tokens);
     }
     /**
      *@method resetService
@@ -62,7 +62,7 @@ export class DataService {
         const resetpwd = new FormData();
         resetpwd.append("password", pwd);
         resetpwd.append("token", token);
-        return this.http.post(this.resetpwdurl, resetpwd);
+        return this.http.post(this.API_URL.resetpwdurl, resetpwd);
     }
     /**
      *@method reset_password
@@ -72,6 +72,12 @@ export class DataService {
     reset_password(model: any): any {
         const reset_password = new FormData();
         reset_password.append("email", model.email);
-        return this.http.post(this.reset_password_url, reset_password);
+        return this.http.post(this.API_URL.reset_password_url, reset_password);
+    }
+    facebook_login(email: string, name: string): any {
+        const data = new FormData();
+        data.append("email", email);
+        data.append("name", name);
+        return this.http.post(this.API_URL.facebookLogin_Url, data);
     }
 }

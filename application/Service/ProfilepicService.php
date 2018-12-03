@@ -22,7 +22,7 @@ class ProfilepicService
         /**
          * @var string $query has query to select the profile pic of the user
          */
-        $query     = "SELECT profilepic FROM registration where email='$email'";
+        $query     = "SELECT profilepic FROM Registration where email='$email'";
         $statement = $this->connect->prepare($query);
         if ($statement->execute()) {
 

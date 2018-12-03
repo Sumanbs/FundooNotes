@@ -25,6 +25,7 @@ export class LoginComponent {
     public errorMessage;
     successful: boolean = false;
     routerLink: string;
+    obs: any;
     constructor(
         iconRegistry: MatIconRegistry,
         sanitizer: DomSanitizer,
@@ -47,6 +48,7 @@ export class LoginComponent {
         );
     }
     ngOnInit() {}
+
     /**
      * Email validation
      */
@@ -137,6 +139,25 @@ export class LoginComponent {
         name: string
     ): any {
         alert(email);
-        alert(name);
+        let obs = this.data.facebook_login(email, name);
+        this.cookie.put("key", this.model.email);
+        obs.subscribe(
+            (s: any) => {
+                if (s.status == 200) {
+                    console.log(s.jwt);
+                    localStorage.setItem("token", s.jwt);
+                    this.router.navigate(["/fundoo"]);
+                    this.fail = "";
+                } else if (s.status == 400) {
+                    this.flag = true;
+                    this.fail = "Invalid password";
+                    alert("Login Unsuccessfull");
+                }
+            },
+            error => {
+                this.iserror = true;
+                this.errorMessage = error.message;
+            }
+        );
     }
 }
