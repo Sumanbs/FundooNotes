@@ -137,6 +137,11 @@ class NotesService extends CI_Controller
          */
         if ($statement->execute()) {
             $allNotes = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+            for ($i = 0; $i < count($allNotes); $i++) {
+                $allNotes[$i]['image'] = "data:image/jpeg;base64," . base64_encode($allNotes[$i]['image']);
+            }
+
             /**
              * Send the array of Notes to frontend.
              */
@@ -233,6 +238,32 @@ class NotesService extends CI_Controller
             );
             print json_encode($data);
 
+        }
+    }
+    /**
+     * @method noteSaveImage() upload the profile pic
+     * @return void
+     */
+    public function noteSaveImage($url, $email, $id)
+    {
+
+        $file = base64_decode($url);
+        /**
+         * @var string $query has query to update the user profile pic
+         */
+        $query     = "UPDATE Notes  SET `image` = :file  where `email`= :email  and `id`= :id ";
+        $statement = $this->connect->prepare($query);
+        if ($statement->execute(array(
+            ':file'  => $file,
+            ':email' => $email,
+            ':id'    => $id,
+        ))) {
+
+        } else {
+            $data = array(
+                "message" => "203",
+            );
+            print json_encode($data);
         }
     }
 

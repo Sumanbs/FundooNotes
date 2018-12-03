@@ -83,4 +83,17 @@ class NotesAPI
         $id    = $_POST['id'];
         $this->NotesServiceRef->changeColor($note, $title, $date, $color, $id);
     }
+    /**
+     * @method noteSaveImage() upload the profile pic
+     * @return void
+     */
+    public function noteSaveImage()
+    {
+        $email = $_POST["email"];
+        $url   = $_POST["url"];
+        $id    = $_POST["id"];
+        $this->NotesServiceRef->noteSaveImage($url, $email, $id);
+
+    }
+
 }

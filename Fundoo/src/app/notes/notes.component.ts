@@ -70,7 +70,6 @@ export class NotesComponent implements OnInit, OnDestroy {
 
     searchSubscription: Subscription;
     searchItem: any;
-    obs: any;
     all_notes: NotesArray[] = [];
     allCollaborators: CollaboratorArray[] = [];
     allLabels: LabelArray[] = [];
@@ -131,6 +130,7 @@ export class NotesComponent implements OnInit, OnDestroy {
             (status: any) => {
                 this.all_notes = status.allNotes;
                 this.allCollaborators = status.allCollaborators;
+                obs.unsubscribe();
             },
             error => {
                 this.iserror = true;
@@ -144,7 +144,7 @@ export class NotesComponent implements OnInit, OnDestroy {
         obs1.subscribe(
             (status: any) => {
                 this.allLabels = status;
-                console.log(this.allLabels);
+                obs.unsubscribe();
             },
             error => {
                 this.iserror = true;
@@ -159,7 +159,7 @@ export class NotesComponent implements OnInit, OnDestroy {
         obs2.subscribe(
             (status: any) => {
                 this.selectedLabels = status;
-                // console.log(this.selectedLabels);
+                obs2.unsubscribe();
             },
             error => {
                 this.iserror = true;
@@ -212,9 +212,11 @@ export class NotesComponent implements OnInit, OnDestroy {
                         alert("Not autorized user");
                         localStorage.removeItem("token");
                         this.router.navigate(["/login"]);
+                        obs.unsubscribe();
                     } else {
                         this.all_notes = status.allNotes;
                         this.allCollaborators = status.allCollaborators;
+                        obs.unsubscribe();
                     }
                 },
                 error => {
@@ -285,7 +287,6 @@ export class NotesComponent implements OnInit, OnDestroy {
      * selects 8am.
      */
     select8pm(cardselection) {
-        debugger;
         if (cardselection == "main") {
             this.reminderSet = true;
         }
@@ -376,6 +377,7 @@ export class NotesComponent implements OnInit, OnDestroy {
                         this.reminder_time = null;
                     }
                 });
+                obs.unsubscribe();
             }
         });
     }
@@ -399,6 +401,7 @@ export class NotesComponent implements OnInit, OnDestroy {
                         }
                     });
                 }
+                obs.unsubscribe();
             },
             error => {
                 this.iserror = true;
@@ -418,7 +421,7 @@ export class NotesComponent implements OnInit, OnDestroy {
             if (status.status == 200) {
                 this.all_notes.forEach(element => {
                     if (element.id == id) {
-                        this.all_notes[color].color = color;
+                        this.all_notes["color"] = color;
                         element.color = color;
                     }
                 });
@@ -474,6 +477,7 @@ export class NotesComponent implements OnInit, OnDestroy {
                 (status: any) => {
                     this.all_notes = status.allNotes;
                     this.allCollaborators = status.allCollaborators;
+                    obs.unsubscribe();
                 },
                 error => {
                     this.iserror = true;
@@ -493,6 +497,7 @@ export class NotesComponent implements OnInit, OnDestroy {
         obs.subscribe(
             (status: any) => {
                 this.all_notes = status;
+                obs.unsubscribe();
             },
             error => {
                 this.iserror = true;
@@ -511,10 +516,12 @@ export class NotesComponent implements OnInit, OnDestroy {
         obs.subscribe(
             (status: any) => {
                 this.all_notes = status;
+                obs.unsubscribe();
             },
             error => {
                 this.iserror = true;
                 this.errorMessage = error.message;
+                obs.unsubscribe();
             }
         );
     }
@@ -559,6 +566,7 @@ export class NotesComponent implements OnInit, OnDestroy {
         obs.subscribe(
             (status: any) => {
                 this.selectedLabels = status;
+                obs.unsubscribe();
             },
             error => {
                 this.iserror = true;
@@ -596,13 +604,55 @@ export class NotesComponent implements OnInit, OnDestroy {
         );
         obs.subscribe(
             (notes: any) => {
-                // this.all_notes = notes;
-                debugger;
+                obs.unsubscribe();
             },
             error => {
                 this.iserror = true;
                 this.errorMessage = error.message;
             }
         );
+    }
+    /**
+     * var to hold image base64url
+     */
+    public base64textString;
+    /**
+     * variable to store the note id of image to be added
+     */
+    imageNoteId;
+    /**
+     * @method onSelectFile()
+     * @return void
+     * @description Function to save the image
+     */
+    onSelectFile(event, noteId) {
+        debugger;
+        this.imageNoteId = noteId;
+        var files = event.target.files;
+        var file = files[0];
+        if (files && file) {
+            var reader = new FileReader();
+            reader.onload = this._handleReaderLoaded.bind(this);
+            reader.readAsBinaryString(file);
+        }
+    }
+
+    _handleReaderLoaded(readerEvt) {
+        let email = this.cookie.get("key");
+        var binaryString = readerEvt.target.result;
+        this.base64textString = btoa(binaryString);
+        this.all_notes.forEach(element => {
+            if (element.id == this.imageNoteId) {
+                element.image =
+                    "data:image/jpeg;base64," + this.base64textString;
+            }
+        });
+
+        let obss = this.notesservice.noteSaveImage(
+            this.base64textString,
+            email,
+            this.imageNoteId
+        );
+        obss.subscribe((res: any) => {});
     }
 }

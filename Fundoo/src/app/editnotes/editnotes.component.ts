@@ -143,14 +143,12 @@ export class EditnotesComponent {
 
         if (this.data.item.Title != null || this.data.item.Note != null) {
             let dateFormat = require("dateformat");
-
             if (this.reminder_date != null && this.reminder_time != null)
                 this.reminder_date = dateFormat(
                     this.reminder_date,
                     "dd/mm/yyyy"
                 );
-
-            let remainderDateTime =
+            this.all_Notes["remainderDateTime"] =
                 this.reminder_date + " " + this.reminder_time;
 
             let obs = this.notesservice.updateNotes(this.data.item);

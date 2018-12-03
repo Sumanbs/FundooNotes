@@ -51,9 +51,7 @@ export class LabelsComponent {
             }
         );
     }
-    ngOnDestroy() {
-        this.obs.unsubscribe();
-    }
+
     enableEditButton = true;
     /**
      * @method saveLabel()

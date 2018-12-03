@@ -153,4 +153,11 @@ export class NotesService {
         data.append("email", email);
         return this.http.post(this.API_URL.FetchImage_URL, data);
     }
+    noteSaveImage(url: any, email: string, noteId: any): any {
+        let saveImage = new FormData();
+        saveImage.append("url", url);
+        saveImage.append("email", email);
+        saveImage.append("id", noteId);
+        return this.http.post(this.API_URL.NotesSaveImage_Url, saveImage);
+    }
 }

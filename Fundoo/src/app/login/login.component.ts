@@ -113,7 +113,6 @@ export class LoginComponent {
         );
     }
     public socialSignIn(socialPlatform: string) {
-        debugger;
         let socialPlatformProvider;
         if (socialPlatform == "facebook") {
             socialPlatformProvider = FacebookLoginProvider.PROVIDER_ID;
@@ -122,9 +121,6 @@ export class LoginComponent {
         }
 
         this.socialAuthService.signIn(socialPlatformProvider).then(userData => {
-            // console.log(socialPlatform + " sign in data : ", userData);
-            // Now sign-in with userData
-            // ...
             this.sendToRestApiMethod(
                 userData.token,
                 userData.email,
@@ -151,10 +147,12 @@ export class LoginComponent {
                     localStorage.setItem("token", s.jwt);
                     this.router.navigate(["/fundoo"]);
                     this.fail = "";
+                    obs.unsubscribe();
                 } else if (s.status == 400) {
                     this.flag = true;
                     this.fail = "Invalid password";
                     alert("Login Unsuccessfull");
+                    obs.unsubscribe();
                 }
             },
             error => {

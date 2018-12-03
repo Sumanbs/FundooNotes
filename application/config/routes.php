@@ -65,10 +65,11 @@ $route['resetpassword']  = 'AccountAPI/resetpassword';
 $route['getmailid']      = 'AccountAPI/getmailid';
 $route['facebookLogin']  = 'AccountAPI/facebookLogin';
 
-$route['createnotes'] = 'NotesAPI/createnotes';
-$route['all_notes']   = 'NotesAPI/all_notes';
-$route['updateNotes'] = 'NotesAPI/updateNotes';
-$route['changeColor'] = 'NotesAPI/changeColor';
+$route['createnotes']   = 'NotesAPI/createnotes';
+$route['all_notes']     = 'NotesAPI/all_notes';
+$route['updateNotes']   = 'NotesAPI/updateNotes';
+$route['changeColor']   = 'NotesAPI/changeColor';
+$route['noteSaveImage'] = 'NotesAPI/noteSaveImage';
 
 $route['deleteNotes']           = 'TrashAPI/deleteNotes';
 $route['getDeletedNotes']       = 'TrashAPI/getDeletedNotes';

@@ -6,9 +6,8 @@ import { NotesService } from "../Services/notes.service";
 import { CommonService } from "../Services/list-grid.service";
 import { LabelsComponent } from "../labels/labels.component";
 import { CookieService } from "angular2-cookie";
-import { NotesArray } from "../core/model/notes";
 import { LabelArray } from "./../core/model/notes";
-import { CollaboratorArray } from "../core/model/notes";
+
 @Component({
     selector: "app-fundoo-notes",
     templateUrl: "./fundoo-notes.component.html",
@@ -44,7 +43,7 @@ export class FundooNotesComponent {
     /**
      * @url - profilepic image url
      */
-    url = "";
+
     searchItem: any;
 
     allLabels: LabelArray[] = [];
@@ -61,16 +60,6 @@ export class FundooNotesComponent {
             }
         );
 
-        let obs1 = this.iservice.getImage(email);
-        obs1.subscribe(
-            (status: any) => {
-                this.url = status.profilepic;
-            },
-            error => {
-                this.iserror = true;
-                this.errorMessage = error.message;
-            }
-        );
         let obss = this.iservice.fetchProfile(this.email);
         obss.subscribe((res: any) => {
             if (res != "") {
@@ -83,9 +72,7 @@ export class FundooNotesComponent {
             }
         });
     }
-    ngOnDestroy() {
-        this.obs.unsubscribe();
-    }
+
     /**
      * @method onClick()
      * @description - Selects list view or grid view.
@@ -102,6 +89,8 @@ export class FundooNotesComponent {
         debugger;
         alert("Logot");
         localStorage.removeItem("token");
+        this.cookie.remove("key");
+        this.cookie.remove("image");
         this.router.navigate(["/login"]);
     }
     /**
@@ -159,9 +148,6 @@ export class FundooNotesComponent {
                     this.cookie.get("imageurl") != null
                 ) {
                     this.myurl = this.cookie.get("imageurl");
-                    alert(this.myurl);
-                    console.log(this.myurl);
-                    console.log("this.myurl");
                 }
             }
         });

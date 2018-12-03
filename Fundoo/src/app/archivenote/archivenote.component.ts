@@ -108,6 +108,7 @@ export class ArchivenoteComponent implements OnInit, OnDestroy {
         obs.subscribe(
             (status: any) => {
                 this.all_notes = status;
+                obs.unsubscribe();
             },
             error => {
                 this.iserror = true;
@@ -249,6 +250,7 @@ export class ArchivenoteComponent implements OnInit, OnDestroy {
                     }
                 });
             }
+            obs.unsubscribe();
         });
     }
     /**
@@ -271,6 +273,7 @@ export class ArchivenoteComponent implements OnInit, OnDestroy {
                         }
                     });
                 }
+                obs.unsubscribe();
             },
             error => {
                 this.iserror = true;
@@ -289,6 +292,7 @@ export class ArchivenoteComponent implements OnInit, OnDestroy {
                     }
                 });
             }
+            obs.unsubscribe();
         });
     }
     openDialog(item): void {
@@ -312,6 +316,7 @@ export class ArchivenoteComponent implements OnInit, OnDestroy {
         obs.subscribe(
             (status: any) => {
                 this.all_notes = status;
+                obs.unsubscribe();
             },
             error => {
                 this.iserror = true;
@@ -330,6 +335,7 @@ export class ArchivenoteComponent implements OnInit, OnDestroy {
         obs.subscribe(
             (status: any) => {
                 this.all_notes = status;
+                obs.unsubscribe();
             },
             error => {
                 this.iserror = true;

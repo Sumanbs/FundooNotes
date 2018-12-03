@@ -62,9 +62,11 @@ export class CollaboratorComponent implements OnInit {
                     this.addedcollaborators[this.i] = this.emailid;
                     this.i++;
                     this.emailid = null;
+                    observer.unsubscribe();
                 } else if (result.status == 401) {
                     this.invalidmail = true;
                     alert("MailID is not registered");
+                    observer.unsubscribe();
                 }
             },
             error => {

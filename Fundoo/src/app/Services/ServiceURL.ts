@@ -70,4 +70,5 @@ export class ServiceURL {
     public restoreNote_url = this.host + "restoreNote";
     public deletePermanently_url = this.host + "deleteNotePermanently";
     public facebookLogin_Url = this.host + "facebookLogin";
+    public NotesSaveImage_Url = this.host + "noteSaveImage";
 }

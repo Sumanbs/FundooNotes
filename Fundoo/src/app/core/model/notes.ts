@@ -8,6 +8,7 @@ export interface NotesArray {
     archived: string;
     deleted: string;
     DragAndDropID: string;
+    image: string;
 }
 
 export interface LabelArray {
