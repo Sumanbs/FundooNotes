@@ -1,5 +1,5 @@
 <?php
-class redis
+class Redis
 {
 
     public function config()

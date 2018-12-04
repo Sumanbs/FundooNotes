@@ -71,4 +71,5 @@ export class ServiceURL {
     public deletePermanently_url = this.host + "deleteNotePermanently";
     public facebookLogin_Url = this.host + "facebookLogin";
     public NotesSaveImage_Url = this.host + "noteSaveImage";
+    fetchUserData_Url = this.host + "fetchUserData";
 }

@@ -5,7 +5,7 @@ header("Access-Control-Allow-Headers: Authorization");
 include "/var/www/html/codeigniter/application/Static/DBConstants.php";
 include "/var/www/html/codeigniter/application/Static/EmailLinks.php";
 
-class AccountService
+class AccountService extends CI_Controller
 {
     public $connect;
     public $EmailLinksRef;
@@ -20,6 +20,7 @@ class AccountService
             print "Error!: " . $e->getMessage() . "<br/>";
             die();
         }
+        parent::__construct();
     }
     /**
      * @method Registration()
@@ -138,9 +139,24 @@ class AccountService
      */
     public function Login($email, $password)
     {
+        /**
+         * Authentication
+         */
         if (AccountService::chekUsernamePassword($email, $password)) {
-            $ref  = new JWT();
-            $jwt  = $ref->createJwtToken($email);
+            $ref = new JWT();
+            $jwt = $ref->createJwtToken($email);
+            /**
+             * Store email in redis
+             */
+            $this->load->library('Redis');
+            $redis = $this->redis->config();
+            $set   = $redis->set('email', $email);
+            /**
+             * Store Email on cache
+             */
+            $this->load->driver('cache', array('adapter' => 'apc', 'backup' => 'file'));
+            $this->cache->save('email', $email);
+
             $data = array(
                 "jwt"    => $jwt,
                 "status" => 200,
@@ -152,6 +168,7 @@ class AccountService
             );
             print json_encode($data);
         }
+
     }
     /**
      * @method  verifyJWT()

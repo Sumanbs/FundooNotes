@@ -91,16 +91,19 @@ export class LoginComponent {
      * @description - This method sends the login data to backend for verification
      */
     sendLoginData() {
+        debugger;
         let obs = this.data.user_login(this.model);
         this.cookie.put("key", this.model.email);
         obs.subscribe(
             (s: any) => {
                 if (s.status == 200) {
+                    debugger;
                     console.log(s.jwt);
                     localStorage.setItem("token", s.jwt);
                     this.router.navigate(["/fundoo"]);
                     this.fail = "";
                 } else if (s.status == 401) {
+                    debugger;
                     this.flag = true;
                     this.fail = "Invalid password";
                     alert("Login Unsuccessfull");
@@ -147,12 +150,12 @@ export class LoginComponent {
                     localStorage.setItem("token", s.jwt);
                     this.router.navigate(["/fundoo"]);
                     this.fail = "";
-                    obs.unsubscribe();
+                    // obs.unsubscribe();
                 } else if (s.status == 400) {
                     this.flag = true;
                     this.fail = "Invalid password";
                     alert("Login Unsuccessfull");
-                    obs.unsubscribe();
+                    // obs.unsubscribe();
                 }
             },
             error => {

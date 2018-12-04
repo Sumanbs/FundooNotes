@@ -3,7 +3,7 @@ header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Headers: Authorization");
 
 include "/var/www/html/codeigniter/application/Static/DBConstants.php";
-class ProfilepicService
+class ProfilepicService extends CI_Controller
 {
     public function __construct()
     {
@@ -14,6 +14,7 @@ class ProfilepicService
             print "Error!: " . $e->getMessage() . "<br/>";
             die();
         }
+        parent::__construct();
     }
     /**
      * @method fetchImage() fetch the user profile pic
@@ -21,9 +22,11 @@ class ProfilepicService
      */
     public function fetchImage($email)
     {
+
         /**
          * @var string $query has query to select the profile pic of the user
          */
+
         $query     = "SELECT profilepic FROM Registration where email='$email'";
         $statement = $this->connect->prepare($query);
         if ($statement->execute()) {
@@ -45,6 +48,7 @@ class ProfilepicService
     {
 
         $file = base64_decode($image);
+
         /**
          * @var string $query has query to update the user profile pic
          */

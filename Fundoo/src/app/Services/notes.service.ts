@@ -160,4 +160,7 @@ export class NotesService {
         saveImage.append("id", noteId);
         return this.http.post(this.API_URL.NotesSaveImage_Url, saveImage);
     }
+    fetchUserData(): any {
+        return this.http.get(this.API_URL.fetchUserData_Url);
+    }
 }

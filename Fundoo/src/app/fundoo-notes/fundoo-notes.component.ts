@@ -25,6 +25,7 @@ export class FundooNotesComponent {
     base64textString: string;
     myurl: string;
     ispresent: boolean;
+
     constructor(
         private commonService: CommonService,
         private router: Router,
@@ -38,7 +39,7 @@ export class FundooNotesComponent {
      * @enable - Enables list or grid images.
      */
     enable = false;
-    email = this.cookie.get("key");
+    email: any;
     obs: any;
     /**
      * @url - profilepic image url
@@ -70,6 +71,10 @@ export class FundooNotesComponent {
             } else {
                 this.myurl = this.cookie.get("imageurl");
             }
+        });
+        let observer = this.iservice.fetchUserData();
+        observer.subscribe((res: any) => {
+            this.email = res.email;
         });
     }
 

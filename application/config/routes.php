@@ -104,4 +104,5 @@ $route['deleteCollaborator']      = 'Collaborator/deleteCollaborator';
 $route['saveImage']  = 'ProfilePic/saveImage';
 $route['fetchImage'] = 'ProfilePic/fetchImage';
 
-$route['DragAndDrop'] = 'DragAndDrop/DragAndDropNotes';
+$route['DragAndDrop']   = 'DragAndDrop/DragAndDropNotes';
+$route['fetchUserData'] = 'SendData/sendData';
