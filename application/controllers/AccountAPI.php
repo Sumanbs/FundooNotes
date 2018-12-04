@@ -7,12 +7,17 @@ header("Access-Control-Allow-Headers: Authorization");
 require "/var/www/html/codeigniter/application/Service/jwt.php";
 include "/var/www/html/codeigniter/application/RabbitMQ/send.php";
 include "/var/www/html/codeigniter/application/Service/AccountService.php";
-class AccountAPI
+include "/var/www/html/codeigniter/application/libraries/redis.php";
+class AccountAPI extends CI_Controller
 {
+
     public $AccountServiceRef;
     public function __construct()
     {
+
         $this->AccountServiceRef = new AccountService();
+        parent::__construct();
+
     }
     /**
      * @method Registration()
@@ -47,9 +52,35 @@ class AccountAPI
      */
     public function Login()
     {
-        $email    = $_POST["email"];
-        $password = $_POST["pass"];
-        $this->AccountServiceRef->Login($email, $password);
+
+        // $redis = $this->$redis->config();
+
+        // $this->load->library('redis');
+        // $redis = $this->redis->config();
+        // $set   = $redis->set('name', $_POST['email']);
+        // $get   = $redis->get('name');
+        // echo $get;
+
+        // $this->load->driver('cache', array('adapter' => 'apc', 'backup' => 'file', 'key_prefix' => 'my_'));
+        // if ($this->cache->redis->is_supported() || $this->cache->file->is_supported()) {
+        //     $var1 = $this->cache->get('name');
+        // } else {
+        //     $cache_var1 = $this->_model_data->get_var1();
+        //     $this->cache->save('name', $cache_var1);
+        // }
+        $this->load->driver('cache', array('adapter' => 'apc', 'backup' => 'file'));
+        $this->cache->save('name1', 'hgdfgd');
+        if ($this->cache->get('name1')) {
+            $testdata = $this->cache->get('name');
+            echo $testdata;
+// $this->cache->save('foo', $foo, 300);
+        } else {
+
+        }
+
+        // $email    = $_POST["email"];
+        // $password = $_POST["pass"];
+        // $this->AccountServiceRef->Login($email, $password);
     }
 
     /**

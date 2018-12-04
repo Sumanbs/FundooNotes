@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { ServiceURL } from "../Services/ServiceURL";
-
+// import { ServiceURL } from "../ServiceURL/ServiceUrl";
 @Injectable({
     providedIn: "root"
 })

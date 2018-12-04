@@ -264,7 +264,7 @@
             cdkDrag
         >
             <div *ngIf="item.image != 'data:image/jpeg;base64,'">
-                <img src="{{item.image}}" class="noteImage" />
+                <img src="{{item.image}}" class="noteImage" alt="" />
             </div>
             <input
                 style="display: none;"
@@ -627,7 +627,7 @@
             *ngFor="let item of (all_notes | notesFilter: searchItem)"
             cdkDrag
         > <div *ngIf="item.image != 'data:image/jpeg;base64,'">
-            <img src="{{item.image}}" class="noteListImage" />
+            <img src="{{item.image}}" class="noteListImage" alt="" />
         </div>
             <input style="display: none;" type="file" #file (change)="onSelectFile($event, item.id)" />
             <div>

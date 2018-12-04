@@ -63,8 +63,9 @@ import { ImageService } from "./Services/image.service";
 import { DragDropService } from "./Services/drag-drop.service";
 import { NotesFilterPipe } from "./notes/notes-filter.pipe";
 import { ServiceURL } from "./Services/ServiceURL";
+// import { ServiceURL } from "./ServiceURL/ServiceUrl";
 import { SocialLoginModule, AuthServiceConfig } from "angular-6-social-login";
-import { FacebookLoginProvider } from "angular-6-social-login";
+
 import { getAuthServiceConfigs } from "./socialloginConfig";
 @NgModule({
     declarations: [

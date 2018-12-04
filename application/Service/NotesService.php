@@ -1,10 +1,11 @@
 <?php
 header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Headers: Authorization");
-
+include "/var/www/html/codeigniter/application/Static/ImageFormat.php";
 include "/var/www/html/codeigniter/application/Static/DBConstants.php";
 class NotesService extends CI_Controller
 {
+    public $imageRef;
     public function __construct()
     {
         $DBConstantReference = new DBConstants();
@@ -15,8 +16,9 @@ class NotesService extends CI_Controller
             print "Error!: " . $e->getMessage() . "<br/>";
             die();
         }
-    }
+        $this->imageRef = new ImageFormat();
 
+    }
     /**
      * @method createnotes()
      * @Description - Used to insert notes data to the database during creation of notes.
@@ -30,7 +32,6 @@ class NotesService extends CI_Controller
      */
     public function createnotes($note, $title, $email, $dateTime, $color, $archived, $Collaborat)
     {
-
         $ref                   = new JWT();
         $headers               = apache_request_headers();
         $jwt                   = $headers['Authorization'];
@@ -88,6 +89,10 @@ class NotesService extends CI_Controller
 
                 $statement->execute();
                 $allNotes = $statement->fetchAll(PDO::FETCH_ASSOC);
+                for ($i = 0; $i < count($allNotes); $i++) {
+                    $allNotes[$i]['image'] = $this->imageRef->image . base64_encode($allNotes[$i]['image']);
+                }
+
                 /**
                  * Fetch all collaborator data
                  */
@@ -137,9 +142,8 @@ class NotesService extends CI_Controller
          */
         if ($statement->execute()) {
             $allNotes = $statement->fetchAll(PDO::FETCH_ASSOC);
-
             for ($i = 0; $i < count($allNotes); $i++) {
-                $allNotes[$i]['image'] = "data:image/jpeg;base64," . base64_encode($allNotes[$i]['image']);
+                $allNotes[$i]['image'] = $this->imageRef->image . base64_encode($allNotes[$i]['image']);
             }
 
             /**

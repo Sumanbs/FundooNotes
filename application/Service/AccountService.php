@@ -46,7 +46,7 @@ class AccountService
 
                 $emailBody = $this->EmailLinksRef->AccountActivationLink . $token;
                 $obj       = new SendMail();
-                $res       = $obj->sendEmail($email, 'Account Activation Link', $emailBody);
+                $res       = $obj->sendEmail($email, $this->EmailLinksRef->SubjectOfAccountActivation, $emailBody);
                 if ($res == "Success") {
                     $data = array(
                         "status" => "200",
@@ -218,7 +218,7 @@ class AccountService
             $token     = md5($email);
             $emailBody = $this->EmailLinksRef->ResetPasswordLink . $token;
             $obj       = new SendMail();
-            $res       = $obj->sendEmail($email, 'Account Activation Link', $emailBody);
+            $res       = $obj->sendEmail($email, $this->EmailLinksRef->SubjectOfResetEmail, $emailBody);
 
             if ($res == "Success") {
                 $data = array(

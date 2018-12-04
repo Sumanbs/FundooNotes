@@ -144,7 +144,7 @@ export class NotesComponent implements OnInit, OnDestroy {
         obs1.subscribe(
             (status: any) => {
                 this.allLabels = status;
-                obs.unsubscribe();
+                obs1.unsubscribe();
             },
             error => {
                 this.iserror = true;
@@ -159,7 +159,6 @@ export class NotesComponent implements OnInit, OnDestroy {
         obs2.subscribe(
             (status: any) => {
                 this.selectedLabels = status;
-                obs2.unsubscribe();
             },
             error => {
                 this.iserror = true;

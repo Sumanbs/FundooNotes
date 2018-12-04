@@ -1,12 +1,11 @@
 <?php
 header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Headers: Authorization");
-
 include "/var/www/html/codeigniter/application/Service/ReminderService.php";
-
+include "/var/www/html/codeigniter/application/Static/ImageFormat.php";
 class TrashService extends CI_Controller
 {
-
+    public $imageRef;
     public function __construct()
     {
         $DBConstantReference = new DBConstants();
@@ -16,6 +15,7 @@ class TrashService extends CI_Controller
             print "Error!: " . $e->getMessage() . "<br/>";
             die();
         }
+        $this->imageRef = new ImageFormat();
     }
     /**
      * @method deleteNotes()
@@ -35,11 +35,15 @@ class TrashService extends CI_Controller
                 $query     = "Select * from Notes where email = '$email' and deleted = 'false' order by DragAndDropID DESC ";
                 $statement = $this->connect->prepare($query);
                 $statement->execute();
-                $arr = $statement->fetchAll(PDO::FETCH_ASSOC);
+                $allNotes = $statement->fetchAll(PDO::FETCH_ASSOC);
+                for ($i = 0; $i < count($allNotes); $i++) {
+                    $allNotes[$i]['image'] = $this->imageRef->image . base64_encode($allNotes[$i]['image']);
+                }
+
                 /**
                  * Send the array of Notes to frontend.
                  */
-                print json_encode($arr);
+                print json_encode($allNotes);
             } else {
                 $data = array(
                     "status" => "404",
@@ -64,11 +68,15 @@ class TrashService extends CI_Controller
          * Execute the querry.
          */
         if ($statement->execute()) {
-            $arr = $statement->fetchAll(PDO::FETCH_ASSOC);
+            $allNotes = $statement->fetchAll(PDO::FETCH_ASSOC);
+            for ($i = 0; $i < count($allNotes); $i++) {
+                $allNotes[$i]['image'] = $this->imageRef->image . base64_encode($allNotes[$i]['image']);
+            }
+
             /**
              * Send the array of Notes to frontend.
              */
-            print json_encode($arr);
+            print json_encode($allNotes);
         } else {
             $data = array(
                 "msg" => "Not Success",
@@ -95,11 +103,15 @@ class TrashService extends CI_Controller
                 $query     = "Select * from Notes where email = '$email' and deleted = 'true' order by DragAndDropID DESC ";
                 $statement = $this->connect->prepare($query);
                 $statement->execute();
-                $arr = $statement->fetchAll(PDO::FETCH_ASSOC);
+                $allNotes = $statement->fetchAll(PDO::FETCH_ASSOC);
+                for ($i = 0; $i < count($allNotes); $i++) {
+                    $allNotes[$i]['image'] = $this->imageRef->image . base64_encode($allNotes[$i]['image']);
+                }
+
                 /**
                  * Send the array of Notes to frontend.
                  */
-                print json_encode($arr);
+                print json_encode($allNotes);
             } else {
                 $data = array(
                     "status" => "404",
@@ -126,11 +138,15 @@ class TrashService extends CI_Controller
                 $query     = "Select * from Notes where email = '$email' and deleted = 'true' order by DragAndDropID DESC ";
                 $statement = $this->connect->prepare($query);
                 $statement->execute();
-                $arr = $statement->fetchAll(PDO::FETCH_ASSOC);
+                $allNotes = $statement->fetchAll(PDO::FETCH_ASSOC);
+                for ($i = 0; $i < count($allNotes); $i++) {
+                    $allNotes[$i]['image'] = $this->imageRef->image . base64_encode($allNotes[$i]['image']);
+                }
+
                 /**
                  * Send the array of Notes to frontend.
                  */
-                print json_encode($arr);
+                print json_encode($allNotes);
             } else {
                 $data = array(
                     "status" => "404",

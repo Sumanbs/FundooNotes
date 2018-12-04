@@ -2,7 +2,9 @@ declare let require: any;
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
 import { Component, Inject } from "@angular/core";
 import { NotesService } from "../Services/notes.service";
-
+import { NotesArray } from "../core/model/notes";
+import { LabelArray } from "./../core/model/notes";
+import { CollaboratorArray } from "../core/model/notes";
 @Component({
     selector: "app-editnotes",
     templateUrl: "./editnotes.component.html",
@@ -35,9 +37,9 @@ export class EditnotesComponent {
      */
     enable20: boolean = true;
     /**
-     * @all_Notes - array of notes data
+     * @  all_notes - array of notes data
      */
-    all_Notes: any;
+
     /**
      * @iserror - To check for any HTTP error
      */
@@ -46,6 +48,9 @@ export class EditnotesComponent {
      * @errorMessage -To display any HTTP error message
      */
     errorMessage: any;
+    all_notes: NotesArray[] = [];
+    allCollaborators: CollaboratorArray[] = [];
+    allLabels: LabelArray[] = [];
 
     constructor(
         public dialogRef: MatDialogRef<EditnotesComponent>,
@@ -148,7 +153,7 @@ export class EditnotesComponent {
                     this.reminder_date,
                     "dd/mm/yyyy"
                 );
-            this.all_Notes["remainderDateTime"] =
+            this.all_notes["remainderDateTime"] =
                 this.reminder_date + " " + this.reminder_time;
 
             let obs = this.notesservice.updateNotes(this.data.item);
@@ -158,7 +163,7 @@ export class EditnotesComponent {
                     if (status.status == 404) {
                         alert("Not autorized user");
                     } else {
-                        this.all_Notes = status;
+                        this.all_notes = status;
                     }
                 },
                 error => {
