@@ -70,7 +70,16 @@ class AccountService extends CI_Controller
             print json_encode($data);
         }
     }
-    public function facebookLogin($username, $email, $image)
+    /**
+     * @method facebookLogin
+     * @param string
+     * @param string
+     * @param string
+     * @param string
+     * @Description - Login Using Facebook or gmail
+     */
+
+    public function SocialLogin($username, $email, $image)
     {
         if ($email != null) {
             if (!AccountService::checkEmail($email)) {
@@ -86,19 +95,24 @@ class AccountService extends CI_Controller
                 $jwt  = $ref->createJwtToken($email);
                 $sql  = "INSERT INTO Registration(username,email,Status)VALUES('$username','$email','ok')";
                 $stmt = $this->connect->prepare($sql);
-                /**
-                 * Check for the successful execution of the querry.
-                 * Return JSON Data to subscribers
-                 */
+
                 /**
                  * Store email in redis
                  */
                 $this->load->library('Redis');
                 $redis = $this->redis->config();
-                $set   = $redis->set('email', $email);
+
+                $set = $redis->set('email', $email);
                 /**
                  * Store Email on cache
                  */
+                $this->load->driver('cache', array('adapter' => 'apc', 'backup' => 'file'));
+                $this->cache->save('email', $email);
+                /**
+                 * Check for the successful execution of the querry.
+                 * Return JSON Data to subscribers
+                 */
+
                 if ($stmt->execute()) {
                     $data = array(
                         "jwt"    => $jwt,

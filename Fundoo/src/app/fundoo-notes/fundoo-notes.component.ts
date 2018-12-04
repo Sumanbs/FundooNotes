@@ -95,7 +95,8 @@ export class FundooNotesComponent {
         alert("Logot");
         localStorage.removeItem("token");
         this.cookie.remove("key");
-        this.cookie.remove("image");
+
+        this.cookie.remove("imageurl");
         this.router.navigate(["/login"]);
     }
     /**

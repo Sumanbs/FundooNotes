@@ -29,12 +29,12 @@ class AccountAPI extends CI_Controller
         $email    = $_POST["email"];
         $this->AccountServiceRef->Registration($username, $password, $phno, $email);
     }
-    public function facebookLogin()
+    public function SocialLogin()
     {
         $email    = $_POST['email'];
         $username = $_POST['name'];
         $image    = $_POST['image'];
-        $this->AccountServiceRef->facebookLogin($username, $email, $image);
+        $this->AccountServiceRef->SocialLogin($username, $email, $image);
     }
     /**
      * @method Login()
