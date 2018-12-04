@@ -90,6 +90,15 @@ class AccountService extends CI_Controller
                  * Check for the successful execution of the querry.
                  * Return JSON Data to subscribers
                  */
+                /**
+                 * Store email in redis
+                 */
+                $this->load->library('Redis');
+                $redis = $this->redis->config();
+                $set   = $redis->set('email', $email);
+                /**
+                 * Store Email on cache
+                 */
                 if ($stmt->execute()) {
                     $data = array(
                         "jwt"    => $jwt,

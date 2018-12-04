@@ -8,6 +8,7 @@ class Hello_test extends TestCase
         // $expected = '<h2>Hello!</h2>';
         $output   = 'a';
         $expected = 'a';
-        $this->asse($expected, $output);
+
+        $this->assertEquals($expected, $output);
     }
 }
