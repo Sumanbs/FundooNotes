@@ -61,8 +61,9 @@ export class FundooNotesComponent {
             }
         );
 
-        let obss = this.iservice.fetchProfile(this.email);
+        let obss = this.iservice.fetchProfile(email);
         obss.subscribe((res: any) => {
+            alert(res);
             if (res != "") {
                 this.ispresent = true;
                 this.myurl = "data:image/jpeg;base64," + res;

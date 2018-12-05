@@ -4,7 +4,7 @@ header("Access-Control-Allow-Headers: Authorization");
 
 require "/var/www/html/codeigniter/application/Service/jwt.php";
 include "/var/www/html/codeigniter/application/Service/ArchiveService.php";
-class ArchiveAPI
+class ArchiveController
 {
     /**
      * @var PDO

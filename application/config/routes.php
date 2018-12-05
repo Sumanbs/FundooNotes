@@ -57,52 +57,50 @@ $route['hello']                = 'Hello_test/test_get_hello';
 /**
  * Fundoo app API's
  */
-$route['Registration']   = 'AccountAPI/Registration';
-$route['Loginpage']      = 'AccountAPI/Login';
-$route['verifyJWT']      = 'AccountAPI/verifyJWT';
-$route['forgotpassword'] = 'AccountAPI/forgotpassword';
-$route['resetpassword']  = 'AccountAPI/resetpassword';
-$route['getmailid']      = 'AccountAPI/getmailid';
-$route['SocialLogin']    = 'AccountAPI/SocialLogin';
+$route['Registration']   = 'AccountController/Registration';
+$route['Loginpage']      = 'AccountController/Login';
+$route['verifyJWT']      = 'AccountController/verifyJWT';
+$route['forgotpassword'] = 'AccountController/forgotpassword';
+$route['resetpassword']  = 'AccountController/resetpassword';
+$route['getmailid']      = 'AccountController/getmailid';
+$route['SocialLogin']    = 'AccountController/SocialLogin';
 
-$route['createnotes']   = 'NotesAPI/createnotes';
-$route['all_notes']     = 'NotesAPI/all_notes';
-$route['updateNotes']   = 'NotesAPI/updateNotes';
-$route['changeColor']   = 'NotesAPI/changeColor';
-$route['noteSaveImage'] = 'NotesAPI/noteSaveImage';
+$route['createnotes']   = 'NotesController/createnotes';
+$route['all_notes']     = 'NotesController/all_notes';
+$route['updateNotes']   = 'NotesController/updateNotes';
+$route['changeColor']   = 'NotesController/changeColor';
+$route['noteSaveImage'] = 'NotesController/noteSaveImage';
 
-$route['deleteNotes']           = 'TrashAPI/deleteNotes';
-$route['getDeletedNotes']       = 'TrashAPI/getDeletedNotes';
-$route['restoreNote']           = 'TrashAPI/restoreNote';
-$route['deleteNotePermanently'] = 'TrashAPI/deleteNotePermanently';
+$route['deleteNotes']           = 'TrashController/deleteNotes';
+$route['getDeletedNotes']       = 'TrashController/getDeletedNotes';
+$route['restoreNote']           = 'TrashController/restoreNote';
+$route['deleteNotePermanently'] = 'TrashController/deleteNotePermanently';
 
-$route['archiveNote']      = 'ArchiveAPI/archiveNote';
-$route['getArchivedNotes'] = 'ArchiveAPI/getArchivedNotes';
-$route['unArchiveNote']    = 'ArchiveAPI/unArchiveNote';
-/**
- * Previosly
- */
-$route['getReminders']    = 'RemindersAPI/getReminders';
-$route['saveNote']        = 'RemindersAPI/saveNote';
-$route['setRemainder']    = 'RemindersAPI/setRemainder';
-$route['deleteRemainder'] = 'RemindersAPI/deleteRemainder';
+$route['archiveNote']      = 'ArchiveController/archiveNote';
+$route['getArchivedNotes'] = 'ArchiveController/getArchivedNotes';
+$route['unArchiveNote']    = 'ArchiveController/unArchiveNote';
 
-$route['NewLabel']            = 'LabelsAPI/NewLabel';
-$route['getAllLabels']        = 'LabelsAPI/getAllLabels';
-$route['editLabel']           = 'LabelsAPI/editLabel';
-$route['deleteLabel']         = 'LabelsAPI/deleteLabel';
-$route['setLabelToNote']      = 'LabelsAPI/setLabelToNote';
-$route['notesWithLabels']     = 'LabelsAPI/notesWithLabels';
-$route['deleteLabelFromNote'] = 'LabelsAPI/deleteLabelFromNote';
-$route['allLabeledNotes']     = 'LabelsAPI/allLabeledNotes';
+$route['getReminders']    = 'RemindersController/getReminders';
+$route['saveNote']        = 'RemindersController/saveNote';
+$route['setRemainder']    = 'RemindersController/setRemainder';
+$route['deleteRemainder'] = 'RemindersController/deleteRemainder';
 
-$route['collaboratorverifyemail'] = 'Collaborator/collaboratorverifyemail';
-$route['notesCollaborator']       = 'Collaborator/notesCollaborator';
-$route['addCollaborator']         = 'Collaborator/addCollaborator';
-$route['deleteCollaborator']      = 'Collaborator/deleteCollaborator';
+$route['NewLabel']            = 'LabelsController/NewLabel';
+$route['getAllLabels']        = 'LabelsController/getAllLabels';
+$route['editLabel']           = 'LabelsController/editLabel';
+$route['deleteLabel']         = 'LabelsController/deleteLabel';
+$route['setLabelToNote']      = 'LabelsController/setLabelToNote';
+$route['notesWithLabels']     = 'LabelsController/notesWithLabels';
+$route['deleteLabelFromNote'] = 'LabelsController/deleteLabelFromNote';
+$route['allLabeledNotes']     = 'LabelsController/allLabeledNotes';
 
-$route['saveImage']  = 'ProfilePic/saveImage';
-$route['fetchImage'] = 'ProfilePic/fetchImage';
+$route['collaboratorverifyemail'] = 'CollaboratorController/collaboratorverifyemail';
+$route['notesCollaborator']       = 'CollaboratorController/notesCollaborator';
+$route['addCollaborator']         = 'CollaboratorController/addCollaborator';
+$route['deleteCollaborator']      = 'CollaboratorController/deleteCollaborator';
 
-$route['DragAndDrop']   = 'DragAndDrop/DragAndDropNotes';
-$route['fetchUserData'] = 'SendData/sendData';
+$route['saveImage']  = 'PicController/saveImage';
+$route['fetchImage'] = 'PicController/fetchImage';
+
+$route['DragAndDrop']   = 'DragAndDropController/DragAndDropNotes';
+$route['fetchUserData'] = 'SendDataController/sendData';

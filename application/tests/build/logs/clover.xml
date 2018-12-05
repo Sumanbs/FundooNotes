@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1543930090">
-  <project timestamp="1543930090">
-    <file name="/var/www/html/codeigniter/application/controllers/AccountAPI.php">
-      <class name="AccountAPI" namespace="global">
+<coverage generated="1543992545">
+  <project timestamp="1543992545">
+    <file name="/var/www/html/codeigniter/application/controllers/AccountController.php">
+      <class name="AccountController" namespace="global">
         <metrics complexity="9" methods="8" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="52" coveredstatements="0" elements="60" coveredelements="0"/>
       </class>
       <line num="3" type="stmt" count="0"/>
@@ -23,7 +23,7 @@
       <line num="29" type="stmt" count="0"/>
       <line num="30" type="stmt" count="0"/>
       <line num="31" type="stmt" count="0"/>
-      <line num="32" type="method" name="facebookLogin" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="32" type="method" name="SocialLogin" visibility="public" complexity="1" crap="2" count="0"/>
       <line num="33" type="stmt" count="0"/>
       <line num="34" type="stmt" count="0"/>
       <line num="35" type="stmt" count="0"/>
@@ -72,8 +72,8 @@
       <line num="107" type="stmt" count="0"/>
       <metrics loc="108" ncloc="71" classes="1" methods="8" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="57" coveredstatements="0" elements="65" coveredelements="0"/>
     </file>
-    <file name="/var/www/html/codeigniter/application/controllers/ArchiveAPI.php">
-      <class name="ArchiveAPI" namespace="global">
+    <file name="/var/www/html/codeigniter/application/controllers/ArchiveController.php">
+      <class name="ArchiveController" namespace="global">
         <metrics complexity="4" methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="17" coveredstatements="0" elements="21" coveredelements="0"/>
       </class>
       <line num="2" type="stmt" count="0"/>
@@ -103,8 +103,8 @@
       <line num="46" type="stmt" count="0"/>
       <metrics loc="47" ncloc="32" classes="1" methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="21" coveredstatements="0" elements="25" coveredelements="0"/>
     </file>
-    <file name="/var/www/html/codeigniter/application/controllers/Collaborator.php">
-      <class name="Collaborator" namespace="global">
+    <file name="/var/www/html/codeigniter/application/controllers/CollaboratorController.php">
+      <class name="CollaboratorController" namespace="global">
         <metrics complexity="5" methods="5" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="25" coveredstatements="0" elements="30" coveredelements="0"/>
       </class>
       <line num="2" type="stmt" count="0"/>
@@ -143,8 +143,8 @@
       <line num="66" type="stmt" count="0"/>
       <metrics loc="68" ncloc="46" classes="1" methods="5" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="29" coveredstatements="0" elements="34" coveredelements="0"/>
     </file>
-    <file name="/var/www/html/codeigniter/application/controllers/DragAndDrop.php">
-      <class name="DragAndDrop" namespace="global">
+    <file name="/var/www/html/codeigniter/application/controllers/DragAndDropController.php">
+      <class name="DragAndDropController" namespace="global">
         <metrics complexity="2" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="10" coveredstatements="0" elements="12" coveredelements="0"/>
       </class>
       <line num="2" type="stmt" count="0"/>
@@ -165,8 +165,8 @@
       <line num="30" type="stmt" count="0"/>
       <metrics loc="31" ncloc="23" classes="1" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="14" coveredstatements="0" elements="16" coveredelements="0"/>
     </file>
-    <file name="/var/www/html/codeigniter/application/controllers/LabelsAPI.php">
-      <class name="LabelsAPI" namespace="global">
+    <file name="/var/www/html/codeigniter/application/controllers/LabelsController.php">
+      <class name="LabelsController" namespace="global">
         <metrics complexity="9" methods="9" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="44" coveredstatements="0" elements="53" coveredelements="0"/>
       </class>
       <line num="2" type="stmt" count="0"/>
@@ -228,8 +228,8 @@
       <line num="115" type="stmt" count="0"/>
       <metrics loc="116" ncloc="67" classes="1" methods="9" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="48" coveredstatements="0" elements="57" coveredelements="0"/>
     </file>
-    <file name="/var/www/html/codeigniter/application/controllers/NotesAPI.php">
-      <class name="NotesAPI" namespace="global">
+    <file name="/var/www/html/codeigniter/application/controllers/NotesController.php">
+      <class name="NotesController" namespace="global">
         <metrics complexity="6" methods="6" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="36" coveredstatements="0" elements="42" coveredelements="0"/>
       </class>
       <line num="8" type="stmt" count="0"/>
@@ -280,8 +280,8 @@
       <line num="97" type="stmt" count="0"/>
       <metrics loc="99" ncloc="59" classes="1" methods="6" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="40" coveredstatements="0" elements="46" coveredelements="0"/>
     </file>
-    <file name="/var/www/html/codeigniter/application/controllers/ProfilePic.php">
-      <class name="ProfilePic" namespace="global">
+    <file name="/var/www/html/codeigniter/application/controllers/PicController.php">
+      <class name="PicController" namespace="global">
         <metrics complexity="3" methods="3" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="12" coveredstatements="0" elements="15" coveredelements="0"/>
       </class>
       <line num="2" type="stmt" count="0"/>
@@ -304,8 +304,8 @@
       <line num="39" type="stmt" count="0"/>
       <metrics loc="40" ncloc="25" classes="1" methods="3" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="15" coveredstatements="0" elements="18" coveredelements="0"/>
     </file>
-    <file name="/var/www/html/codeigniter/application/controllers/RemindersAPI.php">
-      <class name="RemindersAPI" namespace="global">
+    <file name="/var/www/html/codeigniter/application/controllers/RemindersController.php">
+      <class name="RemindersController" namespace="global">
         <metrics complexity="5" methods="5" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="25" coveredstatements="0" elements="30" coveredelements="0"/>
       </class>
       <line num="2" type="stmt" count="0"/>
@@ -344,8 +344,8 @@
       <line num="62" type="stmt" count="0"/>
       <metrics loc="63" ncloc="46" classes="1" methods="5" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="29" coveredstatements="0" elements="34" coveredelements="0"/>
     </file>
-    <file name="/var/www/html/codeigniter/application/controllers/SendData.php">
-      <class name="SendData" namespace="global">
+    <file name="/var/www/html/codeigniter/application/controllers/SendDataController.php">
+      <class name="SendDataController" namespace="global">
         <metrics complexity="2" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="0" elements="8" coveredelements="0"/>
       </class>
       <line num="2" type="stmt" count="0"/>
@@ -362,8 +362,8 @@
       <line num="20" type="stmt" count="0"/>
       <metrics loc="21" ncloc="21" classes="1" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="10" coveredstatements="0" elements="12" coveredelements="0"/>
     </file>
-    <file name="/var/www/html/codeigniter/application/controllers/TrashAPI.php">
-      <class name="TrashAPI" namespace="global">
+    <file name="/var/www/html/codeigniter/application/controllers/TrashController.php">
+      <class name="TrashController" namespace="global">
         <metrics complexity="5" methods="5" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="22" coveredstatements="0" elements="27" coveredelements="0"/>
       </class>
       <line num="2" type="stmt" count="0"/>

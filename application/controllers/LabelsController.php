@@ -4,7 +4,7 @@ header("Access-Control-Allow-Headers: Authorization");
 
 require "/var/www/html/codeigniter/application/Service/jwt.php";
 include "/var/www/html/codeigniter/application/Service/LabelsService.php";
-class LabelsAPI
+class LabelsController
 {
     public $LabelsServiceRef;
     public function __construct()

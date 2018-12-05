@@ -6,7 +6,7 @@ header("Access-Control-Allow-Headers: Authorization");
 require "/var/www/html/codeigniter/application/Service/jwt.php";
 include "/var/www/html/codeigniter/application/RabbitMQ/send.php";
 include "/var/www/html/codeigniter/application/Service/AccountService.php";
-class AccountAPI extends CI_Controller
+class AccountController extends CI_Controller
 {
     public $AccountServiceRef;
     public function __construct()

@@ -5,7 +5,7 @@ header("Access-Control-Allow-Headers: Authorization");
 include "/var/www/html/codeigniter/application/Service/DragAndDropService.php";
 require "/var/www/html/codeigniter/application/Service/jwt.php";
 
-class DragAndDrop
+class DragAndDropController
 {
     public $DragAndDropService;
     public function __construct()

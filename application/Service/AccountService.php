@@ -81,6 +81,19 @@ class AccountService extends CI_Controller
 
     public function SocialLogin($username, $email, $image)
     {
+        /**
+         * Store email in redis
+         */
+        $this->load->library('Redis');
+        $redis = $this->redis->config();
+
+        $set = $redis->set('email', $email);
+        /**
+         * Store Email on cache
+         */
+        $this->load->driver('cache', array('adapter' => 'apc', 'backup' => 'file'));
+        $this->cache->save('email', $email);
+
         if ($email != null) {
             if (!AccountService::checkEmail($email)) {
                 $ref  = new JWT();
@@ -96,18 +109,6 @@ class AccountService extends CI_Controller
                 $sql  = "INSERT INTO Registration(username,email,Status)VALUES('$username','$email','ok')";
                 $stmt = $this->connect->prepare($sql);
 
-                /**
-                 * Store email in redis
-                 */
-                $this->load->library('Redis');
-                $redis = $this->redis->config();
-
-                $set = $redis->set('email', $email);
-                /**
-                 * Store Email on cache
-                 */
-                $this->load->driver('cache', array('adapter' => 'apc', 'backup' => 'file'));
-                $this->cache->save('email', $email);
                 /**
                  * Check for the successful execution of the querry.
                  * Return JSON Data to subscribers

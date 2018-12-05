@@ -5,7 +5,7 @@ header("Access-Control-Allow-Headers: Authorization");
 require "/var/www/html/codeigniter/application/Service/jwt.php";
 include "/var/www/html/codeigniter/application/Service/ReminderService.php";
 
-class RemindersAPI
+class RemindersController
 {
 
     public $ReminderServiceRef;
