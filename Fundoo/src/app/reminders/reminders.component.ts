@@ -355,9 +355,7 @@ export class RemindersComponent implements OnInit, OnDestroy {
             height: "30%",
             data: { item }
         });
-        dialogRef.afterClosed().subscribe(result => {
-            // console.log(result);
-        });
+        dialogRef.afterClosed().subscribe(result => {});
     }
     /**
      * @method deleteNote

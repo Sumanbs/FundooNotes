@@ -3,7 +3,7 @@ header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Headers: Authorization");
 include "/var/www/html/codeigniter/application/Static/ImageFormat.php";
 include "/var/www/html/codeigniter/application/Static/DBConstants.php";
-class NotesService extends CI_Controller
+class NotesService
 {
     public $imageRef;
     public function __construct()
@@ -115,12 +115,14 @@ class NotesService extends CI_Controller
                     "msg" => "Not Success",
                 );
                 print json_encode($data);
+
             }
         } else {
             $data = array(
                 "status" => "404",
             );
             print json_encode($data);
+            return "404";
         }
     }
     /**
@@ -162,11 +164,13 @@ class NotesService extends CI_Controller
                 "allCollaborators" => $allCollaborators,
             );
             print json_encode($data);
+            return "Success";
         } else {
             $data = array(
                 "msg" => "Not Success",
             );
             print json_encode($data);
+            return "Not Success";
         }
     }
 

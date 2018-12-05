@@ -11,7 +11,7 @@ header("Access-Control-Allow-Headers: Authorization");
 include "/var/www/html/codeigniter/application/Service/NotesService.php";
 require "/var/www/html/codeigniter/application/Service/jwt.php";
 
-class NotesController
+class NotesController extends CI_Controller
 {
 
     public $NotesServiceRef;
@@ -49,7 +49,7 @@ class NotesController
     public function all_notes()
     {
         $email = $_POST['email'];
-        $this->NotesServiceRef->all_notes($email);
+        return $this->NotesServiceRef->all_notes($email);
     }
 
     /**
@@ -93,7 +93,6 @@ class NotesController
         $url   = $_POST["url"];
         $id    = $_POST["id"];
         $this->NotesServiceRef->noteSaveImage($url, $email, $id);
-
     }
 
 }

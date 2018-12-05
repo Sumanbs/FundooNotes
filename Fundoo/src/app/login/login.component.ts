@@ -10,6 +10,7 @@ import {
     FacebookLoginProvider,
     GoogleLoginProvider
 } from "angular-6-social-login";
+import { LoggerServiceService } from "../Services/Logger/logger-service.service";
 @Component({
     selector: "app-login",
     templateUrl: "./login.component.html",
@@ -33,7 +34,8 @@ export class LoginComponent {
         private data: DataService,
         private router: Router,
         private cookie: CookieService,
-        private socialAuthService: AuthService
+        private socialAuthService: AuthService,
+        private logger: LoggerServiceService
     ) {
         iconRegistry.addSvgIcon(
             "facebook",
@@ -91,14 +93,14 @@ export class LoginComponent {
      * @description - This method sends the login data to backend for verification
      */
     sendLoginData() {
-        debugger;
+        this.logger.data();
         let obs = this.data.user_login(this.model);
         this.cookie.put("key", this.model.email);
         obs.subscribe(
             (s: any) => {
                 if (s.status == 200) {
                     debugger;
-                    console.log(s.jwt);
+
                     localStorage.setItem("token", s.jwt);
                     this.router.navigate(["/fundoo"]);
                     this.fail = "";
@@ -146,16 +148,13 @@ export class LoginComponent {
         obs.subscribe(
             (s: any) => {
                 if (s.status == 200) {
-                    console.log(s.jwt);
                     localStorage.setItem("token", s.jwt);
                     this.router.navigate(["/fundoo"]);
                     this.fail = "";
-                    // obs.unsubscribe();
                 } else if (s.status == 400) {
                     this.flag = true;
                     this.fail = "Invalid password";
                     alert("Login Unsuccessfull");
-                    // obs.unsubscribe();
                 }
             },
             error => {

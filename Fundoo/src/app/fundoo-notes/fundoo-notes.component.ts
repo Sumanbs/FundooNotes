@@ -63,12 +63,9 @@ export class FundooNotesComponent {
 
         let obss = this.iservice.fetchProfile(email);
         obss.subscribe((res: any) => {
-            alert(res);
             if (res != "") {
                 this.ispresent = true;
                 this.myurl = "data:image/jpeg;base64," + res;
-                alert(this.myurl);
-                console.log(this.myurl);
             } else {
                 this.myurl = this.cookie.get("imageurl");
             }
@@ -93,7 +90,7 @@ export class FundooNotesComponent {
      */
     logout() {
         debugger;
-        alert("Logot");
+
         localStorage.removeItem("token");
         this.cookie.remove("key");
 
@@ -140,15 +137,13 @@ export class FundooNotesComponent {
     _handleReaderLoaded(readerEvt) {
         var binaryString = readerEvt.target.result;
         this.base64textString = btoa(binaryString);
-        console.log(binaryString);
-        console.log(this.base64textString);
+
         let email = this.cookie.get("key");
         let obss = this.iservice.saveProfile(this.base64textString, email);
         obss.subscribe((res: any) => {
             if (res != "") {
                 this.ispresent = true;
                 this.myurl = "data:image/jpeg;base64," + res;
-                alert(this.myurl);
             } else {
                 if (
                     this.cookie.get("imageurl") != "" ||

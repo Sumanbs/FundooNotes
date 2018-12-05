@@ -1,0 +1,12 @@
+[
+	{
+		"password": "454545",
+		"token": "545565",
+		"expected": "200"
+	},
+	{
+		"password": "fvd",
+		"token": "454vs45",
+		"expected": "200"
+	}
+]

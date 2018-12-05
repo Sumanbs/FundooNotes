@@ -42,8 +42,6 @@ export class LabelsComponent {
         obs.subscribe(
             (status: any) => {
                 this.allLabels = status;
-                console.log("Ng on");
-                console.log(this.allLabels);
             },
             error => {
                 this.iserror = true;

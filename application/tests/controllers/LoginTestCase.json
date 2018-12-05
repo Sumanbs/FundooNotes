@@ -8,10 +8,5 @@
 		"email": "suman789014@gmail.com",
 		"pass": "123",
 		"expected": "401"
-	},
-	{
-		"email": "suman789014@gmail.com",
-		"pass": "123",
-		"expected": "400"
 	}
 ]

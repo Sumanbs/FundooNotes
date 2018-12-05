@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for /var/www/html/codeigniter/application/Service</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/nv.d3.min.css" rel="stylesheet">
+  <link href="../css/style.css" rel="stylesheet">
+  <!--[if lt IE 9]>
+  <script src="../js/html5shiv.min.js"></script>
+  <script src="../js/respond.min.js"></script>
+  <![endif]-->
+ </head>
+ <body>
+  <header>
+   <div class="container">
+    <div class="row">
+     <div class="col-md-12">
+      <ol class="breadcrumb">
+        <li><a href="../index.html">/var/www/html/codeigniter/application</a></li>
+        <li><a href="index.html">Service</a></li>
+        <li class="active">(Dashboard)</li>
+
+      </ol>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="ArchiveService.php.html#6">ArchiveService</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CollaboratorService.php.html#6">CollaboratorService</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DragAndDropService.php.html#6">DragAndDropService</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="LabelsService.php.html#6">LabelsService</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="NotesService.php.html#6">NotesService</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ProfilepicService.php.html#6">ProfilepicService</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ReminderService.php.html#6">ReminderService</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="SendDataService.php.html#6">SendDataService</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="TrashService.php.html#6">TrashService</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="jwt.php.html#5">JWT</a></td><td class="text-right">50%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="LabelsService.php.html#6">LabelsService</a></td><td class="text-right">1260</td></tr>
+       <tr><td><a href="NotesService.php.html#6">NotesService</a></td><td class="text-right">420</td></tr>
+       <tr><td><a href="TrashService.php.html#6">TrashService</a></td><td class="text-right">306</td></tr>
+       <tr><td><a href="CollaboratorService.php.html#6">CollaboratorService</a></td><td class="text-right">240</td></tr>
+       <tr><td><a href="ReminderService.php.html#6">ReminderService</a></td><td class="text-right">156</td></tr>
+       <tr><td><a href="ArchiveService.php.html#6">ArchiveService</a></td><td class="text-right">110</td></tr>
+       <tr><td><a href="ProfilepicService.php.html#6">ProfilepicService</a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="DragAndDropService.php.html#6">DragAndDropService</a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="SendDataService.php.html#6">SendDataService</a></td><td class="text-right">12</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="jwt.php.html#43"><abbr title="JWT::base64UrlDecode">base64UrlDecode</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ReminderService.php.html#43"><abbr title="ReminderService::deleteRemainder">deleteRemainder</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="NotesService.php.html#134"><abbr title="NotesService::all_notes">all_notes</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="NotesService.php.html#184"><abbr title="NotesService::changeColor">changeColor</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="NotesService.php.html#222"><abbr title="NotesService::updateNotes">updateNotes</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="NotesService.php.html#255"><abbr title="NotesService::noteSaveImage">noteSaveImage</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ProfilepicService.php.html#8"><abbr title="ProfilepicService::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ProfilepicService.php.html#23"><abbr title="ProfilepicService::fetchImage">fetchImage</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ProfilepicService.php.html#47"><abbr title="ProfilepicService::saveImage">saveImage</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ReminderService.php.html#8"><abbr title="ReminderService::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ReminderService.php.html#18"><abbr title="ReminderService::setRemainder">setRemainder</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ReminderService.php.html#77"><abbr title="ReminderService::reminders">reminders</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="NotesService.php.html#9"><abbr title="NotesService::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ReminderService.php.html#103"><abbr title="ReminderService::saveNote">saveNote</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="SendDataService.php.html#8"><abbr title="SendDataService::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="SendDataService.php.html#19"><abbr title="SendDataService::sendData">sendData</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="TrashService.php.html#9"><abbr title="TrashService::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="TrashService.php.html#24"><abbr title="TrashService::deleteNotes">deleteNotes</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="TrashService.php.html#60"><abbr title="TrashService::getDeletedNotes">getDeletedNotes</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="TrashService.php.html#92"><abbr title="TrashService::restoreNote">restoreNote</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="TrashService.php.html#127"><abbr title="TrashService::deleteNotePermanently">deleteNotePermanently</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="jwt.php.html#31"><abbr title="JWT::verify">verify</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="NotesService.php.html#33"><abbr title="NotesService::createnotes">createnotes</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="LabelsService.php.html#305"><abbr title="LabelsService::allLabeledNotes">allLabeledNotes</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ArchiveService.php.html#8"><abbr title="ArchiveService::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CollaboratorService.php.html#154"><abbr title="CollaboratorService::getCollaborator">getCollaborator</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ArchiveService.php.html#18"><abbr title="ArchiveService::all_notes">all_notes</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ArchiveService.php.html#45"><abbr title="ArchiveService::archiveNote">archiveNote</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ArchiveService.php.html#76"><abbr title="ArchiveService::unArchiveNote">unArchiveNote</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CollaboratorService.php.html#8"><abbr title="CollaboratorService::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CollaboratorService.php.html#22"><abbr title="CollaboratorService::CollaboratorVerifyEmail">CollaboratorVerifyEmail</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CollaboratorService.php.html#60"><abbr title="CollaboratorService::notesCollaborator">notesCollaborator</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CollaboratorService.php.html#75"><abbr title="CollaboratorService::patticularNotesCollaborator">patticularNotesCollaborator</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CollaboratorService.php.html#94"><abbr title="CollaboratorService::addCollaborator">addCollaborator</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CollaboratorService.php.html#127"><abbr title="CollaboratorService::deleteCollaborator">deleteCollaborator</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DragAndDropService.php.html#8"><abbr title="DragAndDropService::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="LabelsService.php.html#256"><abbr title="LabelsService::setLabelToNote">setLabelToNote</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DragAndDropService.php.html#26"><abbr title="DragAndDropService::DragAndDropNotes">DragAndDropNotes</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="LabelsService.php.html#8"><abbr title="LabelsService::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="LabelsService.php.html#25"><abbr title="LabelsService::NewLabel">NewLabel</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="LabelsService.php.html#79"><abbr title="LabelsService::fetchAllLabels">fetchAllLabels</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="LabelsService.php.html#112"><abbr title="LabelsService::editLabel">editLabel</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="LabelsService.php.html#145"><abbr title="LabelsService::deleteLabel">deleteLabel</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="LabelsService.php.html#182"><abbr title="LabelsService::labelexists">labelexists</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="LabelsService.php.html#202"><abbr title="LabelsService::allNotes">allNotes</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="LabelsService.php.html#223"><abbr title="LabelsService::deleteLabelFromNote">deleteLabelFromNote</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AccountService.php.html#12"><abbr title="AccountService::__construct">__construct</abbr></a></td><td class="text-right">62%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="LabelsService.php.html#25"><abbr title="LabelsService::NewLabel">NewLabel</abbr></a></td><td class="text-right">72</td></tr>
+       <tr><td><a href="NotesService.php.html#33"><abbr title="NotesService::createnotes">createnotes</abbr></a></td><td class="text-right">56</td></tr>
+       <tr><td><a href="LabelsService.php.html#182"><abbr title="LabelsService::labelexists">labelexists</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="TrashService.php.html#127"><abbr title="TrashService::deleteNotePermanently">deleteNotePermanently</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="TrashService.php.html#92"><abbr title="TrashService::restoreNote">restoreNote</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="TrashService.php.html#24"><abbr title="TrashService::deleteNotes">deleteNotes</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="LabelsService.php.html#256"><abbr title="LabelsService::setLabelToNote">setLabelToNote</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="CollaboratorService.php.html#22"><abbr title="CollaboratorService::CollaboratorVerifyEmail">CollaboratorVerifyEmail</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="NotesService.php.html#134"><abbr title="NotesService::all_notes">all_notes</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="ReminderService.php.html#43"><abbr title="ReminderService::deleteRemainder">deleteRemainder</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="NotesService.php.html#222"><abbr title="NotesService::updateNotes">updateNotes</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="TrashService.php.html#60"><abbr title="TrashService::getDeletedNotes">getDeletedNotes</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="ArchiveService.php.html#45"><abbr title="ArchiveService::archiveNote">archiveNote</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="DragAndDropService.php.html#26"><abbr title="DragAndDropService::DragAndDropNotes">DragAndDropNotes</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="NotesService.php.html#184"><abbr title="NotesService::changeColor">changeColor</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="LabelsService.php.html#79"><abbr title="LabelsService::fetchAllLabels">fetchAllLabels</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="LabelsService.php.html#112"><abbr title="LabelsService::editLabel">editLabel</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="LabelsService.php.html#145"><abbr title="LabelsService::deleteLabel">deleteLabel</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="ReminderService.php.html#103"><abbr title="ReminderService::saveNote">saveNote</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="LabelsService.php.html#223"><abbr title="LabelsService::deleteLabelFromNote">deleteLabelFromNote</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="ArchiveService.php.html#76"><abbr title="ArchiveService::unArchiveNote">unArchiveNote</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="ReminderService.php.html#8"><abbr title="ReminderService::__construct">__construct</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="SendDataService.php.html#8"><abbr title="SendDataService::__construct">__construct</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ReminderService.php.html#18"><abbr title="ReminderService::setRemainder">setRemainder</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ReminderService.php.html#77"><abbr title="ReminderService::reminders">reminders</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ProfilepicService.php.html#23"><abbr title="ProfilepicService::fetchImage">fetchImage</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="TrashService.php.html#9"><abbr title="TrashService::__construct">__construct</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ArchiveService.php.html#18"><abbr title="ArchiveService::all_notes">all_notes</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ProfilepicService.php.html#47"><abbr title="ProfilepicService::saveImage">saveImage</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="CollaboratorService.php.html#75"><abbr title="CollaboratorService::patticularNotesCollaborator">patticularNotesCollaborator</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ProfilepicService.php.html#8"><abbr title="ProfilepicService::__construct">__construct</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="NotesService.php.html#255"><abbr title="NotesService::noteSaveImage">noteSaveImage</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="CollaboratorService.php.html#94"><abbr title="CollaboratorService::addCollaborator">addCollaborator</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="NotesService.php.html#9"><abbr title="NotesService::__construct">__construct</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="LabelsService.php.html#305"><abbr title="LabelsService::allLabeledNotes">allLabeledNotes</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ArchiveService.php.html#8"><abbr title="ArchiveService::__construct">__construct</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="LabelsService.php.html#202"><abbr title="LabelsService::allNotes">allNotes</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="CollaboratorService.php.html#8"><abbr title="CollaboratorService::__construct">__construct</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="LabelsService.php.html#8"><abbr title="LabelsService::__construct">__construct</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="DragAndDropService.php.html#8"><abbr title="DragAndDropService::__construct">__construct</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="CollaboratorService.php.html#154"><abbr title="CollaboratorService::getCollaborator">getCollaborator</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="CollaboratorService.php.html#127"><abbr title="CollaboratorService::deleteCollaborator">deleteCollaborator</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="AccountService.php.html#12"><abbr title="AccountService::__construct">__construct</abbr></a></td><td class="text-right">2</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="http://github.com/sebastianbergmann/php-code-coverage" target="_top">PHP_CodeCoverage 3.2.1</a> using <a href="http://php.net/" target="_top">PHP 7.0.32-0ubuntu0.16.04.1</a> and <a href="https://phpunit.de/">PHPUnit 5.1.3</a> at Wed Dec 5 13:31:25 UTC 2018.</small>
+    </p>
+   </footer>
+  </div>
+  <script src="../js/jquery.min.js" type="text/javascript"></script>
+  <script src="../js/bootstrap.min.js" type="text/javascript"></script>
+  <script src="../js/holder.min.js" type="text/javascript"></script>
+  <script src="../js/d3.min.js" type="text/javascript"></script>
+  <script src="../js/nv.d3.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([9,0,0,0,0,0,1,0,0,0,1,0], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([46,0,0,0,0,0,0,1,0,0,0,10], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(key, y, e, graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[94.545454545455,33,"<a href=\"AccountService.php.html#8\">AccountService<\/a>"],[0,10,"<a href=\"ArchiveService.php.html#6\">ArchiveService<\/a>"],[0,15,"<a href=\"CollaboratorService.php.html#6\">CollaboratorService<\/a>"],[0,5,"<a href=\"DragAndDropService.php.html#6\">DragAndDropService<\/a>"],[0,35,"<a href=\"LabelsService.php.html#6\">LabelsService<\/a>"],[0,20,"<a href=\"NotesService.php.html#6\">NotesService<\/a>"],[0,6,"<a href=\"ProfilepicService.php.html#6\">ProfilepicService<\/a>"],[0,12,"<a href=\"ReminderService.php.html#6\">ReminderService<\/a>"],[0,3,"<a href=\"SendDataService.php.html#6\">SendDataService<\/a>"],[0,17,"<a href=\"TrashService.php.html#6\">TrashService<\/a>"],[50,3,"<a href=\"jwt.php.html#5\">JWT<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(key, y, e, graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[62.5,2,"<a href=\"AccountService.php.html#12\">AccountService::__construct<\/a>"],[100,4,"<a href=\"AccountService.php.html#33\">AccountService::Registration<\/a>"],[100,4,"<a href=\"AccountService.php.html#84\">AccountService::SocialLogin<\/a>"],[100,3,"<a href=\"AccountService.php.html#142\">AccountService::checkEmail<\/a>"],[100,2,"<a href=\"AccountService.php.html#166\">AccountService::Login<\/a>"],[100,2,"<a href=\"AccountService.php.html#206\">AccountService::verifyJWT<\/a>"],[100,4,"<a href=\"AccountService.php.html#228\">AccountService::chekUsernamePassword<\/a>"],[100,4,"<a href=\"AccountService.php.html#253\">AccountService::forgotpassword<\/a>"],[100,6,"<a href=\"AccountService.php.html#302\">AccountService::getmailid<\/a>"],[100,2,"<a href=\"AccountService.php.html#357\">AccountService::resetpassword<\/a>"],[0,2,"<a href=\"ArchiveService.php.html#8\">ArchiveService::__construct<\/a>"],[0,2,"<a href=\"ArchiveService.php.html#18\">ArchiveService::all_notes<\/a>"],[0,3,"<a href=\"ArchiveService.php.html#45\">ArchiveService::archiveNote<\/a>"],[0,3,"<a href=\"ArchiveService.php.html#76\">ArchiveService::unArchiveNote<\/a>"],[0,2,"<a href=\"CollaboratorService.php.html#8\">CollaboratorService::__construct<\/a>"],[0,4,"<a href=\"CollaboratorService.php.html#22\">CollaboratorService::CollaboratorVerifyEmail<\/a>"],[0,1,"<a href=\"CollaboratorService.php.html#60\">CollaboratorService::notesCollaborator<\/a>"],[0,2,"<a href=\"CollaboratorService.php.html#75\">CollaboratorService::patticularNotesCollaborator<\/a>"],[0,2,"<a href=\"CollaboratorService.php.html#94\">CollaboratorService::addCollaborator<\/a>"],[0,2,"<a href=\"CollaboratorService.php.html#127\">CollaboratorService::deleteCollaborator<\/a>"],[0,2,"<a href=\"CollaboratorService.php.html#154\">CollaboratorService::getCollaborator<\/a>"],[0,2,"<a href=\"DragAndDropService.php.html#8\">DragAndDropService::__construct<\/a>"],[0,3,"<a href=\"DragAndDropService.php.html#26\">DragAndDropService::DragAndDropNotes<\/a>"],[0,2,"<a href=\"LabelsService.php.html#8\">LabelsService::__construct<\/a>"],[0,8,"<a href=\"LabelsService.php.html#25\">LabelsService::NewLabel<\/a>"],[0,3,"<a href=\"LabelsService.php.html#79\">LabelsService::fetchAllLabels<\/a>"],[0,3,"<a href=\"LabelsService.php.html#112\">LabelsService::editLabel<\/a>"],[0,3,"<a href=\"LabelsService.php.html#145\">LabelsService::deleteLabel<\/a>"],[0,5,"<a href=\"LabelsService.php.html#182\">LabelsService::labelexists<\/a>"],[0,2,"<a href=\"LabelsService.php.html#202\">LabelsService::allNotes<\/a>"],[0,3,"<a href=\"LabelsService.php.html#223\">LabelsService::deleteLabelFromNote<\/a>"],[0,4,"<a href=\"LabelsService.php.html#256\">LabelsService::setLabelToNote<\/a>"],[0,2,"<a href=\"LabelsService.php.html#305\">LabelsService::allLabeledNotes<\/a>"],[0,2,"<a href=\"NotesService.php.html#9\">NotesService::__construct<\/a>"],[0,7,"<a href=\"NotesService.php.html#33\">NotesService::createnotes<\/a>"],[0,3,"<a href=\"NotesService.php.html#134\">NotesService::all_notes<\/a>"],[0,3,"<a href=\"NotesService.php.html#184\">NotesService::changeColor<\/a>"],[0,3,"<a href=\"NotesService.php.html#222\">NotesService::updateNotes<\/a>"],[0,2,"<a href=\"NotesService.php.html#255\">NotesService::noteSaveImage<\/a>"],[0,2,"<a href=\"ProfilepicService.php.html#8\">ProfilepicService::__construct<\/a>"],[0,2,"<a href=\"ProfilepicService.php.html#23\">ProfilepicService::fetchImage<\/a>"],[0,2,"<a href=\"ProfilepicService.php.html#47\">ProfilepicService::saveImage<\/a>"],[0,2,"<a href=\"ReminderService.php.html#8\">ReminderService::__construct<\/a>"],[0,2,"<a href=\"ReminderService.php.html#18\">ReminderService::setRemainder<\/a>"],[0,3,"<a href=\"ReminderService.php.html#43\">ReminderService::deleteRemainder<\/a>"],[0,2,"<a href=\"ReminderService.php.html#77\">ReminderService::reminders<\/a>"],[0,3,"<a href=\"ReminderService.php.html#103\">ReminderService::saveNote<\/a>"],[0,2,"<a href=\"SendDataService.php.html#8\">SendDataService::__construct<\/a>"],[0,1,"<a href=\"SendDataService.php.html#19\">SendDataService::sendData<\/a>"],[0,2,"<a href=\"TrashService.php.html#9\">TrashService::__construct<\/a>"],[0,4,"<a href=\"TrashService.php.html#24\">TrashService::deleteNotes<\/a>"],[0,3,"<a href=\"TrashService.php.html#60\">TrashService::getDeletedNotes<\/a>"],[0,4,"<a href=\"TrashService.php.html#92\">TrashService::restoreNote<\/a>"],[0,4,"<a href=\"TrashService.php.html#127\">TrashService::deleteNotePermanently<\/a>"],[100,1,"<a href=\"jwt.php.html#13\">JWT::createJwtToken<\/a>"],[0,1,"<a href=\"jwt.php.html#31\">JWT::verify<\/a>"],[0,1,"<a href=\"jwt.php.html#43\">JWT::base64UrlDecode<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>

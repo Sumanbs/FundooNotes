@@ -63,10 +63,9 @@ import { ImageService } from "./Services/image.service";
 import { DragDropService } from "./Services/drag-drop.service";
 import { NotesFilterPipe } from "./notes/notes-filter.pipe";
 import { ServiceURL } from "./Services/ServiceURL";
-// import { ServiceURL } from "./ServiceURL/ServiceUrl";
 import { SocialLoginModule, AuthServiceConfig } from "angular-6-social-login";
-
 import { getAuthServiceConfigs } from "./socialloginConfig";
+import { LoggerServiceService } from "./Services/Logger/logger-service.service";
 @NgModule({
     declarations: [
         AppComponent,
@@ -146,7 +145,8 @@ import { getAuthServiceConfigs } from "./socialloginConfig";
         {
             provide: AuthServiceConfig,
             useFactory: getAuthServiceConfigs
-        }
+        },
+        LoggerServiceService
     ],
     bootstrap: [AppComponent]
 })

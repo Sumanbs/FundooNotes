@@ -116,7 +116,6 @@ export class LabellednotesComponent implements OnInit, OnDestroy {
         obs2.subscribe(
             (status: any) => {
                 this.selectedLabels = status;
-                console.log(this.selectedLabels);
             },
             error => {
                 this.iserror = true;
@@ -310,9 +309,7 @@ export class LabellednotesComponent implements OnInit, OnDestroy {
             height: "30%",
             data: { item }
         });
-        dialogRef.afterClosed().subscribe(result => {
-            // console.log(result);
-        });
+        dialogRef.afterClosed().subscribe(result => {});
     }
     deleteNote(id) {
         let email = this.cookie.get("key");

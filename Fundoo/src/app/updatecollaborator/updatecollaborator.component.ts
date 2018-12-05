@@ -91,8 +91,6 @@ export class UpdatecollaboratorComponent implements OnInit {
                     this.collaborators = status.noteCollaborator;
 
                     this.allCollaborator = status.allCollaborator;
-
-                    console.log(this.allCollaborator);
                 },
                 error => {}
             );

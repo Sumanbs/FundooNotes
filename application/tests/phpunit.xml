@@ -16,6 +16,7 @@
 			<directory suffix=".php">../libraries</directory>
 			<directory suffix=".php">../helpers</directory>
 			<directory suffix=".php">../hooks</directory>
+			<directory suffix=".php">../Service</directory>
 		</whitelist>
 	</filter>
 	<logging>

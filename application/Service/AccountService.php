@@ -62,12 +62,14 @@ class AccountService extends CI_Controller
                     "status" => "400",
                 );
                 print json_encode($data);
+                return "400";
             }
         } else {
             $data = array(
                 "status" => "406",
             );
             print json_encode($data);
+            return "406";
         }
     }
     /**
@@ -186,11 +188,14 @@ class AccountService extends CI_Controller
                 "status" => 200,
             );
             print json_encode($data);
+            return "200";
+
         } else {
             $data = array(
                 "status" => "401",
             );
             print json_encode($data);
+            return "401";
         }
 
     }
@@ -265,10 +270,13 @@ class AccountService extends CI_Controller
                 $data = array(
                     "status" => "200",
                 );
+                return "200";
             } else {
                 $data = array(
                     "status" => "400",
                 );
+                return "400";
+
             }
             print json_encode($data);
             $query     = "Update Registration set token = '$token' where email = '$email'";
@@ -282,6 +290,7 @@ class AccountService extends CI_Controller
                 "status" => "400",
             );
             print json_encode($data);
+            return "400";
         }
     }
     /**
@@ -352,18 +361,22 @@ class AccountService extends CI_Controller
         /**
          * Execute the querry
          */
-        $statement->execute();
+        $vat1       = $statement->execute();
         $query1     = "Update Registration set token = null where token = '$token'";
         $statement1 = $this->connect->prepare($query1);
         if ($statement1->execute()) {
             $data = array(
                 "status" => "200",
             );
+            print json_encode($data);
+            return "200";
         } else {
             $data = array(
                 "status" => "500",
             );
+            print json_encode($data);
+            return "500";
         }
-        print json_encode($data);
+
     }
 }
