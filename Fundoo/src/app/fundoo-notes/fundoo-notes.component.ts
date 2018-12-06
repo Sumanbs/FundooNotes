@@ -46,7 +46,9 @@ export class FundooNotesComponent {
      */
 
     searchItem: any;
-
+    /**
+     * Model declaration
+     */
     allLabels: LabelArray[] = [];
     ngOnInit() {
         let email = this.cookie.get("key");
@@ -64,7 +66,6 @@ export class FundooNotesComponent {
         let obss = this.iservice.fetchProfile(email);
         obss.subscribe((res: any) => {
             if (res != "") {
-                this.ispresent = true;
                 this.myurl = "data:image/jpeg;base64," + res;
             } else {
                 this.myurl = this.cookie.get("imageurl");
@@ -89,11 +90,8 @@ export class FundooNotesComponent {
      * @description - this method navigate to login page and clears the token.
      */
     logout() {
-        debugger;
-
         localStorage.removeItem("token");
         this.cookie.remove("key");
-
         this.cookie.remove("imageurl");
         this.router.navigate(["/login"]);
     }
@@ -129,12 +127,15 @@ export class FundooNotesComponent {
         var file = files[0];
         if (files && file) {
             var reader = new FileReader();
+            debugger;
             reader.onload = this._handleReaderLoaded.bind(this);
+            debugger;
             reader.readAsBinaryString(file);
         }
     }
 
     _handleReaderLoaded(readerEvt) {
+        debugger;
         var binaryString = readerEvt.target.result;
         this.base64textString = btoa(binaryString);
 

@@ -261,7 +261,17 @@ class AccountService extends CI_Controller
          */
         if (!(AccountService::checkEmail($email)) && $arr['status'] == "ok") {
 
-            $token     = md5($email);
+            $token = md5($email);
+            /**
+             * Update token in DB
+             */
+            $query     = "Update Registration set token = '$token' where email = '$email'";
+            $statement = $this->connect->prepare($query);
+            /**
+             * Execute the querry
+             */
+            $statement->execute();
+
             $emailBody = $this->EmailLinksRef->ResetPasswordLink . $token;
             $obj       = new SendMail();
             $res       = $obj->sendEmail($email, $this->EmailLinksRef->SubjectOfResetEmail, $emailBody);
@@ -279,12 +289,7 @@ class AccountService extends CI_Controller
 
             }
             print json_encode($data);
-            $query     = "Update Registration set token = '$token' where email = '$email'";
-            $statement = $this->connect->prepare($query);
-            /**
-             * Execute the querry
-             */
-            $statement->execute();
+
         } else {
             $data = array(
                 "status" => "400",

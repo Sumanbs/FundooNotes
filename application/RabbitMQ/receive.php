@@ -53,5 +53,10 @@ class Receiver
 
         $channel->basic_qos(null, 1, null);
 
+        while (count($channel->callbacks)) {
+            $channel->wait();
+        }
+        $channel->basic_qos(null, 1, null);
+
     }
 }
