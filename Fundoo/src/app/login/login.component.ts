@@ -96,12 +96,12 @@ export class LoginComponent {
         let obs = this.data.user_login(this.model);
         this.cookie.put("key", this.model.email);
         obs.subscribe(
-            (s: any) => {
-                if (s.status == 200) {
-                    localStorage.setItem("token", s.jwt);
+            (result: any) => {
+                if (result.status == 200) {
+                    localStorage.setItem("token", result.jwt);
                     this.router.navigate(["/fundoo"]);
                     this.fail = "";
-                } else if (s.status == 401) {
+                } else if (result.status == 401) {
                     this.flag = true;
                     this.fail = "Invalid password";
                     alert("Login Unsuccessfull");
@@ -135,9 +135,14 @@ export class LoginComponent {
             );
         });
     }
-    /** 
-     * 
-    */
+    /**
+     * @method sendToApi
+     * @param token
+     * @param email
+     * @param image
+     * @param name
+     * @description - This method adds
+     */
     sendToApi(token: string, email: string, image: string, name: string): any {
         this.emailid = email;
         alert(this.emailid);

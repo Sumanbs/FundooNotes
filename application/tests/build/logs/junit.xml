@@ -1,0 +1,464 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="CodeIgniter Application Test Suite" tests="1" assertions="0" failures="0" errors="1" time="0.013121">
+    <testsuite name="AccountController_test" file="/var/www/html/codeigniter/application/tests/controllers/AccountController_test.php" tests="1" assertions="0" failures="0" errors="1" time="0.013121">
+      <testcase name="test_login" class="AccountController_test" file="/var/www/html/codeigniter/application/tests/controllers/AccountController_test.php" line="11" assertions="0" time="0.013121">
+        <error type="PHPUnit_Framework_ExceptionWrapper">AccountController_test::test_login
+Error: Cannot access parent:: when current class scope has no parent
+
+/var/www/html/codeigniter/application/controllers/AccountController.php:14
+/var/www/html/codeigniter/application/tests/controllers/AccountController_test.php:21
+</error>
+        <system-out>
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     Cannot modify header information - headers already sent by (output started at /usr/share/php/PHPUnit/Util/Printer.php:134)
+Filename:    /var/www/html/codeigniter/application/controllers/AccountController.php
+Line Number: 3
+
+Backtrace:
+	File: /var/www/html/codeigniter/application/controllers/AccountController.php
+	Line: 3
+	Function: header
+
+	File: /var/www/html/codeigniter/application/tests/_ci_phpunit_test/CIPHPUnitTestAutoloader.php
+	Line: 153
+	Function: require
+
+	File: /var/www/html/codeigniter/application/tests/_ci_phpunit_test/CIPHPUnitTestAutoloader.php
+	Line: 58
+	Function: loadFromCache
+
+	File: /var/www/html/codeigniter/application/tests/controllers/AccountController_test.php
+	Line: 21
+	Function: spl_autoload_call
+
+	File: /usr/share/php/PHPUnit/Framework/TestCase.php
+	Line: 910
+	Function: invokeArgs
+
+	File: /usr/share/php/PHPUnit/Framework/TestCase.php
+	Line: 770
+	Function: runTest
+
+	File: /usr/share/php/PHPUnit/Framework/TestResult.php
+	Line: 685
+	Function: runBare
+
+	File: /usr/share/php/PHPUnit/Framework/TestCase.php
+	Line: 726
+	Function: run
+
+	File: /usr/share/php/PHPUnit/Framework/TestSuite.php
+	Line: 747
+	Function: run
+
+	File: /usr/share/php/PHPUnit/Framework/TestSuite.php
+	Line: 747
+	Function: run
+
+	File: /usr/share/php/PHPUnit/TextUI/TestRunner.php
+	Line: 429
+	Function: run
+
+	File: /usr/share/php/PHPUnit/TextUI/Command.php
+	Line: 155
+	Function: doRun
+
+	File: /usr/share/php/PHPUnit/TextUI/Command.php
+	Line: 106
+	Function: run
+
+	File: /usr/bin/phpunit
+	Line: 29
+	Function: main
+
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     Cannot modify header information - headers already sent by (output started at /usr/share/php/PHPUnit/Util/Printer.php:134)
+Filename:    /var/www/html/codeigniter/application/controllers/AccountController.php
+Line Number: 4
+
+Backtrace:
+	File: /var/www/html/codeigniter/application/controllers/AccountController.php
+	Line: 4
+	Function: header
+
+	File: /var/www/html/codeigniter/application/tests/_ci_phpunit_test/CIPHPUnitTestAutoloader.php
+	Line: 153
+	Function: require
+
+	File: /var/www/html/codeigniter/application/tests/_ci_phpunit_test/CIPHPUnitTestAutoloader.php
+	Line: 58
+	Function: loadFromCache
+
+	File: /var/www/html/codeigniter/application/tests/controllers/AccountController_test.php
+	Line: 21
+	Function: spl_autoload_call
+
+	File: /usr/share/php/PHPUnit/Framework/TestCase.php
+	Line: 910
+	Function: invokeArgs
+
+	File: /usr/share/php/PHPUnit/Framework/TestCase.php
+	Line: 770
+	Function: runTest
+
+	File: /usr/share/php/PHPUnit/Framework/TestResult.php
+	Line: 685
+	Function: runBare
+
+	File: /usr/share/php/PHPUnit/Framework/TestCase.php
+	Line: 726
+	Function: run
+
+	File: /usr/share/php/PHPUnit/Framework/TestSuite.php
+	Line: 747
+	Function: run
+
+	File: /usr/share/php/PHPUnit/Framework/TestSuite.php
+	Line: 747
+	Function: run
+
+	File: /usr/share/php/PHPUnit/TextUI/TestRunner.php
+	Line: 429
+	Function: run
+
+	File: /usr/share/php/PHPUnit/TextUI/Command.php
+	Line: 155
+	Function: doRun
+
+	File: /usr/share/php/PHPUnit/TextUI/Command.php
+	Line: 106
+	Function: run
+
+	File: /usr/bin/phpunit
+	Line: 29
+	Function: main
+
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     Cannot modify header information - headers already sent by (output started at /usr/share/php/PHPUnit/Util/Printer.php:134)
+Filename:    /var/www/html/codeigniter/application/Service/jwt.php
+Line Number: 2
+
+Backtrace:
+	File: /var/www/html/codeigniter/application/Service/jwt.php
+	Line: 2
+	Function: header
+
+	File: /var/www/html/codeigniter/application/controllers/AccountController.php
+	Line: 6
+	Function: require
+
+	File: /var/www/html/codeigniter/application/tests/_ci_phpunit_test/CIPHPUnitTestAutoloader.php
+	Line: 153
+	Function: require
+
+	File: /var/www/html/codeigniter/application/tests/_ci_phpunit_test/CIPHPUnitTestAutoloader.php
+	Line: 58
+	Function: loadFromCache
+
+	File: /var/www/html/codeigniter/application/tests/controllers/AccountController_test.php
+	Line: 21
+	Function: spl_autoload_call
+
+	File: /usr/share/php/PHPUnit/Framework/TestCase.php
+	Line: 910
+	Function: invokeArgs
+
+	File: /usr/share/php/PHPUnit/Framework/TestCase.php
+	Line: 770
+	Function: runTest
+
+	File: /usr/share/php/PHPUnit/Framework/TestResult.php
+	Line: 685
+	Function: runBare
+
+	File: /usr/share/php/PHPUnit/Framework/TestCase.php
+	Line: 726
+	Function: run
+
+	File: /usr/share/php/PHPUnit/Framework/TestSuite.php
+	Line: 747
+	Function: run
+
+	File: /usr/share/php/PHPUnit/Framework/TestSuite.php
+	Line: 747
+	Function: run
+
+	File: /usr/share/php/PHPUnit/TextUI/TestRunner.php
+	Line: 429
+	Function: run
+
+	File: /usr/share/php/PHPUnit/TextUI/Command.php
+	Line: 155
+	Function: doRun
+
+	File: /usr/share/php/PHPUnit/TextUI/Command.php
+	Line: 106
+	Function: run
+
+	File: /usr/bin/phpunit
+	Line: 29
+	Function: main
+
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     Cannot modify header information - headers already sent by (output started at /usr/share/php/PHPUnit/Util/Printer.php:134)
+Filename:    /var/www/html/codeigniter/application/Service/jwt.php
+Line Number: 3
+
+Backtrace:
+	File: /var/www/html/codeigniter/application/Service/jwt.php
+	Line: 3
+	Function: header
+
+	File: /var/www/html/codeigniter/application/controllers/AccountController.php
+	Line: 6
+	Function: require
+
+	File: /var/www/html/codeigniter/application/tests/_ci_phpunit_test/CIPHPUnitTestAutoloader.php
+	Line: 153
+	Function: require
+
+	File: /var/www/html/codeigniter/application/tests/_ci_phpunit_test/CIPHPUnitTestAutoloader.php
+	Line: 58
+	Function: loadFromCache
+
+	File: /var/www/html/codeigniter/application/tests/controllers/AccountController_test.php
+	Line: 21
+	Function: spl_autoload_call
+
+	File: /usr/share/php/PHPUnit/Framework/TestCase.php
+	Line: 910
+	Function: invokeArgs
+
+	File: /usr/share/php/PHPUnit/Framework/TestCase.php
+	Line: 770
+	Function: runTest
+
+	File: /usr/share/php/PHPUnit/Framework/TestResult.php
+	Line: 685
+	Function: runBare
+
+	File: /usr/share/php/PHPUnit/Framework/TestCase.php
+	Line: 726
+	Function: run
+
+	File: /usr/share/php/PHPUnit/Framework/TestSuite.php
+	Line: 747
+	Function: run
+
+	File: /usr/share/php/PHPUnit/Framework/TestSuite.php
+	Line: 747
+	Function: run
+
+	File: /usr/share/php/PHPUnit/TextUI/TestRunner.php
+	Line: 429
+	Function: run
+
+	File: /usr/share/php/PHPUnit/TextUI/Command.php
+	Line: 155
+	Function: doRun
+
+	File: /usr/share/php/PHPUnit/TextUI/Command.php
+	Line: 106
+	Function: run
+
+	File: /usr/bin/phpunit
+	Line: 29
+	Function: main
+
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     Cannot modify header information - headers already sent by (output started at /usr/share/php/PHPUnit/Util/Printer.php:134)
+Filename:    /var/www/html/codeigniter/application/Service/AccountService.php
+Line Number: 2
+
+Backtrace:
+	File: /var/www/html/codeigniter/application/Service/AccountService.php
+	Line: 2
+	Function: header
+
+	File: /var/www/html/codeigniter/application/controllers/AccountController.php
+	Line: 8
+	Function: include
+
+	File: /var/www/html/codeigniter/application/tests/_ci_phpunit_test/CIPHPUnitTestAutoloader.php
+	Line: 153
+	Function: require
+
+	File: /var/www/html/codeigniter/application/tests/_ci_phpunit_test/CIPHPUnitTestAutoloader.php
+	Line: 58
+	Function: loadFromCache
+
+	File: /var/www/html/codeigniter/application/tests/controllers/AccountController_test.php
+	Line: 21
+	Function: spl_autoload_call
+
+	File: /usr/share/php/PHPUnit/Framework/TestCase.php
+	Line: 910
+	Function: invokeArgs
+
+	File: /usr/share/php/PHPUnit/Framework/TestCase.php
+	Line: 770
+	Function: runTest
+
+	File: /usr/share/php/PHPUnit/Framework/TestResult.php
+	Line: 685
+	Function: runBare
+
+	File: /usr/share/php/PHPUnit/Framework/TestCase.php
+	Line: 726
+	Function: run
+
+	File: /usr/share/php/PHPUnit/Framework/TestSuite.php
+	Line: 747
+	Function: run
+
+	File: /usr/share/php/PHPUnit/Framework/TestSuite.php
+	Line: 747
+	Function: run
+
+	File: /usr/share/php/PHPUnit/TextUI/TestRunner.php
+	Line: 429
+	Function: run
+
+	File: /usr/share/php/PHPUnit/TextUI/Command.php
+	Line: 155
+	Function: doRun
+
+	File: /usr/share/php/PHPUnit/TextUI/Command.php
+	Line: 106
+	Function: run
+
+	File: /usr/bin/phpunit
+	Line: 29
+	Function: main
+
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     Cannot modify header information - headers already sent by (output started at /usr/share/php/PHPUnit/Util/Printer.php:134)
+Filename:    /var/www/html/codeigniter/application/Service/AccountService.php
+Line Number: 3
+
+Backtrace:
+	File: /var/www/html/codeigniter/application/Service/AccountService.php
+	Line: 3
+	Function: header
+
+	File: /var/www/html/codeigniter/application/controllers/AccountController.php
+	Line: 8
+	Function: include
+
+	File: /var/www/html/codeigniter/application/tests/_ci_phpunit_test/CIPHPUnitTestAutoloader.php
+	Line: 153
+	Function: require
+
+	File: /var/www/html/codeigniter/application/tests/_ci_phpunit_test/CIPHPUnitTestAutoloader.php
+	Line: 58
+	Function: loadFromCache
+
+	File: /var/www/html/codeigniter/application/tests/controllers/AccountController_test.php
+	Line: 21
+	Function: spl_autoload_call
+
+	File: /usr/share/php/PHPUnit/Framework/TestCase.php
+	Line: 910
+	Function: invokeArgs
+
+	File: /usr/share/php/PHPUnit/Framework/TestCase.php
+	Line: 770
+	Function: runTest
+
+	File: /usr/share/php/PHPUnit/Framework/TestResult.php
+	Line: 685
+	Function: runBare
+
+	File: /usr/share/php/PHPUnit/Framework/TestCase.php
+	Line: 726
+	Function: run
+
+	File: /usr/share/php/PHPUnit/Framework/TestSuite.php
+	Line: 747
+	Function: run
+
+	File: /usr/share/php/PHPUnit/Framework/TestSuite.php
+	Line: 747
+	Function: run
+
+	File: /usr/share/php/PHPUnit/TextUI/TestRunner.php
+	Line: 429
+	Function: run
+
+	File: /usr/share/php/PHPUnit/TextUI/Command.php
+	Line: 155
+	Function: doRun
+
+	File: /usr/share/php/PHPUnit/TextUI/Command.php
+	Line: 106
+	Function: run
+
+	File: /usr/bin/phpunit
+	Line: 29
+	Function: main
+
+
+
+
+Error: Cannot access parent:: when current class scope has no parent in /var/www/html/codeigniter/application/controllers/AccountController.php on line 14
+
+Call Stack:
+    0.0019     362720   1. {main}() /usr/bin/phpunit:0
+    0.0085     699224   2. PHPUnit_TextUI_Command::main(???) /usr/bin/phpunit:29
+    0.0085     699336   3. PHPUnit_TextUI_Command-&gt;run(???, ???) /usr/share/php/PHPUnit/TextUI/Command.php:106
+    0.2145    3388176   4. PHPUnit_TextUI_TestRunner-&gt;doRun(???, ???) /usr/share/php/PHPUnit/TextUI/Command.php:155
+    0.2263    3704680   5. PHPUnit_Framework_TestSuite-&gt;run(???) /usr/share/php/PHPUnit/TextUI/TestRunner.php:429
+    0.2267    3713408   6. PHPUnit_Framework_TestSuite-&gt;run(???) /usr/share/php/PHPUnit/Framework/TestSuite.php:747
+    0.2301    3723064   7. PHPUnit_Framework_TestCase-&gt;run(???) /usr/share/php/PHPUnit/Framework/TestSuite.php:747
+    0.2301    3723064   8. PHPUnit_Framework_TestResult-&gt;run(???) /usr/share/php/PHPUnit/Framework/TestCase.php:726
+    0.2350    3823944   9. PHPUnit_Framework_TestCase-&gt;runBare() /usr/share/php/PHPUnit/Framework/TestResult.php:685
+    0.2384    4006800  10. PHPUnit_Framework_TestCase-&gt;runTest() /usr/share/php/PHPUnit/Framework/TestCase.php:770
+    0.2384    4007096  11. ReflectionMethod-&gt;invokeArgs(???, ???) /usr/share/php/PHPUnit/Framework/TestCase.php:910
+    0.2384    4007104  12. AccountController_test-&gt;test_login() /usr/share/php/PHPUnit/Framework/TestCase.php:910
+    0.2445    4185824  13. AccountController-&gt;__construct() /var/www/html/codeigniter/application/tests/controllers/AccountController_test.php:21
+
+
+
+Error: Cannot access parent:: when current class scope has no parent in /var/www/html/codeigniter/application/controllers/AccountController.php on line 14
+
+Call Stack:
+    0.0019     362720   1. {main}() /usr/bin/phpunit:0
+    0.0085     699224   2. PHPUnit_TextUI_Command::main(???) /usr/bin/phpunit:29
+    0.0085     699336   3. PHPUnit_TextUI_Command-&gt;run(???, ???) /usr/share/php/PHPUnit/TextUI/Command.php:106
+    0.2145    3388176   4. PHPUnit_TextUI_TestRunner-&gt;doRun(???, ???) /usr/share/php/PHPUnit/TextUI/Command.php:155
+    0.2263    3704680   5. PHPUnit_Framework_TestSuite-&gt;run(???) /usr/share/php/PHPUnit/TextUI/TestRunner.php:429
+    0.2267    3713408   6. PHPUnit_Framework_TestSuite-&gt;run(???) /usr/share/php/PHPUnit/Framework/TestSuite.php:747
+    0.2301    3723064   7. PHPUnit_Framework_TestCase-&gt;run(???) /usr/share/php/PHPUnit/Framework/TestSuite.php:747
+    0.2301    3723064   8. PHPUnit_Framework_TestResult-&gt;run(???) /usr/share/php/PHPUnit/Framework/TestCase.php:726
+    0.2350    3823944   9. PHPUnit_Framework_TestCase-&gt;runBare() /usr/share/php/PHPUnit/Framework/TestResult.php:685
+    0.2384    4006800  10. PHPUnit_Framework_TestCase-&gt;runTest() /usr/share/php/PHPUnit/Framework/TestCase.php:770
+
+</system-out>
+      </testcase>
+    </testsuite>
+  </testsuite>
+</testsuites>

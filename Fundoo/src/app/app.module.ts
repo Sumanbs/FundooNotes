@@ -66,6 +66,7 @@ import { ServiceURL } from "./Services/ServiceURL";
 import { SocialLoginModule, AuthServiceConfig } from "angular-6-social-login";
 import { getAuthServiceConfigs } from "./socialloginConfig";
 import { LoggerServiceService } from "./Services/Logger/logger-service.service";
+import { socialLibraryConstants } from "./Services/Constants/constants";
 @NgModule({
     declarations: [
         AppComponent,
@@ -146,7 +147,8 @@ import { LoggerServiceService } from "./Services/Logger/logger-service.service";
             provide: AuthServiceConfig,
             useFactory: getAuthServiceConfigs
         },
-        LoggerServiceService
+        LoggerServiceService,
+        socialLibraryConstants
     ],
     bootstrap: [AppComponent]
 })

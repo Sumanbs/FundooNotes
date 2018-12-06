@@ -300,7 +300,7 @@ class AccountService extends CI_Controller
     }
     /**
      * @method getmailid()
-     * @Description - -Used to get email ID from the Database based on the token
+     * @Description - Used to get email ID from the Database based on the token
      * @param $token string
      * @param $option string
      */

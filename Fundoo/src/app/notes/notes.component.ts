@@ -86,8 +86,7 @@ export class NotesComponent implements OnInit, OnDestroy {
         public dialog: MatDialog,
         public archive: ArchiveService,
         public createlabels: CreatelabelsService,
-        public labelsservice: LabelsService,
-        public DragAndDrop: DragDropService
+        public labelsservice: LabelsService // public DragAndDrop: DragDropService
     ) {
         this.subscription = this.commonService.getData().subscribe(message => {
             this.message = message;
