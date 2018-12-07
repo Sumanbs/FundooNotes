@@ -36,4 +36,23 @@ describe("NotesComponent", () => {
         expect(component.model.note).toEqual("asdf");
         expect(component.model).toBeTruthy();
     }));
+    it("Notes should be valid"),
+        async(() => {
+            expect(component.model.note).toEqual("Suman");
+            expect(component.model.title).toEqual("Suman B S");
+            expect(component.color).toEqual("#f01234");
+            expect(component.model.remainderDateTime).toEqual("Holla");
+            expect(component.email).toEqual("suman789014@gmail.com");
+
+            expect(component.model.note).toBeTruthy();
+            expect(component.model.title).toBeTruthy();
+            expect(component.color).toBeTruthy();
+            expect(component.email).toBeTruthy();
+        });
+    it("Invalid Form"),
+        async(() => {
+            expect(component.model.note).toEqual("");
+            expect(component.model.title).toBeFalsy();
+            expect(component.color).toBeFalsy();
+        });
 });

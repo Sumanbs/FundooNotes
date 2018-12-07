@@ -1,5 +1,4 @@
 import { async, ComponentFixture, TestBed } from "@angular/core/testing";
-import { logintestCases } from "./logintestCases";
 import { LoginComponent } from "./login.component";
 
 describe("LoginComponent", () => {
