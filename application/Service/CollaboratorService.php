@@ -52,7 +52,7 @@ class CollaboratorService extends CI_Controller
         }
     }
     /**
-     * @method collaboratorverifyemail()
+     * @method notesCollaborator()
      * @description - This function helps to get collaborators added for particular notes.
      * var string @email
      * var integer @id

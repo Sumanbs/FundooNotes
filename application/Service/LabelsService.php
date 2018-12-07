@@ -202,7 +202,7 @@ class LabelsService extends CI_Controller
     public function allNotes($email)
     {
         $labelnotPresent = true;
-        $query           = "Select * from notesWithLabel where email = '$email'";
+        $query           = "Select * from notesWithLabel where deleted="false" and archived ="false" email = '$email'";
         $statement       = $this->connect->prepare($query);
         if ($statement->execute()) {
             $arr = $statement->fetchAll(PDO::FETCH_ASSOC);
