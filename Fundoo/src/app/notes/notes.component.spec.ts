@@ -23,7 +23,17 @@ describe("NotesComponent", () => {
     });
     it("Notes creation should be valid", async(() => {
         expect(component.model.email).toEqual("suman789014gmail.com");
-        expect(component.model.pass).toEqual("dfsdf");
+
+        expect(component.model).toBeTruthy();
+    }));
+    it("Notes creation should be valid", async(() => {
+        expect(component.model.title).toEqual("suman");
+        expect(component.model.note).toEqual("asdf");
+        expect(component.model).toBeTruthy();
+    }));
+    it("Notes creation should be valid", async(() => {
+        expect(component.model.title).toEqual("");
+        expect(component.model.note).toEqual("asdf");
         expect(component.model).toBeTruthy();
     }));
 });
