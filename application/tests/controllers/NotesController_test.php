@@ -53,4 +53,20 @@ class NotesController_test extends TestCase
             $res = $this->assertEquals($value['expected'], $result);
         }
     }
+    public function test_changeColor()
+    {
+        $testcases = file_get_contents("All_notes.json", true);
+        $testcases = json_decode($testcases, true);
+
+        foreach ($testcases as $key => $value) {
+
+            $_POST["id"]    = $value['id'];
+            $_POST["color"] = $value['color'];
+
+            $ref    = new NotesController();
+            $result = $ref->changeColor();
+
+            $res = $this->assertEquals($value['expected'], $result);
+        }
+    }
 }

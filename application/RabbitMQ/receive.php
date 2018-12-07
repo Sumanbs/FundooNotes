@@ -1,16 +1,21 @@
 <?php
 require_once '/var/www/html/codeigniter/application/RabbitMQ/vendor/autoload.php';
+include "/var/www/html/codeigniter/application/Static/RabbitMQConstants.php";
 use PhpAmqpLib\Connection\AMQPStreamConnection;
 
 class Receiver
 {
+    public $RabbitMQConstantsRef;
+    public function __construct()
+    {
+        $this->RabbitMQConstantsRef = new RabbitMQConstants();
+    }
     public function receiverMail()
     {
-
-        $connection = new AMQPStreamConnection('localhost', 5672, 'guest', 'guest');
+        $connection = new AMQPStreamConnection($this->RabbitMQConstantsRef->server, $this->RabbitMQConstantsRef->port, $this->RabbitMQConstantsRef->username, $this->RabbitMQConstantsRef->password);
         $channel    = $connection->channel();
 
-        $channel->queue_declare('hello', false, false, false, false);
+        $channel->queue_declare($this->RabbitMQConstantsRef->quename, false, false, false, false);
 
         $callback = function ($msg) {
 
@@ -26,19 +31,19 @@ class Receiver
             /**
              * Create the Transport
              */
-            $transport = (new Swift_SmtpTransport('smtp.gmail.com', 587, 'tls'))
-                ->setUsername('darshangangadhar@gmail.com')
-                ->setPassword('darshu@4150');
+            $transport = (new Swift_SmtpTransport($this->RabbitMQConstantsRef->smtp, $this->RabbitMQConstantsRef->smtpport, $this->RabbitMQConstantsRef->protocolName))
+                ->setUsername($this->RabbitMQConstantsRef->email)
+                ->setPassword($this->RabbitMQConstantsRef->Emailpassword);
             /**
              * Create the Mailer using your created Transport
              */
             $mailer = new Swift_Mailer($transport);
 
             /**
-             * Create a message
+             * Create a message Swift messager
              */
             $message = (new Swift_Message($subject))
-                ->setFrom([$data['from'] => 'Suman B S'])
+                ->setFrom([$data['from'] => $this->RabbitMQConstantsRef->userName])
                 ->setTo([$to_email])
                 ->setBody($message);
             /**
@@ -49,7 +54,7 @@ class Receiver
             $msg->delivery_info['channel']->basic_ack($msg->delivery_info['delivery_tag']);
         };
 
-        $channel->basic_consume('hello', '', false, false, false, false, $callback);
+        $channel->basic_consume($this->RabbitMQConstantsRef->quename, '', false, false, false, false, $callback);
 
         $channel->basic_qos(null, 1, null);
 

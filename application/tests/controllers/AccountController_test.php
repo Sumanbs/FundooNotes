@@ -74,5 +74,20 @@ class AccountController_test extends TestCase
             $res    = $this->assertEquals($value['expected'], $result);
         }
     }
+    public function test_getemailID()
+    {
+        $testcases = file_get_contents("RestTestCases.json", true);
+        $testcases = json_decode($testcases, true);
+        foreach ($testcases as $key => $value) {
+
+            $token = $value['token'];
+
+            $_POST['token'] = $token;
+
+            $ref    = new AccountController();
+            $result = $ref->getEmailD();
+            $res    = $this->assertEquals($value['expected'], $result);
+        }
+    }
 
 }

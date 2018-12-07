@@ -1,9 +1,10 @@
 <?php
+include "/var/www/html/codeigniter/application/RabbitMQ/receive.php";
+include "/var/www/html/codeigniter/application/RabbitMQ/receive.php";
 require_once '/var/www/html/codeigniter/application/RabbitMQ/vendor/autoload.php';
 use PhpAmqpLib\Connection\AMQPStreamConnection;
 use PhpAmqpLib\Message\AMQPMessage;
 
-include "/var/www/html/codeigniter/application/RabbitMQ/receive.php";
 class SendMail
 {
     /**
@@ -13,36 +14,34 @@ class SendMail
      */
     public function sendEmail($toEmail, $subject, $body)
     {
-
-        $connection = new AMQPStreamConnection('localhost', 5672, 'guest', 'guest');
-        $channel    = $connection->channel();
-        /*
-        name: hello
-        passive: false
-        durable: true // the queue will survive server restarts
-        exclusive: false // the queue can be accessed in other channels
-        auto_delete: false //the queue won't be deleted once the channel is closed.
+        /**
+         * Establish the connection by giving servername,port,username,password.
          */
+        $connection = new AMQPStreamConnection($this->RabbitMQConstantsRef->server, $this->RabbitMQConstantsRef->port, $this->RabbitMQConstantsRef->username, $this->RabbitMQConstantsRef->password);
 
-        $channel->queue_declare('hello', false, false, false, false);
+        /**
+         * Create channel forcommunication
+         */
+        $channel = $connection->channel();
+
+        $channel->queue_declare($this->RabbitMQConstantsRef->quename, false, false, false, false);
 
         $data = json_encode(array(
-            "from"       => "darshangangadhar@gmail.com",
-            "from_email" => "darshangangadhar@gmail.com",
+            "from"       => $this->RabbitMQConstantsRef->fromName,
+            "from_email" => $this->RabbitMQConstantsRef->Email,
             "to_email"   => $toEmail,
             "subject"    => $subject,
             "message"    => $body,
         ));
 
-        $msg = new AMQPMessage($data, array('delivery_mode' => 2));
+        $msg = new AMQPMessage($data, array('delivery_mode' => $this->RabbitMQConstantsRef->mode));
 
-        $channel->basic_publish($msg, '', 'hello');
+        $channel->basic_publish($msg, '', $this->RabbitMQConstantsRef->quename);
 
+        $obj = new Receiver();
         /**
          * calling the receiver
          */
-        $obj = new Receiver();
-
         $obj->receiverMail();
 
         $channel->close();

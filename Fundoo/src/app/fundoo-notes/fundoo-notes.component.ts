@@ -25,6 +25,7 @@ export class FundooNotesComponent {
     base64textString: string;
     myurl: string;
     ispresent: boolean;
+    url: any;
 
     constructor(
         private commonService: CommonService,
@@ -32,7 +33,7 @@ export class FundooNotesComponent {
         public dialog: MatDialog,
         public cookie: CookieService,
         public createlabels: CreatelabelsService,
-        public iservice: NotesService
+        public imageservice: NotesService
     ) {}
 
     /**
@@ -62,16 +63,21 @@ export class FundooNotesComponent {
                 this.errorMessage = error.message;
             }
         );
-
-        let obss = this.iservice.fetchProfile(email);
+        /**
+         * Fetch Profile pic from Backend
+         */
+        let obss = this.imageservice.fetchProfile(email);
         obss.subscribe((res: any) => {
             if (res != "") {
-                this.myurl = "data:image/jpeg;base64," + res;
+                this.myurl = res;
             } else {
                 this.myurl = this.cookie.get("imageurl");
             }
         });
-        let observer = this.iservice.fetchUserData();
+        /**
+         * get the User email iD from Redis
+         */
+        let observer = this.imageservice.fetchUserData();
         observer.subscribe((res: any) => {
             this.email = res.email;
         });
@@ -123,38 +129,31 @@ export class FundooNotesComponent {
      * @description Function to upload profile pic
      */
     onSelectFile(event) {
-        var files = event.target.files;
-        var file = files[0];
-        if (files && file) {
+        if (event.target.files && event.target.files[0]) {
             var reader = new FileReader();
-            debugger;
-            reader.onload = this._handleReaderLoaded.bind(this);
-            debugger;
-            reader.readAsBinaryString(file);
+
+            reader.readAsDataURL(event.target.files[0]); // read file as data url
+
+            reader.onload = event => {
+                // called once readAsDataURL is completed
+
+                this.url = event.target.result;
+                console.log(this.url);
+
+                let obss = this.imageservice.saveProfile(this.url, this.email);
+                obss.subscribe((res: any) => {
+                    if (res != "") {
+                        alert(res);
+                        console.log(res);
+                        this.myurl = res;
+                    }
+                });
+            };
         }
     }
-
-    _handleReaderLoaded(readerEvt) {
-        debugger;
-        var binaryString = readerEvt.target.result;
-        this.base64textString = btoa(binaryString);
-
-        let email = this.cookie.get("key");
-        let obss = this.iservice.saveProfile(this.base64textString, email);
-        obss.subscribe((res: any) => {
-            if (res != "") {
-                this.ispresent = true;
-                this.myurl = "data:image/jpeg;base64," + res;
-            } else {
-                if (
-                    this.cookie.get("imageurl") != "" ||
-                    this.cookie.get("imageurl") != null
-                ) {
-                    this.myurl = this.cookie.get("imageurl");
-                }
-            }
-        });
-    }
+    /**
+     * send the searching keyword
+     */
     search(searchItem) {
         this.commonService.searchItem(searchItem);
     }

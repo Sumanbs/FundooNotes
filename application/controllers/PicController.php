@@ -1,23 +1,17 @@
 <?php
 header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Headers: Authorization");
-
 require "/var/www/html/codeigniter/application/Service/ProfilepicService.php";
 
 class PicController
 {
-    /**
-     * @var PDO
-     */
+
     public $ProfilePicServiceRef;
     public function __construct()
     {
         $this->ProfilePicServiceRef = new ProfilepicService();
     }
-    /**
-     * @method getImage()
-     * @Description - This retrieves image url from DB
-     */
+
     /**
      * @method fetchImage() fetch the user profile pic
      * @return void
