@@ -49,7 +49,7 @@ describe("NotesComponent", () => {
             expect(component.color).toBeTruthy();
             expect(component.email).toBeTruthy();
         });
-    it("Invalid Form"),
+    it("Invalid"),
         async(() => {
             expect(component.model.note).toEqual("");
             expect(component.model.title).toBeFalsy();
